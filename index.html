@@ -46,6 +46,37 @@
             letter-spacing: -0.01em;
         }
 
+        /* Timeline animations */
+        .timeline-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .timeline-item.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-dot {
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover .timeline-dot {
+            transform: scale(1.2);
+            box-shadow: 0 0 0 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-line {
+            background: linear-gradient(to bottom, transparent, #e5e7eb, transparent);
+            animation: timelineFlow 2s ease-in-out infinite;
+        }
+
+        @keyframes timelineFlow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
         .text-emphasis {
             color: #0f0f0f;
         }
@@ -152,63 +183,99 @@
             <section id="experience" class="space-y-12 sm:space-y-16 lg:space-y-20">
                 <h2 class="text-xl sm:text-2xl font-light text-foreground">Experience</h2>
 
-                <div class="space-y-16 sm:space-y-20">
-                    <div class="grid md:grid-cols-3 gap-8 sm:gap-12">
-                        <div class="space-y-4">
-                            <p class="text-sm text-muted-foreground">2023 — Present</p>
-                            <h3 class="text-lg font-medium">MBA Candidate</h3>
-                            <p class="text-muted-foreground">USC Marshall School of Business</p>
-                        </div>
-                        <div class="md:col-span-2 space-y-6">
-                            <p class="text-muted-foreground leading-relaxed">
-                                Focusing on product strategy and innovation at the intersection of health tech and business. Active member
-                                of Blockchain@USC, exploring emerging technologies and their applications in healthcare and finance.
-                            </p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">Product Strategy</span>
-                                <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">Health Tech</span>
-                                <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">Innovation</span>
+                <div class="relative">
+                    <!-- Timeline line -->
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-0.5 timeline-line h-full hidden md:block"></div>
+                    
+                    <!-- Timeline items -->
+                    <div class="space-y-16 sm:space-y-20">
+                        <!-- Timeline Item 1 -->
+                        <div class="timeline-item relative flex items-center">
+                            <!-- Timeline dot -->
+                            <div class="timeline-dot absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-foreground rounded-full border-4 border-background z-10 hidden md:block"></div>
+                            
+                            <!-- Content -->
+                            <div class="w-full md:grid md:grid-cols-2 md:gap-8">
+                                <!-- Left side - Time & Company -->
+                                <div class="md:text-right md:pr-8 space-y-2 mb-6 md:mb-0">
+                                    <p class="text-sm text-muted-foreground">2023 — Present</p>
+                                    <h3 class="text-lg font-medium">MBA Candidate</h3>
+                                    <p class="text-muted-foreground">USC Marshall School of Business</p>
+                                </div>
+                                
+                                <!-- Right side - Description -->
+                                <div class="md:pl-8 space-y-4">
+                                    <p class="text-muted-foreground leading-relaxed">
+                                        Focusing on product strategy and innovation at the intersection of health tech and business. Active member
+                                        of Blockchain@USC, exploring emerging technologies and their applications in healthcare and finance.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">Product Strategy</span>
+                                        <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">Health Tech</span>
+                                        <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">Innovation</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="grid md:grid-cols-3 gap-8">
-                        <div class="space-y-2">
-                            <p class="text-sm text-muted-foreground">2021 — 2023</p>
-                            <h3 class="text-lg font-medium">Product Manager</h3>
-                            <p class="text-muted-foreground">Royal Bank of Canada</p>
-                        </div>
-                        <div class="md:col-span-2 space-y-4">
-                            <p class="text-muted-foreground leading-relaxed">
-                                Led the delivery of digital insurance applications that streamlined advisor workflows and elevated client
-                                experiences. Designed and shipped enterprise-scale solutions in healthcare, finance, and insurance.
-                                Recognized in the top 1% of employees.
-                            </p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">Product Management</span>
-                                <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">UX Design</span>
-                                <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">Enterprise Software</span>
-                                <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">Insurance Tech</span>
+                        <!-- Timeline Item 2 -->
+                        <div class="timeline-item relative flex items-center">
+                            <!-- Timeline dot -->
+                            <div class="timeline-dot absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-foreground rounded-full border-4 border-background z-10 hidden md:block"></div>
+                            
+                            <!-- Content -->
+                            <div class="w-full md:grid md:grid-cols-2 md:gap-8">
+                                <!-- Left side - Time & Company -->
+                                <div class="md:text-right md:pr-8 space-y-2 mb-6 md:mb-0">
+                                    <p class="text-sm text-muted-foreground">2021 — 2023</p>
+                                    <h3 class="text-lg font-medium">Product Manager</h3>
+                                    <p class="text-muted-foreground">Royal Bank of Canada</p>
+                                </div>
+                                
+                                <!-- Right side - Description -->
+                                <div class="md:pl-8 space-y-4">
+                                    <p class="text-muted-foreground leading-relaxed">
+                                        Led the delivery of digital insurance applications that streamlined advisor workflows and elevated client
+                                        experiences. Designed and shipped enterprise-scale solutions in healthcare, finance, and insurance.
+                                        Recognized in the top 1% of employees.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">Product Management</span>
+                                        <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">UX Design</span>
+                                        <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">Enterprise Software</span>
+                                        <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">Insurance Tech</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="grid md:grid-cols-3 gap-8">
-                        <div class="space-y-2">
-                            <p class="text-sm text-muted-foreground">2015 — 2021</p>
-                            <h3 class="text-lg font-medium">Pharmacy & Tech Transition</h3>
-                            <p class="text-muted-foreground">Self-taught UX Designer</p>
-                        </div>
-                        <div class="md:col-span-2 space-y-4">
-                            <p class="text-muted-foreground leading-relaxed">
-                                Earned Bachelor of Pharmacy with distinction from Obafemi Awolowo University. Transitioned into tech
-                                through self-teaching, building skills as a UX designer and developing a deep understanding of
-                                user-centered design principles.
-                            </p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">Healthcare</span>
-                                <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">UX Design</span>
-                                <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">Self-taught</span>
+                        <!-- Timeline Item 3 -->
+                        <div class="timeline-item relative flex items-center">
+                            <!-- Timeline dot -->
+                            <div class="timeline-dot absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-foreground rounded-full border-4 border-background z-10 hidden md:block"></div>
+                            
+                            <!-- Content -->
+                            <div class="w-full md:grid md:grid-cols-2 md:gap-8">
+                                <!-- Left side - Time & Company -->
+                                <div class="md:text-right md:pr-8 space-y-2 mb-6 md:mb-0">
+                                    <p class="text-sm text-muted-foreground">2015 — 2021</p>
+                                    <h3 class="text-lg font-medium">Pharmacy & Tech Transition</h3>
+                                    <p class="text-muted-foreground">Self-taught UX Designer</p>
+                                </div>
+                                
+                                <!-- Right side - Description -->
+                                <div class="md:pl-8 space-y-4">
+                                    <p class="text-muted-foreground leading-relaxed">
+                                        Earned Bachelor of Pharmacy with distinction from Obafemi Awolowo University. Transitioned into tech
+                                        through self-teaching, building skills as a UX designer and developing a deep understanding of
+                                        user-centered design principles.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">Healthcare</span>
+                                        <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">UX Design</span>
+                                        <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">Self-taught</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
