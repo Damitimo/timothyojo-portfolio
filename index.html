@@ -830,7 +830,8 @@
         function updateTimelineOpacity() {
             const timelineItems = document.querySelectorAll('.relative.flex.items-start');
             const viewportHeight = window.innerHeight;
-            const triggerPoint = viewportHeight * 0.60; // 60% of viewport height
+            // 70% on mobile, 60% on desktop
+            const triggerPoint = window.innerWidth < 768 ? viewportHeight * 0.70 : viewportHeight * 0.60;
             
             timelineItems.forEach(item => {
                 const rect = item.getBoundingClientRect();
