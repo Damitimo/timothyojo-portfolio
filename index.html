@@ -75,9 +75,12 @@
             opacity: 1;
         }
 
-        .timeline-right-content {
-            opacity: 0.3;
-            transition: opacity 0.1s ease-out;
+        .timeline-bg-gradient {
+            background: linear-gradient(to bottom, 
+                transparent 0%, 
+                #d1d5db 10%, 
+                #d1d5db 90%, 
+                transparent 100%);
         }
 
         .timeline-item:hover .timeline-dot {
@@ -86,7 +89,11 @@
         }
 
         .timeline-line {
-            background: linear-gradient(to bottom, transparent, #e5e7eb, transparent);
+            background: linear-gradient(to bottom, 
+                transparent 0%, 
+                #d1d5db 15%, 
+                #d1d5db 85%, 
+                transparent 100%);
             animation: timelineFlow 2s ease-in-out infinite;
         }
 
@@ -230,7 +237,7 @@
 
             <div class="relative">
                 <!-- Fixed timeline line (background) - fixed to viewport -->
-                <div class="fixed left-1/2 transform -translate-x-1/2 w-0.5 bg-gray-300 h-screen top-0 hidden md:block" style="z-index: -2;"></div>
+                <div class="fixed left-1/2 transform -translate-x-1/2 w-0.5 h-screen top-0 hidden md:block timeline-bg-gradient" style="z-index: -2;"></div>
                 
                 <!-- Fixed timeline progress bar - fixed to viewport -->
                 <div id="timeline-progress" class="fixed left-1/2 transform -translate-x-1/2 w-0.5 bg-purple-500 top-0 hidden md:block" style="height: 50vh; z-index: -1;"></div>
