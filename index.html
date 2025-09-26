@@ -6,6 +6,10 @@
     <title>Timothy - Product Manager</title>
     <meta name="description" content="Timothy is a Product Manager with a background in healthcare, design, and technology. Currently MBA candidate at USC Marshall.">
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -81,378 +85,543 @@
             color: #0f0f0f;
         }
 
-        html {
-            scroll-behavior: smooth;
+               html {
+                   scroll-behavior: smooth;
+               }
+               
+               @keyframes arrowInvite {
+                   0%, 100% { transform: translateX(0px); }
+                   50% { transform: translateX(3px); }
+               }
+               
+               .arrow-invite {
+                   animation: arrowInvite 2s ease-in-out infinite;
+               }
+        
+        /* Video container styles */
+        #hero {
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+        }
+        
+        #hero video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
         }
     </style>
 </head>
 <body class="font-sans antialiased bg-background text-foreground">
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <div class="flex items-center justify-between">
-                <a href="#hero" class="text-lg font-medium text-foreground hover:text-muted-foreground transition-colors">
-                    Timothy
-                </a>
-                <div class="flex items-center space-x-8">
-                    <a href="#about" class="text-sm text-muted-foreground hover:text-foreground transition-colors">About</a>
-                    <a href="#experience" class="text-sm text-muted-foreground hover:text-foreground transition-colors">Experience</a>
-                    <a href="#projects" class="text-sm text-muted-foreground hover:text-foreground transition-colors">Projects</a>
-                    <a href="#contact" class="text-sm text-muted-foreground hover:text-foreground transition-colors">Contact</a>
+        <!-- Navigation -->
+        <nav class="absolute top-0 left-0 right-0 z-50">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="#hero" class="text-sm font-medium text-white hover:text-gray-300 transition-colors" style="font-size: 0.888889rem;">
+                        Timothy Ojo
+                    </a>
+                    
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a href="#experience" class="text-sm text-white hover:text-gray-300 transition-colors">Experience</a>
+                        <a href="#projects" class="text-sm text-white hover:text-gray-300 transition-colors">Projects</a>
+                        <a href="#contact" class="text-sm text-white hover:text-gray-300 transition-colors">Contact</a>
+                        <a href="about.html" class="text-sm text-white font-medium hover:text-gray-300 transition-colors">About</a>
+                    </div>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-button" class="md:hidden text-white hover:text-gray-300 transition-colors relative z-60">
+                        <svg id="hamburger-icon" class="w-6 h-6 transition-all duration-300 ease-in-out" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path id="line1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16" style="transform-origin: center; transition: all 0.3s ease-in-out;"></path>
+                            <path id="line2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16" style="transform-origin: center; transition: all 0.3s ease-in-out;"></path>
+                            <path id="line3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 18h16" style="transform-origin: center; transition: all 0.3s ease-in-out;"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Overlay -->
+                <div id="mobile-overlay" class="md:hidden fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+                
+                <!-- Mobile Menu -->
+                <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4 relative z-50">
+                    <div class="flex flex-col space-y-2">
+                        <a href="#experience" class="text-sm text-white hover:text-gray-300 transition-colors py-3 px-4 min-h-[40px] flex items-center">Experience</a>
+                        <a href="#projects" class="text-sm text-white hover:text-gray-300 transition-colors py-3 px-4 min-h-[40px] flex items-center">Projects</a>
+                        <a href="#contact" class="text-sm text-white hover:text-gray-300 transition-colors py-3 px-4 min-h-[40px] flex items-center">Contact</a>
+                        <a href="about.html" class="text-sm text-white font-medium hover:text-gray-300 transition-colors py-3 px-4 min-h-[40px] flex items-center">About</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+    <!-- Full Screen Hero Section -->
+    <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Video -->
+        <div class="absolute inset-0 z-0 w-full h-full">
+            <video 
+                autoplay 
+                muted 
+                loop 
+                playsinline 
+                class="absolute inset-0 w-full h-full"
+                style="object-fit: cover; width: 100%; height: 100%; min-height: 100vh;"
+            >
+                <source src="https://michellegore.com/wp-content/uploads/2020/12/Background-Animation.mp4" type="video/mp4">
+                <!-- Fallback for browsers that don't support video -->
+                <div class="absolute inset-0 w-full h-full bg-black"></div>
+            </video>
+            <!-- Overlay for better text readability -->
+            <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 text-center text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="space-y-4 sm:space-y-6 lg:space-y-8">
+                <!-- Title -->
+                <div>
+                    <p class="text-sm sm:text-base font-medium tracking-[0.166667rem] text-white uppercase mb-10" style="font-size: 1rem;">
+                        PRODUCT MANAGER
+                    </p>
+                    <h1 class="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl text-white leading-none mb-10 font-medium sm:font-bold" style="font-size: 3.33333rem; line-height: 100%;">
+                        Timothy Ojo
+                    </h1>
+                    <h2 class="text-sm sm:text-base font-medium text-white mb-2" style="font-size: 0.888889rem; letter-spacing: 0.0277778rem;">
+                        MBA Candidate @ <span class="text-gray-300">USC Marshall School of Business</span>
+                    </h2>
+                    <h3 class="text-sm sm:text-base font-medium text-white" style="font-size: 0.888889rem; letter-spacing: 0.0277778rem;">
+                        Previously: Product Manager @ <a href="https://www.rbcinsurance.com/en-ca/personal/" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-colors" style="font-weight: 700;">RBC</a> | Senior Product Designer @ <a href="https://guusto.com/" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-colors" style="font-weight: 700;">Guusto</a>
+                    </h3>
                 </div>
             </div>
         </div>
-    </nav>
 
-    <main class="min-h-screen bg-background">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 space-y-20 sm:space-y-24 lg:space-y-32">
-            
-            <!-- Hero Section -->
-            <section id="hero" class="pt-20 sm:pt-24 lg:pt-32 pb-12 sm:pb-16 lg:pb-20">
-                <div class="space-y-8 sm:space-y-12">
-                    <div class="space-y-4 sm:space-y-6">
-                        <h1 class="text-4xl md:text-5xl lg:text-6xl typography-hero-headline text-balance">
-                            Timothy is a customer obsessed <span class="text-emphasis">product manager</span> building experiences that matter.
-                        </h1>
-                        <h2 class="text-xl font-semibold text-muted-foreground">
-                            Previously at <span class="text-gray-500">RBC</span> and <span class="text-gray-500">Guusto</span>
-                        </h2>
-                    </div>
+        <!-- Scroll Indicator - Positioned at bottom of viewport -->
+        <a href="#experience" class="absolute bottom-6 sm:bottom-6 md:bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce z-20 cursor-pointer hover:scale-110 transition-transform duration-300" style="bottom: 100px;">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </a>
+    </section>
 
-                    <div class="space-y-6 sm:space-y-8 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-3xl">
-                        <p>
-                            Currently pursuing my MBA at USC Marshall, I bring a unique perspective spanning healthcare, design, and
-                            technology. Originally from Nigeria and most recently based in Toronto, I've designed and shipped
-                            enterprise-scale digital experiences that put customers first and solve real problems.
-                        </p>
+    <!-- Experience Section -->
+    <section id="experience" class="py-16" style="background-color: #f5f5f7;">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-foreground uppercase mb-8" style="font-size: 2.5rem; font-weight: 300;">Experience</h2>
 
-                        <p>
-                            At RBC, I led the delivery of digital insurance applications that earned recognition in the top 1% of
-                            employees. I believe great products come from obsessing over customer needs and combining strong design
-                            taste with data-driven decisions.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- About Section -->
-            <section id="about" class="space-y-12 sm:space-y-16 lg:space-y-20">
-                <h2 class="text-xl sm:text-2xl typography-section-headline-bold text-foreground">About</h2>
-
-                <div class="grid md:grid-cols-2 gap-12 sm:gap-16 lg:gap-20">
-                    <div class="space-y-6 sm:space-y-8">
-                        <div>
-                            <h3 class="text-base sm:text-lg typography-subheadline mb-4 sm:mb-6">Background</h3>
-                            <p class="text-muted-foreground leading-relaxed">
-                                I earned my Bachelor of Pharmacy with distinction from Obafemi Awolowo University before transitioning into tech through self-teaching.
-                                This unique path equipped me with both the empathy to understand people and the structured thinking to build solutions that improve their experiences.
-                            </p>
-                        </div>
-
-                        <div>
-                            <h3 class="text-lg typography-subheadline mb-3">Approach</h3>
-                            <p class="text-muted-foreground leading-relaxed">
-                                I believe in building products that truly resonate with users. My approach combines analytical thinking
-                                from my pharmacy background with design sensibility and technical understanding to create solutions that
-                                work.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="space-y-6">
-                        <div>
-                            <h3 class="text-lg typography-subheadline mb-3">Currently</h3>
-                            <p class="text-muted-foreground leading-relaxed">
-                                MBA candidate at USC Marshall School of Business, member of Blockchain@USC, exploring the intersection of
-                                health tech, product strategy, and innovation.
-                            </p>
-                        </div>
-
-                        <div>
-                            <h3 class="text-lg typography-subheadline mb-3">Outside of work</h3>
-                            <p class="text-muted-foreground leading-relaxed">
-                                You'll find me exploring LA's food scene, writing reflective essays, or playing chess. I believe diverse
-                                experiences inform better product decisions.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Experience Section -->
-            <section id="experience" class="space-y-12 sm:space-y-16 lg:space-y-20">
-                <h2 class="text-xl sm:text-2xl font-light text-foreground">Experience</h2>
-
-                <div class="relative">
-                    <!-- Timeline line -->
-                    <div class="absolute left-1/2 transform -translate-x-1/2 w-0.5 timeline-line h-full hidden md:block"></div>
-                    
-                    <!-- Timeline items -->
-                    <div class="space-y-16 sm:space-y-20">
-                        <!-- Timeline Item 1 -->
-                        <div class="timeline-item relative flex items-center">
-                            <!-- Timeline dot -->
-                            <div class="timeline-dot absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-foreground rounded-full border-4 border-background z-10 hidden md:block"></div>
+            <div class="relative">
+                <!-- Timeline line (background) -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-gray-300 h-full hidden md:block"></div>
+                
+                <!-- Timeline progress bar -->
+                <div id="timeline-progress" class="absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-gray-900 top-0 hidden md:block transition-all duration-300 ease-out" style="height: 0%;"></div>
+                
+                <!-- Timeline items -->
+                <div class="space-y-16 sm:space-y-20">
+                    <!-- Timeline Item 1 -->
+                    <div class="relative flex items-start">
+                        <!-- Timeline dot -->
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gray-900 rounded-full border-4 border-white z-10 hidden md:block"></div>
+                        
+                        <!-- Content -->
+                        <div class="w-full md:grid md:grid-cols-2 md:gap-8">
+                            <!-- Left side - Time & Company -->
+                            <div class="md:text-right md:pr-8 space-y-2 mb-6 md:mb-0">
+                                <p class="text-sm text-gray-500">2023 — Present</p>
+                                <h3 class="text-lg font-medium text-gray-900">MBA Candidate</h3>
+                                <p class="text-gray-600">USC Marshall School of Business</p>
+                            </div>
                             
-                            <!-- Content -->
-                            <div class="w-full md:grid md:grid-cols-2 md:gap-8">
-                                <!-- Left side - Time & Company -->
-                                <div class="md:text-right md:pr-8 space-y-2 mb-6 md:mb-0">
-                                    <p class="text-sm text-muted-foreground">2023 — Present</p>
-                                    <h3 class="text-lg font-medium">MBA Candidate</h3>
-                                    <p class="text-muted-foreground">USC Marshall School of Business</p>
-                                </div>
-                                
-                                <!-- Right side - Description -->
-                                <div class="md:pl-8 space-y-4">
-                                    <p class="text-muted-foreground leading-relaxed">
-                                        Focusing on product strategy and innovation at the intersection of health tech and business. Active member
-                                        of Blockchain@USC, exploring emerging technologies and their applications in healthcare and finance.
-                                    </p>
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">Product Strategy</span>
-                                        <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">Health Tech</span>
-                                        <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">Innovation</span>
-                                    </div>
+                            <!-- Right side - Description -->
+                            <div class="md:pl-8 space-y-4">
+                                <p class="text-gray-600 leading-relaxed">
+                                    Focusing on product strategy and innovation at the intersection of health tech and business. Active member
+                                    of Blockchain@USC, exploring emerging technologies and their applications in healthcare and finance.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 text-xs bg-gray-100 text-gray-600 rounded-full border border-gray-300">Product Strategy</span>
+                                    <span class="px-3 py-1 text-xs bg-gray-100 text-gray-600 rounded-full border border-gray-300">Health Tech</span>
+                                    <span class="px-3 py-1 text-xs bg-gray-100 text-gray-600 rounded-full border border-gray-300">Innovation</span>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Timeline Item 2 -->
-                        <div class="timeline-item relative flex items-center">
-                            <!-- Timeline dot -->
-                            <div class="timeline-dot absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-foreground rounded-full border-4 border-background z-10 hidden md:block"></div>
+                    <!-- Timeline Item 2 -->
+                    <div class="relative flex items-start">
+                        <!-- Timeline dot -->
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gray-900 rounded-full border-4 border-white z-10 hidden md:block"></div>
+                        
+                        <!-- Content -->
+                        <div class="w-full md:grid md:grid-cols-2 md:gap-8">
+                            <!-- Left side - Time & Company -->
+                            <div class="md:text-right md:pr-8 space-y-2 mb-6 md:mb-0">
+                                <p class="text-sm text-gray-500">2021 — 2023</p>
+                                <h3 class="text-lg font-medium text-gray-900">Product Manager</h3>
+                                <p class="text-gray-600">Royal Bank of Canada</p>
+                            </div>
                             
-                            <!-- Content -->
-                            <div class="w-full md:grid md:grid-cols-2 md:gap-8">
-                                <!-- Left side - Time & Company -->
-                                <div class="md:text-right md:pr-8 space-y-2 mb-6 md:mb-0">
-                                    <p class="text-sm text-muted-foreground">2021 — 2023</p>
-                                    <h3 class="text-lg font-medium">Product Manager</h3>
-                                    <p class="text-muted-foreground">Royal Bank of Canada</p>
-                                </div>
-                                
-                                <!-- Right side - Description -->
-                                <div class="md:pl-8 space-y-4">
-                                    <p class="text-muted-foreground leading-relaxed">
-                                        Led the delivery of digital insurance applications that streamlined advisor workflows and elevated client
-                                        experiences. Designed and shipped enterprise-scale solutions in healthcare, finance, and insurance.
-                                        Recognized in the top 1% of employees.
-                                    </p>
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">Product Management</span>
-                                        <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">UX Design</span>
-                                        <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">Enterprise Software</span>
-                                        <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">Insurance Tech</span>
-                                    </div>
+                            <!-- Right side - Description -->
+                            <div class="md:pl-8 space-y-4">
+                                <p class="text-gray-600 leading-relaxed">
+                                    Led the delivery of digital insurance applications that streamlined advisor workflows and elevated client
+                                    experiences. Designed and shipped enterprise-scale solutions in healthcare, finance, and insurance.
+                                    Recognized in the top 1% of employees.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 text-xs bg-gray-100 text-gray-600 rounded-full border border-gray-300">Product Management</span>
+                                    <span class="px-3 py-1 text-xs bg-gray-100 text-gray-600 rounded-full border border-gray-300">UX Design</span>
+                                    <span class="px-3 py-1 text-xs bg-gray-100 text-gray-600 rounded-full border border-gray-300">Enterprise Software</span>
+                                    <span class="px-3 py-1 text-xs bg-gray-100 text-gray-600 rounded-full border border-gray-300">Insurance Tech</span>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Timeline Item 3 -->
-                        <div class="timeline-item relative flex items-center">
-                            <!-- Timeline dot -->
-                            <div class="timeline-dot absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-foreground rounded-full border-4 border-background z-10 hidden md:block"></div>
+                    <!-- Timeline Item 3 -->
+                    <div class="relative flex items-start">
+                        <!-- Timeline dot -->
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gray-900 rounded-full border-4 border-white z-10 hidden md:block"></div>
+                        
+                        <!-- Content -->
+                        <div class="w-full md:grid md:grid-cols-2 md:gap-8">
+                            <!-- Left side - Time & Company -->
+                            <div class="md:text-right md:pr-8 space-y-2 mb-6 md:mb-0">
+                                <p class="text-sm text-gray-500">2015 — 2021</p>
+                                <h3 class="text-lg font-medium text-gray-900">Pharmacy & Tech Transition</h3>
+                                <p class="text-gray-600">Self-taught UX Designer</p>
+                            </div>
                             
-                            <!-- Content -->
-                            <div class="w-full md:grid md:grid-cols-2 md:gap-8">
-                                <!-- Left side - Time & Company -->
-                                <div class="md:text-right md:pr-8 space-y-2 mb-6 md:mb-0">
-                                    <p class="text-sm text-muted-foreground">2015 — 2021</p>
-                                    <h3 class="text-lg font-medium">Pharmacy & Tech Transition</h3>
-                                    <p class="text-muted-foreground">Self-taught UX Designer</p>
-                                </div>
-                                
-                                <!-- Right side - Description -->
-                                <div class="md:pl-8 space-y-4">
-                                    <p class="text-muted-foreground leading-relaxed">
-                                        Earned Bachelor of Pharmacy with distinction from Obafemi Awolowo University. Transitioned into tech
-                                        through self-teaching, building skills as a UX designer and developing a deep understanding of
-                                        user-centered design principles.
-                                    </p>
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">Healthcare</span>
-                                        <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">UX Design</span>
-                                        <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">Self-taught</span>
-                                    </div>
+                            <!-- Right side - Description -->
+                            <div class="md:pl-8 space-y-4">
+                                <p class="text-gray-600 leading-relaxed">
+                                    Earned Bachelor of Pharmacy with distinction from Obafemi Awolowo University. Transitioned into tech
+                                    through self-teaching, building skills as a UX designer and developing a deep understanding of
+                                    user-centered design principles.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 text-xs bg-gray-100 text-gray-600 rounded-full border border-gray-300">Healthcare</span>
+                                    <span class="px-3 py-1 text-xs bg-gray-100 text-gray-600 rounded-full border border-gray-300">UX Design</span>
+                                    <span class="px-3 py-1 text-xs bg-gray-100 text-gray-600 rounded-full border border-gray-300">Self-taught</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </div>
+    </section>
+
+    <main class="bg-background">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
             <!-- Projects Section -->
-            <section id="projects" class="space-y-12 sm:space-y-16 lg:space-y-20">
-                <h2 class="text-xl sm:text-2xl typography-section-headline-bold text-foreground">Selected Projects</h2>
-                <p class="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-2xl">
+            <section id="projects" class="py-16">
+                    <h2 class="text-foreground uppercase mb-8" style="font-size: 2.5rem; font-weight: 300;">Selected Projects</h2>
+                <p class="text-muted-foreground text-base sm:text-lg leading-relaxed mb-8">
                     During my time at RBC Insurance, I led the development of three major digital initiatives that transformed how
                     advisors and clients interact with insurance products.
                 </p>
 
-                <div class="space-y-20 sm:space-y-24">
+                <div class="space-y-16">
                     <!-- Project 1 -->
-                    <div class="space-y-8 sm:space-y-10">
-                        <div class="space-y-6">
-                            <h3 class="text-lg sm:text-xl typography-project-headline">Digital Insurance App - Omni Channel</h3>
-                            <p class="text-muted-foreground leading-relaxed">
-                                Led the development of a comprehensive digital insurance platform that unified multiple touchpoints into a seamless omni-channel experience. Streamlined advisor workflows and improved client onboarding processes.
-                            </p>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Image -->
+                        <div class="bg-gray-200 rounded-lg flex items-center justify-center" style="min-height: 400px;">
+                            <span class="text-gray-500 text-sm">Project Image</span>
                         </div>
-
+                        <!-- Content -->
                         <div class="space-y-6">
-                            <div>
-                                <h4 class="text-sm text-emphasis text-foreground mb-2">Impact</h4>
-                                <p class="text-muted-foreground text-sm">Reduced client onboarding time by 40% and increased advisor productivity by 25%</p>
+                            <div class="space-y-4">
+                                <h3 class="text-lg sm:text-xl typography-project-headline">Digital Insurance App - Omni Channel</h3>
+                                <p class="text-muted-foreground leading-relaxed">
+                                    Led the development of a comprehensive digital insurance platform that unified multiple touchpoints into a seamless omni-channel experience. Streamlined advisor workflows and improved client onboarding processes.
+                                </p>
                             </div>
 
-                            <div>
-                                <h4 class="text-sm text-emphasis text-foreground mb-2">Key Areas</h4>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">Product Strategy</span>
-                                    <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">UX Design</span>
-                                    <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">Stakeholder Management</span>
-                                    <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">Agile Development</span>
+                            <div class="space-y-4">
+                                    <div>
+                                        <h4 class="text-sm text-emphasis text-foreground mb-2">Impact</h4>
+                                        <p class="text-muted-foreground leading-relaxed">Reduced client onboarding time by 40% and increased advisor productivity by 25%</p>
+                                    </div>
+
+                                <div>
+                                    <h4 class="text-sm text-emphasis text-foreground mb-2">Key Areas</h4>
+                                    <div class="flex flex-wrap gap-2">
+                                        <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
+                                            <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Product Strategy</div>
+                                        </div>
+                                        <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff]  min-w-[81px] rounded-[4px]">
+                                            <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">UX Design</div>
+                                        </div>
+                                        <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff]  min-w-[81px] rounded-[4px]">
+                                            <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Stakeholder Management</div>
+                                        </div>
+                                        <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff]  min-w-[81px] rounded-[4px]">
+                                            <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Agile Development</div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="pt-2">
-                            <button class="px-4 py-2 text-sm border border-border bg-transparent rounded-md hover:bg-muted transition-colors">
-                                View Case Study
-                            </button>
+                            <div class="pt-2">
+                                <button class="text-sm font-bold uppercase text-foreground hover:text-muted-foreground transition-colors flex items-center gap-2 group">
+                                    View Project
+                                    <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 arrow-invite" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </button>
+                            </div>
                         </div>
-
-                        <div class="pt-8 border-b border-border"></div>
                     </div>
+
+                    <!-- Divider -->
+                    <div class="border-t border-gray-200"></div>
 
                     <!-- Project 2 -->
-                    <div class="space-y-6">
-                        <div class="space-y-4">
-                            <h3 class="text-xl typography-project-headline">Insurance Illustration Software Modernization</h3>
-                            <p class="text-muted-foreground leading-relaxed">
-                                Spearheaded the modernization of legacy insurance illustration software, transforming complex financial calculations into intuitive, user-friendly interfaces for both advisors and clients.
-                            </p>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Image -->
+                        <div class="bg-gray-200 rounded-lg flex items-center justify-center" style="min-height: 400px;">
+                            <span class="text-gray-500 text-sm">Project Image</span>
                         </div>
-
-                        <div class="space-y-4">
-                            <div>
-                                <h4 class="text-sm text-emphasis text-foreground mb-2">Impact</h4>
-                                <p class="text-muted-foreground text-sm">Improved user satisfaction scores by 60% and reduced training time for new advisors</p>
+                        <!-- Content -->
+                        <div class="space-y-6">
+                            <div class="space-y-4">
+                                <h3 class="text-xl typography-project-headline">Insurance Illustration Software Modernization</h3>
+                                <p class="text-muted-foreground leading-relaxed">
+                                    Spearheaded the modernization of legacy insurance illustration software, transforming complex financial calculations into intuitive, user-friendly interfaces for both advisors and clients.
+                                </p>
                             </div>
 
-                            <div>
-                                <h4 class="text-sm text-emphasis text-foreground mb-2">Key Areas</h4>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">Legacy System Migration</span>
-                                    <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">User Research</span>
-                                    <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">Interface Design</span>
-                                    <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">Change Management</span>
+                            <div class="space-y-4">
+                                    <div>
+                                        <h4 class="text-sm text-emphasis text-foreground mb-2">Impact</h4>
+                                        <p class="text-muted-foreground leading-relaxed">Improved user satisfaction scores by 60% and reduced training time for new advisors</p>
+                                    </div>
+
+                                <div>
+                                    <h4 class="text-sm text-emphasis text-foreground mb-2">Key Areas</h4>
+                                    <div class="flex flex-wrap gap-2">
+                                        <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff]  min-w-[81px] rounded-[4px]">
+                                            <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Legacy System Migration</div>
+                                        </div>
+                                        <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff]  min-w-[81px] rounded-[4px]">
+                                            <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">User Research</div>
+                                        </div>
+                                        <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff]  min-w-[81px] rounded-[4px]">
+                                            <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Interface Design</div>
+                                        </div>
+                                        <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff]  min-w-[81px] rounded-[4px]">
+                                            <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Change Management</div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="pt-2">
-                            <button class="px-4 py-2 text-sm border border-border bg-transparent rounded-md hover:bg-muted transition-colors">
-                                View Case Study
-                            </button>
+                            <div class="pt-2">
+                                <button class="text-sm font-bold uppercase text-foreground hover:text-muted-foreground transition-colors flex items-center gap-2 group">
+                                    View Project
+                                    <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 arrow-invite" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </button>
+                            </div>
                         </div>
-
-                        <div class="pt-8 border-b border-border"></div>
                     </div>
 
-                    <!-- Project 3 -->
-                    <div class="space-y-6">
-                        <div class="space-y-4">
-                            <h3 class="text-xl typography-project-headline">Creditor Insurance for Loan & Mortgage Protection</h3>
-                            <p class="text-muted-foreground leading-relaxed">
-                                Designed and launched a digital creditor insurance solution that simplified the process of obtaining loan and mortgage protection. Created seamless integration with existing banking workflows.
-                            </p>
-                        </div>
+                    <!-- Divider -->
+                    <div class="border-t border-gray-200"></div>
 
-                        <div class="space-y-4">
-                            <div>
-                                <h4 class="text-sm text-emphasis text-foreground mb-2">Impact</h4>
-                                <p class="text-muted-foreground text-sm">Increased insurance adoption rate by 35% and reduced processing time from days to minutes</p>
+                    <!-- Project 3 -->
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Image -->
+                        <div class="bg-gray-200 rounded-lg flex items-center justify-center" style="min-height: 400px;">
+                            <span class="text-gray-500 text-sm">Project Image</span>
+                        </div>
+                        <!-- Content -->
+                        <div class="space-y-6">
+                            <div class="space-y-4">
+                                <h3 class="text-xl typography-project-headline">Creditor Insurance for Loan & Mortgage Protection</h3>
+                                <p class="text-muted-foreground leading-relaxed">
+                                    Designed and launched a digital creditor insurance solution that simplified the process of obtaining loan and mortgage protection. Created seamless integration with existing banking workflows.
+                                </p>
                             </div>
 
-                            <div>
-                                <h4 class="text-sm text-emphasis text-foreground mb-2">Key Areas</h4>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">Financial Services</span>
-                                    <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">Risk Assessment</span>
-                                    <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">API Integration</span>
-                                    <span class="px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">Compliance Design</span>
+                            <div class="space-y-4">
+                                    <div>
+                                        <h4 class="text-sm text-emphasis text-foreground mb-2">Impact</h4>
+                                        <p class="text-muted-foreground leading-relaxed">Increased insurance adoption rate by 35% and reduced processing time from days to minutes</p>
+                                    </div>
+
+                                <div>
+                                    <h4 class="text-sm text-emphasis text-foreground mb-2">Key Areas</h4>
+                                    <div class="flex flex-wrap gap-2">
+                                        <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff]  min-w-[81px] rounded-[4px]">
+                                            <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Financial Services</div>
+                                        </div>
+                                        <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff]  min-w-[81px] rounded-[4px]">
+                                            <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Risk Assessment</div>
+                                        </div>
+                                        <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff]  min-w-[81px] rounded-[4px]">
+                                            <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">API Integration</div>
+                                        </div>
+                                        <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff]  min-w-[81px] rounded-[4px]">
+                                            <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Compliance Design</div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="pt-2">
-                            <button class="px-4 py-2 text-sm border border-border bg-transparent rounded-md hover:bg-muted transition-colors">
-                                View Case Study
-                            </button>
+                            <div class="pt-2">
+                                <button class="text-sm font-bold uppercase text-foreground hover:text-muted-foreground transition-colors flex items-center gap-2 group">
+                                    View Project
+                                    <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 arrow-invite" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
             <!-- Contact Section -->
-            <section id="contact" class="space-y-12 sm:space-y-16 lg:space-y-20 pb-16 sm:pb-20 lg:pb-24">
-                <h2 class="text-xl sm:text-2xl font-light text-foreground">Let's Connect</h2>
+            <section id="contact" class="py-16 mt-16">
+                    <h2 class="text-foreground uppercase mb-8" style="font-size: 2.5rem; font-weight: 300;">Let's Connect</h2>
 
-                <div class="space-y-12 sm:space-y-16">
+                <div class="space-y-8">
                     <p class="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl">
                         I'm always interested in discussing product strategy, innovation in health tech, or just having a good
                         conversation about building products that matter.
                     </p>
 
-                    <div class="space-y-6 sm:space-y-8">
-                        <div class="flex items-center space-x-4">
-                            <span class="text-sm text-muted-foreground w-16">Email</span>
+                    <div class="flex flex-col md:flex-row md:space-x-12 space-y-6 md:space-y-0">
+                        <div class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
                             <a href="mailto:timothy@example.com" class="text-foreground hover:text-muted-foreground transition-colors">
                                 timothy@example.com
                             </a>
                         </div>
 
-                        <div class="flex items-center space-x-4">
-                            <span class="text-sm text-muted-foreground w-16">LinkedIn</span>
+                        <div class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-muted-foreground" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
                             <a href="https://linkedin.com/in/timothy" target="_blank" rel="noopener noreferrer" class="text-foreground hover:text-muted-foreground transition-colors">
                                 linkedin.com/in/timothy
                             </a>
                         </div>
 
-                        <div class="flex items-center space-x-4">
-                            <span class="text-sm text-muted-foreground w-16">Location</span>
+                        <div class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
                             <span class="text-foreground">Los Angeles, CA</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="pt-12 border-t border-border">
-                    <p class="text-xs text-muted-foreground">© 2025 Timothy. Crafted with care in Los Angeles.</p>
-                </div>
+                        <div class="pt-24">
+                            <p class="text-xs text-muted-foreground">© 2025 Timothy. Crafted with Cursor + V0 with care in Los Angeles.</p>
+                        </div>
             </section>
         </div>
     </main>
 
-    <script>
-        // Simple smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+        <script>
+            // Mobile menu toggle with hamburger animation
+            document.getElementById('mobile-menu-button').addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const mobileOverlay = document.getElementById('mobile-overlay');
+                const line1 = document.getElementById('line1');
+                const line2 = document.getElementById('line2');
+                const line3 = document.getElementById('line3');
+                
+                const isOpen = !mobileMenu.classList.contains('hidden');
+                
+                if (isOpen) {
+                    // Close menu - animate back to hamburger
+                    mobileMenu.classList.add('hidden');
+                    mobileOverlay.classList.add('hidden');
+                    
+                    // Reset hamburger lines
+                    line1.style.transform = 'translateY(0px) rotate(0deg)';
+                    line2.style.opacity = '1';
+                    line3.style.transform = 'translateY(0px) rotate(0deg)';
+                } else {
+                    // Open menu - animate to X
+                    mobileMenu.classList.remove('hidden');
+                    mobileOverlay.classList.remove('hidden');
+                    
+                    // Animate hamburger lines to X
+                    line1.style.transform = 'translateY(6px) rotate(45deg)';
+                    line2.style.opacity = '0';
+                    line3.style.transform = 'translateY(-6px) rotate(-45deg)';
                 }
             });
-        });
+
+            // Close mobile menu when clicking on overlay
+            document.getElementById('mobile-overlay').addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const mobileOverlay = document.getElementById('mobile-overlay');
+                const line1 = document.getElementById('line1');
+                const line2 = document.getElementById('line2');
+                const line3 = document.getElementById('line3');
+                
+                mobileMenu.classList.add('hidden');
+                mobileOverlay.classList.add('hidden');
+                
+                // Reset hamburger lines
+                line1.style.transform = 'translateY(0px) rotate(0deg)';
+                line2.style.opacity = '1';
+                line3.style.transform = 'translateY(0px) rotate(0deg)';
+            });
+
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    const mobileOverlay = document.getElementById('mobile-overlay');
+                    const line1 = document.getElementById('line1');
+                    const line2 = document.getElementById('line2');
+                    const line3 = document.getElementById('line3');
+                    
+                    mobileMenu.classList.add('hidden');
+                    mobileOverlay.classList.add('hidden');
+                    
+                    // Reset hamburger lines
+                    line1.style.transform = 'translateY(0px) rotate(0deg)';
+                    line2.style.opacity = '1';
+                    line3.style.transform = 'translateY(0px) rotate(0deg)';
+                });
+            });
+
+            // Simple smooth scrolling like Michelle Gore's
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        // Simple smooth scroll - no hero hiding
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
 
         // Active navigation highlighting
         window.addEventListener('scroll', () => {
-            const sections = ['hero', 'about', 'experience', 'projects', 'contact'];
+            const sections = ['hero', 'experience', 'projects', 'contact'];
             const scrollPosition = window.scrollY + 100;
 
             sections.forEach(section => {
@@ -463,14 +632,257 @@
                     const { offsetTop, offsetHeight } = element;
                     if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
                         document.querySelectorAll('nav a').forEach(link => {
-                            link.classList.remove('text-foreground', 'font-medium');
-                            link.classList.add('text-muted-foreground');
+                            link.classList.remove('text-white', 'font-medium');
+                            link.classList.add('text-gray-300');
                         });
-                        navLink.classList.remove('text-muted-foreground');
-                        navLink.classList.add('text-foreground', 'font-medium');
+                        navLink.classList.remove('text-gray-300');
+                        navLink.classList.add('text-white', 'font-medium');
                     }
                 }
             });
+        });
+
+        // Timeline animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const timelineObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all timeline items
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            timelineObserver.observe(item);
+        });
+
+        // Timeline progress bar
+        function updateTimelineProgress() {
+            const experienceSection = document.getElementById('experience');
+            const timelineProgress = document.getElementById('timeline-progress');
+            
+            if (!experienceSection || !timelineProgress) return;
+            
+            const sectionRect = experienceSection.getBoundingClientRect();
+            const sectionTop = sectionRect.top;
+            const sectionHeight = sectionRect.height;
+            const windowHeight = window.innerHeight;
+            
+            // Calculate scroll progress through the section
+            let progressPercentage = 0;
+            
+            // When section is fully in view (top at 0), progress should be 50%
+            // When section is 25% scrolled out (top at -25% of section height), progress should be 100%
+            
+            if (sectionTop <= 0) {
+                // Section is at or above the top of viewport
+                if (sectionTop + sectionHeight <= 0) {
+                    // Section is completely above viewport
+                    progressPercentage = 100;
+                } else {
+                    // Calculate progress based on how much has been scrolled
+                    // When sectionTop = 0 (fully in view), progress = 50%
+                    // When sectionTop = -0.25 * sectionHeight (25% out), progress = 100%
+                    const scrolledHeight = Math.abs(sectionTop);
+                    const maxScrollHeight = sectionHeight * 0.25; // 25% of section height
+                    
+                    if (scrolledHeight <= maxScrollHeight) {
+                        // Linear interpolation between 50% and 100%
+                        progressPercentage = 50 + (scrolledHeight / maxScrollHeight) * 50;
+                    } else {
+                        progressPercentage = 100;
+                    }
+                }
+            } else if (sectionTop < windowHeight) {
+                // Section is entering viewport
+                // When section is just entering (top = windowHeight), progress = 0%
+                // When section is fully in view (top = 0), progress = 50%
+                const visibleHeight = windowHeight - sectionTop;
+                const entryProgress = Math.min(50, (visibleHeight / windowHeight) * 50);
+                progressPercentage = entryProgress;
+            }
+            
+            // Update the progress bar height
+            timelineProgress.style.height = `${progressPercentage}%`;
+        }
+
+        // Update progress on scroll
+        window.addEventListener('scroll', updateTimelineProgress);
+        
+        // Initial update
+        updateTimelineProgress();
+
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero text animation
+        gsap.fromTo("#hero p", 
+            { y: 50, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1, ease: "power3.out" }
+        );
+
+        gsap.fromTo("#hero h1", 
+            { y: 100, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1.2, delay: 0.2, ease: "power3.out" }
+        );
+
+        gsap.fromTo("#hero h2", 
+            { y: 50, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1, delay: 0.4, ease: "power3.out" }
+        );
+
+        gsap.fromTo("#hero h3", 
+            { y: 30, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.8, delay: 0.6, ease: "power3.out" }
+        );
+
+        // Scroll indicator animation
+        gsap.fromTo("#hero .animate-bounce", 
+            { y: 0, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.5, delay: 1.5, ease: "power2.out" }
+        );
+
+        // Timeline items animation
+        gsap.fromTo(".timeline-item", 
+            { x: -100, opacity: 0 },
+            { 
+                x: 0, 
+                opacity: 1, 
+                duration: 0.8, 
+                stagger: 0.3,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: "#experience",
+                    start: "top 80%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse"
+                }
+            }
+        );
+
+        // Timeline dots animation
+        gsap.fromTo(".timeline-dot", 
+            { scale: 0, opacity: 0 },
+            { 
+                scale: 1, 
+                opacity: 1, 
+                duration: 0.5, 
+                stagger: 0.2,
+                ease: "back.out(1.7)",
+                scrollTrigger: {
+                    trigger: "#experience",
+                    start: "top 70%",
+                    end: "bottom 30%",
+                    toggleActions: "play none none reverse"
+                }
+            }
+        );
+
+        // Projects section animation
+        gsap.fromTo("#projects h2, #projects p", 
+            { y: 50, opacity: 0 },
+            { 
+                y: 0, 
+                opacity: 1, 
+                duration: 0.8, 
+                stagger: 0.2,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: "#projects",
+                    start: "top 80%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse"
+                }
+            }
+        );
+
+        // Project cards animation
+        gsap.fromTo("#projects .space-y-20 > div", 
+            { y: 80, opacity: 0 },
+            { 
+                y: 0, 
+                opacity: 1, 
+                duration: 1, 
+                stagger: 0.3,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: "#projects .space-y-20",
+                    start: "top 85%",
+                    end: "bottom 15%",
+                    toggleActions: "play none none reverse"
+                }
+            }
+        );
+
+        // Contact section animation
+        gsap.fromTo("#contact h2, #contact p", 
+            { y: 50, opacity: 0 },
+            { 
+                y: 0, 
+                opacity: 1, 
+                duration: 0.8, 
+                stagger: 0.2,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: "#contact",
+                    start: "top 80%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse"
+                }
+            }
+        );
+
+        // Contact links animation
+        gsap.fromTo("#contact .space-y-6 > div", 
+            { x: -50, opacity: 0 },
+            { 
+                x: 0, 
+                opacity: 1, 
+                duration: 0.6, 
+                stagger: 0.1,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: "#contact .space-y-6",
+                    start: "top 85%",
+                    end: "bottom 15%",
+                    toggleActions: "play none none reverse"
+                }
+            }
+        );
+
+        // Smooth scroll for navigation
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Parallax effect for hero video
+        gsap.to("#hero video", {
+            yPercent: -50,
+            ease: "none",
+            scrollTrigger: {
+                trigger: "#hero",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true
+            }
+        });
+
+        // Timeline progress animation (enhanced with GSAP)
+        ScrollTrigger.create({
+            trigger: "#experience",
+            start: "top center",
+            end: "bottom center",
+            onUpdate: (self) => {
+                const progress = self.progress;
+                gsap.to("#timeline-progress", {
+                    height: `${progress * 100}%`,
+                    duration: 0.3,
+                    ease: "power2.out"
+                });
+            }
         });
     </script>
 </body>
