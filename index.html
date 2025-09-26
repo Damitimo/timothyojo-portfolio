@@ -66,6 +66,15 @@
             /* Removed transition for instant color changes */
         }
 
+        .timeline-sticky-content {
+            opacity: 0.3;
+            transition: opacity 0.1s ease-out;
+        }
+
+        .timeline-sticky-content.fully-visible {
+            opacity: 1;
+        }
+
         .timeline-item:hover .timeline-dot {
             transform: scale(1.2);
             box-shadow: 0 0 0 8px rgba(0, 0, 0, 0.1);
@@ -233,8 +242,8 @@
                         <div class="w-full md:grid md:grid-cols-2 md:gap-8">
                             <!-- Left side - Time & Company -->
                             <div class="md:text-right md:pr-8 mb-6 md:mb-0">
-                                <p class="text-sm text-gray-500">2023 — Present</p>
-                                <div class="sticky top-[50vh]">
+                                <div class="sticky top-[50vh] space-y-2 timeline-sticky-content">
+                                    <p class="text-sm text-gray-500">2023 — Present</p>
                                     <h3 class="text-lg font-medium text-gray-900">MBA Candidate</h3>
                                     <p class="text-gray-600">USC Marshall School of Business</p>
                                 </div>
@@ -264,8 +273,8 @@
                         <div class="w-full md:grid md:grid-cols-2 md:gap-8">
                             <!-- Left side - Time & Company -->
                             <div class="md:text-right md:pr-8 mb-6 md:mb-0">
-                                <p class="text-sm text-gray-500">2021 — 2023</p>
-                                <div class="sticky top-[50vh]">
+                                <div class="sticky top-[50vh] space-y-2 timeline-sticky-content">
+                                    <p class="text-sm text-gray-500">2021 — 2023</p>
                                     <h3 class="text-lg font-medium text-gray-900">Product Manager</h3>
                                     <p class="text-gray-600">Royal Bank of Canada</p>
                                 </div>
@@ -297,8 +306,8 @@
                         <div class="w-full md:grid md:grid-cols-2 md:gap-8">
                             <!-- Left side - Time & Company -->
                             <div class="md:text-right md:pr-8 mb-6 md:mb-0">
-                                <p class="text-sm text-gray-500">Mar 2021 — Dec 2023</p>
-                                <div class="sticky top-[50vh]">
+                                <div class="sticky top-[50vh] space-y-2 timeline-sticky-content">
+                                    <p class="text-sm text-gray-500">Mar 2021 — Dec 2023</p>
                                     <h3 class="text-lg font-medium text-gray-900">Senior Product Designer</h3>
                                     <p class="text-gray-600">Guusto (Employee recognition platform)</p>
                                 </div>
@@ -331,8 +340,8 @@
                         <div class="w-full md:grid md:grid-cols-2 md:gap-8">
                             <!-- Left side - Time & Company -->
                             <div class="md:text-right md:pr-8 mb-6 md:mb-0">
-                                <p class="text-sm text-gray-500">2015 — 2021</p>
-                                <div class="sticky top-[50vh]">
+                                <div class="sticky top-[50vh] space-y-2 timeline-sticky-content">
+                                    <p class="text-sm text-gray-500">2015 — 2021</p>
                                     <h3 class="text-lg font-medium text-gray-900">Pharmacy & Tech Transition</h3>
                                     <p class="text-gray-600">Self-taught UX Designer</p>
                                 </div>
@@ -756,6 +765,36 @@
         
         // Initial update
         updateTimelineProgress();
+
+        // Timeline sticky content opacity animation
+        function updateTimelineOpacity() {
+            const stickyContents = document.querySelectorAll('.timeline-sticky-content');
+            
+            stickyContents.forEach(content => {
+                const rect = content.getBoundingClientRect();
+                const viewportHeight = window.innerHeight;
+                const stickyPosition = viewportHeight * 0.5; // 50vh
+                
+                // Calculate how far the content has scrolled from its sticky position
+                const distanceFromSticky = Math.abs(rect.top - stickyPosition);
+                const maxDistance = viewportHeight * 0.56; // 56% of viewport height
+                
+                // Calculate opacity: starts at 0.3, reaches 1.0 at 56% scroll
+                let opacity = 0.3;
+                if (distanceFromSticky <= maxDistance) {
+                    const progress = 1 - (distanceFromSticky / maxDistance);
+                    opacity = 0.3 + (0.7 * progress); // 0.3 to 1.0
+                }
+                
+                content.style.opacity = Math.max(0.3, Math.min(1.0, opacity));
+            });
+        }
+
+        // Update opacity on scroll
+        window.addEventListener('scroll', updateTimelineOpacity, { passive: true });
+        
+        // Initial opacity update
+        updateTimelineOpacity();
 
         // GSAP Animations
         gsap.registerPlugin(ScrollTrigger);
