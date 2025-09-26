@@ -75,6 +75,11 @@
             opacity: 1;
         }
 
+        .timeline-right-content {
+            opacity: 0.3;
+            transition: opacity 0.1s ease-out;
+        }
+
         .timeline-item:hover .timeline-dot {
             transform: scale(1.2);
             box-shadow: 0 0 0 8px rgba(0, 0, 0, 0.1);
@@ -250,7 +255,7 @@
                             </div>
                             
                             <!-- Right side - Description -->
-                            <div class="md:pl-8 space-y-4">
+                            <div class="md:pl-8 space-y-4 timeline-right-content">
                                 <p class="text-gray-600 leading-relaxed">
                                     Focusing on product strategy and innovation at the intersection of health tech and business. Active member
                                     of Blockchain@USC, exploring emerging technologies and their applications in healthcare and finance.
@@ -281,7 +286,7 @@
                             </div>
                             
                             <!-- Right side - Description -->
-                            <div class="md:pl-8 space-y-4">
+                            <div class="md:pl-8 space-y-4 timeline-right-content">
                                 <p class="text-gray-600 leading-relaxed">
                                     Led the delivery of digital insurance applications that streamlined advisor workflows and elevated client
                                     experiences. Designed and shipped enterprise-scale solutions in healthcare, finance, and insurance.
@@ -314,7 +319,7 @@
                             </div>
                             
                             <!-- Right side - Description -->
-                            <div class="md:pl-8 space-y-4">
+                            <div class="md:pl-8 space-y-4 timeline-right-content">
                                 <p class="text-gray-600 leading-relaxed">
                                     Led the redesign of the recognition platform's core web and app experiences, contributing to its recognition as the #1 highest-rated solution in the employee recognition space by G2 and Capterra.
                                 </p>
@@ -348,7 +353,7 @@
                             </div>
                             
                             <!-- Right side - Description -->
-                            <div class="md:pl-8 space-y-4">
+                            <div class="md:pl-8 space-y-4 timeline-right-content">
                                 <p class="text-gray-600 leading-relaxed">
                                     Earned Bachelor of Pharmacy with distinction from Obafemi Awolowo University. Transitioned into tech
                                     through self-teaching, building skills as a UX designer and developing a deep understanding of
@@ -766,27 +771,33 @@
         // Initial update
         updateTimelineProgress();
 
-        // Timeline sticky content opacity animation
+        // Timeline content opacity animation - light up effect
         function updateTimelineOpacity() {
-            const stickyContents = document.querySelectorAll('.timeline-sticky-content');
+            const timelineItems = document.querySelectorAll('.relative.flex.items-start');
+            const viewportHeight = window.innerHeight;
+            const triggerPoint = viewportHeight * 0.5; // 50% of viewport height
             
-            stickyContents.forEach(content => {
-                const rect = content.getBoundingClientRect();
-                const viewportHeight = window.innerHeight;
-                const stickyPosition = viewportHeight * 0.5; // 50vh
+            timelineItems.forEach(item => {
+                const rect = item.getBoundingClientRect();
+                const itemCenter = rect.top + (rect.height / 2);
                 
-                // Calculate how far the content has scrolled from its sticky position
-                const distanceFromSticky = Math.abs(rect.top - stickyPosition);
-                const maxDistance = viewportHeight * 0.56; // 56% of viewport height
+                // Check if the timeline item center is at or above 50% of viewport
+                let opacity = 0.3; // Default 30% opacity
                 
-                // Calculate opacity: starts at 0.3, reaches 1.0 at 56% scroll
-                let opacity = 0.3;
-                if (distanceFromSticky <= maxDistance) {
-                    const progress = 1 - (distanceFromSticky / maxDistance);
-                    opacity = 0.3 + (0.7 * progress); // 0.3 to 1.0
+                if (itemCenter <= triggerPoint) {
+                    opacity = 1.0; // 100% opacity when at or above 50% viewport
                 }
                 
-                content.style.opacity = Math.max(0.3, Math.min(1.0, opacity));
+                // Apply opacity to both left and right content
+                const leftContent = item.querySelector('.timeline-sticky-content');
+                const rightContent = item.querySelector('.timeline-right-content');
+                
+                if (leftContent) {
+                    leftContent.style.opacity = opacity;
+                }
+                if (rightContent) {
+                    rightContent.style.opacity = opacity;
+                }
             });
         }
 
