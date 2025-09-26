@@ -210,31 +210,34 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-16" style="background-color: #f5f5f7;">
+    <section id="experience" class="py-16 relative" style="background-color: #f5f5f7; z-index: -3;">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-foreground uppercase mb-8" style="font-size: 2.5rem; font-weight: 300;">Experience</h2>
 
             <div class="relative">
-                <!-- Timeline line (background) -->
-                <div class="absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-gray-300 h-full hidden md:block"></div>
+                <!-- Fixed timeline line (background) - fixed to viewport -->
+                <div class="fixed left-1/2 transform -translate-x-1/2 w-0.5 bg-gray-300 h-screen top-0 hidden md:block" style="z-index: -2;"></div>
                 
-                <!-- Timeline progress bar -->
-                <div id="timeline-progress" class="absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-gray-900 top-0 hidden md:block transition-all duration-300 ease-out" style="height: 0%;"></div>
+                <!-- Fixed timeline progress bar - fixed to viewport -->
+                <div id="timeline-progress" class="fixed left-1/2 transform -translate-x-1/2 w-0.5 bg-purple-500 top-0 hidden md:block" style="height: 50vh; z-index: -1;"></div>
+                
                 
                 <!-- Timeline items -->
                 <div class="space-y-16 sm:space-y-20">
                     <!-- Timeline Item 1 -->
                     <div class="relative flex items-start">
                         <!-- Timeline dot -->
-                        <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gray-900 rounded-full border-4 border-white z-10 hidden md:block"></div>
+                        <div class="timeline-dot sticky top-[50vh] left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gray-900 rounded-full border-4 border-white z-10 hidden md:block"></div>
                         
                         <!-- Content -->
                         <div class="w-full md:grid md:grid-cols-2 md:gap-8">
                             <!-- Left side - Time & Company -->
-                            <div class="md:text-right md:pr-8 space-y-2 mb-6 md:mb-0">
+                            <div class="md:text-right md:pr-8 mb-6 md:mb-0">
                                 <p class="text-sm text-gray-500">2023 — Present</p>
-                                <h3 class="text-lg font-medium text-gray-900">MBA Candidate</h3>
-                                <p class="text-gray-600">USC Marshall School of Business</p>
+                                <div class="sticky top-[50vh]">
+                                    <h3 class="text-lg font-medium text-gray-900">MBA Candidate</h3>
+                                    <p class="text-gray-600">USC Marshall School of Business</p>
+                                </div>
                             </div>
                             
                             <!-- Right side - Description -->
@@ -255,15 +258,17 @@
                     <!-- Timeline Item 2 -->
                     <div class="relative flex items-start">
                         <!-- Timeline dot -->
-                        <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gray-900 rounded-full border-4 border-white z-10 hidden md:block"></div>
+                        <div class="timeline-dot sticky top-[50vh] left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gray-900 rounded-full border-4 border-white z-10 hidden md:block"></div>
                         
                         <!-- Content -->
                         <div class="w-full md:grid md:grid-cols-2 md:gap-8">
                             <!-- Left side - Time & Company -->
-                            <div class="md:text-right md:pr-8 space-y-2 mb-6 md:mb-0">
+                            <div class="md:text-right md:pr-8 mb-6 md:mb-0">
                                 <p class="text-sm text-gray-500">2021 — 2023</p>
-                                <h3 class="text-lg font-medium text-gray-900">Product Manager</h3>
-                                <p class="text-gray-600">Royal Bank of Canada</p>
+                                <div class="sticky top-[50vh]">
+                                    <h3 class="text-lg font-medium text-gray-900">Product Manager</h3>
+                                    <p class="text-gray-600">Royal Bank of Canada</p>
+                                </div>
                             </div>
                             
                             <!-- Right side - Description -->
@@ -286,15 +291,51 @@
                     <!-- Timeline Item 3 -->
                     <div class="relative flex items-start">
                         <!-- Timeline dot -->
-                        <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gray-900 rounded-full border-4 border-white z-10 hidden md:block"></div>
+                        <div class="timeline-dot sticky top-[50vh] left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gray-900 rounded-full border-4 border-white z-10 hidden md:block"></div>
                         
                         <!-- Content -->
                         <div class="w-full md:grid md:grid-cols-2 md:gap-8">
                             <!-- Left side - Time & Company -->
-                            <div class="md:text-right md:pr-8 space-y-2 mb-6 md:mb-0">
+                            <div class="md:text-right md:pr-8 mb-6 md:mb-0">
+                                <p class="text-sm text-gray-500">Mar 2021 — Dec 2023</p>
+                                <div class="sticky top-[50vh]">
+                                    <h3 class="text-lg font-medium text-gray-900">Senior Product Designer</h3>
+                                    <p class="text-gray-600">Guusto (Employee recognition platform)</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Right side - Description -->
+                            <div class="md:pl-8 space-y-4">
+                                <p class="text-gray-600 leading-relaxed">
+                                    Led the redesign of the recognition platform's core web and app experiences, contributing to its recognition as the #1 highest-rated solution in the employee recognition space by G2 and Capterra.
+                                </p>
+                                <p class="text-gray-600 leading-relaxed">
+                                    Built and scaled a modular design system in Figma, partnering with engineering to implement components in Storybook and reducing design-to-dev handoff time by 40%.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 text-xs bg-gray-100 text-gray-600 rounded-full border border-gray-300">Product Design</span>
+                                    <span class="px-3 py-1 text-xs bg-gray-100 text-gray-600 rounded-full border border-gray-300">Design Systems</span>
+                                    <span class="px-3 py-1 text-xs bg-gray-100 text-gray-600 rounded-full border border-gray-300">User Research</span>
+                                    <span class="px-3 py-1 text-xs bg-gray-100 text-gray-600 rounded-full border border-gray-300">SaaS Growth</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 4 -->
+                    <div class="relative flex items-start">
+                        <!-- Timeline dot -->
+                        <div class="timeline-dot sticky top-[50vh] left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gray-900 rounded-full border-4 border-white z-10 hidden md:block"></div>
+                        
+                        <!-- Content -->
+                        <div class="w-full md:grid md:grid-cols-2 md:gap-8">
+                            <!-- Left side - Time & Company -->
+                            <div class="md:text-right md:pr-8 mb-6 md:mb-0">
                                 <p class="text-sm text-gray-500">2015 — 2021</p>
-                                <h3 class="text-lg font-medium text-gray-900">Pharmacy & Tech Transition</h3>
-                                <p class="text-gray-600">Self-taught UX Designer</p>
+                                <div class="sticky top-[50vh]">
+                                    <h3 class="text-lg font-medium text-gray-900">Pharmacy & Tech Transition</h3>
+                                    <p class="text-gray-600">Self-taught UX Designer</p>
+                                </div>
                             </div>
                             
                             <!-- Right side - Description -->
@@ -661,10 +702,11 @@
             timelineObserver.observe(item);
         });
 
-        // Timeline progress bar
+        // Fixed timeline progress bar - Webflow style
         function updateTimelineProgress() {
             const experienceSection = document.getElementById('experience');
             const timelineProgress = document.getElementById('timeline-progress');
+            const dots = document.querySelectorAll('.timeline-dot');
             
             if (!experienceSection || !timelineProgress) return;
             
@@ -673,11 +715,8 @@
             const sectionHeight = sectionRect.height;
             const windowHeight = window.innerHeight;
             
-            // Calculate scroll progress through the section
+            // Calculate how much of the section has scrolled through the viewport
             let progressPercentage = 0;
-            
-            // When section is fully in view (top at 0), progress should be 50%
-            // When section is 25% scrolled out (top at -25% of section height), progress should be 100%
             
             if (sectionTop <= 0) {
                 // Section is at or above the top of viewport
@@ -686,33 +725,34 @@
                     progressPercentage = 100;
                 } else {
                     // Calculate progress based on how much has been scrolled
-                    // When sectionTop = 0 (fully in view), progress = 50%
-                    // When sectionTop = -0.25 * sectionHeight (25% out), progress = 100%
                     const scrolledHeight = Math.abs(sectionTop);
-                    const maxScrollHeight = sectionHeight * 0.25; // 25% of section height
-                    
-                    if (scrolledHeight <= maxScrollHeight) {
-                        // Linear interpolation between 50% and 100%
-                        progressPercentage = 50 + (scrolledHeight / maxScrollHeight) * 50;
-                    } else {
-                        progressPercentage = 100;
-                    }
+                    const totalScrollableHeight = sectionHeight + windowHeight;
+                    progressPercentage = Math.min(100, (scrolledHeight / totalScrollableHeight) * 100);
                 }
             } else if (sectionTop < windowHeight) {
                 // Section is entering viewport
-                // When section is just entering (top = windowHeight), progress = 0%
-                // When section is fully in view (top = 0), progress = 50%
                 const visibleHeight = windowHeight - sectionTop;
-                const entryProgress = Math.min(50, (visibleHeight / windowHeight) * 50);
-                progressPercentage = entryProgress;
+                progressPercentage = Math.min(50, (visibleHeight / windowHeight) * 50);
             }
             
-            // Update the progress bar height
-            timelineProgress.style.height = `${progressPercentage}%`;
+            // Progress bar stays constant at 50vh - no height changes
+            
+            // Update dot colors based on progress - dots turn purple when progress line reaches them
+            dots.forEach((dot, index) => {
+                const dotPosition = (index + 1) * 25; // Each dot at 25%, 50%, 75%, 100%
+                
+                if (progressPercentage >= dotPosition) {
+                    // Progress line has reached this dot - make it purple
+                    dot.style.backgroundColor = '#8b5cf6'; // Bright purple
+                } else {
+                    // Progress line hasn't reached this dot yet - keep it black
+                    dot.style.backgroundColor = '#1f2937'; // Dark gray
+                }
+            });
         }
 
-        // Update progress on scroll
-        window.addEventListener('scroll', updateTimelineProgress);
+        // Update progress on scroll - instant response
+        window.addEventListener('scroll', updateTimelineProgress, { passive: true });
         
         // Initial update
         updateTimelineProgress();
@@ -870,20 +910,7 @@
             }
         });
 
-        // Timeline progress animation (enhanced with GSAP)
-        ScrollTrigger.create({
-            trigger: "#experience",
-            start: "top center",
-            end: "bottom center",
-            onUpdate: (self) => {
-                const progress = self.progress;
-                gsap.to("#timeline-progress", {
-                    height: `${progress * 100}%`,
-                    duration: 0.3,
-                    ease: "power2.out"
-                });
-            }
-        });
+        // Timeline progress bar stays fixed at 50vh - no GSAP animation
     </script>
 </body>
 </html>
