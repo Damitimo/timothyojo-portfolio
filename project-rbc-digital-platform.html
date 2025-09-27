@@ -32,10 +32,11 @@
         }
         
         .project-title {
-            font-size: 3rem;
+            font-size: 4rem;
             font-weight: 300;
             line-height: 1.1;
             color: #111827;
+            letter-spacing: -0.02em;
         }
         
         .section-title {
@@ -87,6 +88,44 @@
         .back-link:hover {
             color: #111827;
         }
+        
+        .toc-container {
+            position: fixed;
+            left: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 200px;
+            z-index: 10;
+        }
+        
+        .toc-item {
+            display: block;
+            color: #6B7280;
+            text-decoration: none;
+            font-size: 0.875rem;
+            padding: 0.5rem 0;
+            transition: all 0.2s;
+            border-left: 2px solid transparent;
+            padding-left: 1rem;
+        }
+        
+        .toc-item:hover {
+            color: #111827;
+        }
+        
+        .toc-item.active {
+            color: #111827;
+            font-weight: 600;
+            border-left-color: #111827;
+        }
+        
+        .content-with-toc {
+            margin-left: 240px;
+        }
+        
+        .section-anchor {
+            scroll-margin-top: 2rem;
+        }
     </style>
 </head>
 <body class="bg-white text-gray-900">
@@ -110,7 +149,21 @@
         </div>
     </header>
 
-    <div class="content-container">
+    <!-- Table of Contents -->
+    <div class="toc-container">
+        <nav>
+            <a href="#challenge" class="toc-item">The Challenge</a>
+            <a href="#research" class="toc-item">Research</a>
+            <a href="#findings" class="toc-item">Key Findings</a>
+            <a href="#current-state" class="toc-item">Current State</a>
+            <a href="#opportunity" class="toc-item">Opportunity</a>
+            <a href="#solution" class="toc-item">Solution</a>
+            <a href="#features" class="toc-item">Key Features</a>
+            <a href="#impact" class="toc-item">Impact</a>
+        </nav>
+    </div>
+
+    <div class="content-container content-with-toc">
         <div class="sections">
             
             <!-- Spacer -->
@@ -198,7 +251,7 @@
             </section>
             
             <!-- The Challenge -->
-            <section class="content-block">
+            <section id="challenge" class="content-block section-anchor">
                 <div class="container">
                     <div class="max-w-4xl ml-auto">
                         <h2 class="subsection-title">The challenge</h2>
@@ -217,7 +270,7 @@
             </section>
             
             <!-- Research Section -->
-            <section class="content-block">
+            <section id="research" class="content-block section-anchor">
                 <div class="container">
                     <div class="max-w-4xl">
                         <h2 class="section-title">Research</h2>
@@ -267,7 +320,7 @@
             </section>
             
             <!-- Key Findings -->
-            <section class="content-block">
+            <section id="findings" class="content-block section-anchor">
                 <div class="container">
                     <div class="max-w-4xl ml-auto">
                         <h2 class="subsection-title">Key findings</h2>
@@ -286,7 +339,7 @@
             </section>
             
             <!-- Current State Analysis -->
-            <section class="content-block">
+            <section id="current-state" class="content-block section-anchor">
                 <div class="container">
                     <div class="max-w-4xl ml-auto">
                         <h2 class="subsection-title">Current state analysis</h2>
@@ -326,7 +379,7 @@
             </section>
             
             <!-- Opportunity Section -->
-            <section class="content-block">
+            <section id="opportunity" class="content-block section-anchor">
                 <div class="container">
                     <div class="max-w-4xl">
                         <h2 class="section-title">Opportunity</h2>
@@ -378,7 +431,7 @@
             </section>
             
             <!-- Solution Overview -->
-            <section class="content-block">
+            <section id="solution" class="content-block section-anchor">
                 <div class="container">
                     <div class="max-w-4xl ml-auto">
                         <h2 class="subsection-title">Solution overview</h2>
@@ -413,7 +466,7 @@
             </section>
             
             <!-- Key Features -->
-            <section class="content-block">
+            <section id="features" class="content-block section-anchor">
                 <div class="container">
                     <div class="max-w-4xl ml-auto">
                         <h2 class="subsection-title">Key features</h2>
@@ -453,7 +506,7 @@
             </section>
             
             <!-- Impact Section -->
-            <section class="content-block">
+            <section id="impact" class="content-block section-anchor">
                 <div class="container">
                     <div class="max-w-4xl">
                         <h2 class="section-title">Impact</h2>
@@ -520,5 +573,35 @@
             
         </div>
     </div>
+
+    <script>
+        // TOC highlighting functionality
+        function updateTOC() {
+            const sections = document.querySelectorAll('.section-anchor');
+            const tocItems = document.querySelectorAll('.toc-item');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 100 && rect.bottom >= 100) {
+                    currentSection = section.id;
+                }
+            });
+            
+            tocItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === '#' + currentSection) {
+                    item.classList.add('active');
+                }
+            });
+        }
+        
+        // Update TOC on scroll
+        window.addEventListener('scroll', updateTOC);
+        
+        // Update TOC on page load
+        document.addEventListener('DOMContentLoaded', updateTOC);
+    </script>
 </body>
 </html>
