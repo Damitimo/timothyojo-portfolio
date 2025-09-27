@@ -459,14 +459,26 @@
             const tocItems = document.querySelectorAll('.toc-item');
             
             let currentSection = '';
+            const viewportHeight = window.innerHeight;
+            const triggerPoint = viewportHeight * 0.3; // 30% from top
             
-            sections.forEach(section => {
+            // Find the section that's currently in view
+            for (let i = 0; i < sections.length; i++) {
+                const section = sections[i];
                 const rect = section.getBoundingClientRect();
-                if (rect.top <= 100 && rect.bottom >= 100) {
+                
+                // Check if section is in the trigger area
+                if (rect.top <= triggerPoint && rect.bottom >= triggerPoint) {
+                    currentSection = section.id;
+                    break;
+                }
+                // If no section is in the trigger area, use the closest one
+                else if (rect.top <= triggerPoint) {
                     currentSection = section.id;
                 }
-            });
+            }
             
+            // Update TOC items
             tocItems.forEach(item => {
                 item.classList.remove('active');
                 if (item.getAttribute('href') === '#' + currentSection) {
