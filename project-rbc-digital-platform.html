@@ -115,6 +115,10 @@
             z-index: 10;
         }
         
+        .content-with-toc {
+            margin-left: 240px;
+        }
+        
         .toc-item {
             display: block;
             color: #6B7280;
@@ -134,10 +138,6 @@
             color: #111827;
             font-weight: 600;
             border-left-color: #111827;
-        }
-        
-        .content-with-toc {
-            margin-left: 240px;
         }
         
         .section-anchor {
@@ -172,21 +172,7 @@
         </div>
     </header>
 
-    <!-- Table of Contents -->
-    <div class="toc-container">
-        <nav>
-            <a href="#challenge" class="toc-item">The Challenge</a>
-            <a href="#research" class="toc-item">Research</a>
-            <a href="#findings" class="toc-item">Key Findings</a>
-            <a href="#current-state" class="toc-item">Current State</a>
-            <a href="#opportunity" class="toc-item">Opportunity</a>
-            <a href="#solution" class="toc-item">Solution</a>
-            <a href="#features" class="toc-item">Key Features</a>
-            <a href="#impact" class="toc-item">Impact</a>
-        </nav>
-    </div>
-
-    <div class="content-container content-with-toc">
+    <div class="content-container">
         <div class="sections">
             
             <!-- Top Spacer (6rem) -->
@@ -242,31 +228,35 @@
                 </div>
             </div>
             
-            <!-- Spacer -->
-            <section class="content-block">
-                <div class="container">
-                    <div class="spacer"></div>
-                </div>
-            </section>
+            <!-- Spacer (4rem) -->
+            <div class="spacer-section"></div>
             
             <!-- Hero Image -->
-            <section class="content-block">
-                <div class="container">
-                    <div class="image-placeholder">
-                        RBC Digital Platform Dashboard
-                    </div>
+            <div class="container">
+                <div class="image-placeholder">
+                    RBC Digital Platform Dashboard
                 </div>
-            </section>
+            </div>
             
-            <!-- Spacer -->
-            <section class="content-block">
-                <div class="container">
-                    <div class="spacer"></div>
-                </div>
-            </section>
+            <!-- Spacer (4rem) -->
+            <div class="spacer-section"></div>
+            
+            <!-- Table of Contents -->
+            <div class="toc-container">
+                <nav>
+                    <a href="#challenge" class="toc-item">The Challenge</a>
+                    <a href="#research" class="toc-item">Research</a>
+                    <a href="#findings" class="toc-item">Key Findings</a>
+                    <a href="#current-state" class="toc-item">Current State</a>
+                    <a href="#opportunity" class="toc-item">Opportunity</a>
+                    <a href="#solution" class="toc-item">Solution</a>
+                    <a href="#features" class="toc-item">Key Features</a>
+                    <a href="#impact" class="toc-item">Impact</a>
+                </nav>
+            </div>
             
             <!-- The Challenge -->
-            <section id="challenge" class="content-block section-anchor">
+            <section id="challenge" class="content-block section-anchor content-with-toc">
                 <div class="container">
                     <div class="max-w-4xl ml-auto">
                         <h2 class="subsection-title">The challenge</h2>
@@ -285,7 +275,7 @@
             </section>
             
             <!-- Research Section -->
-            <section id="research" class="content-block section-anchor">
+            <section id="research" class="content-block section-anchor content-with-toc">
                 <div class="container">
                     <div class="max-w-4xl">
                         <h2 class="section-title">Research</h2>
@@ -335,7 +325,7 @@
             </section>
             
             <!-- Key Findings -->
-            <section id="findings" class="content-block section-anchor">
+            <section id="findings" class="content-block section-anchor content-with-toc">
                 <div class="container">
                     <div class="max-w-4xl ml-auto">
                         <h2 class="subsection-title">Key findings</h2>
@@ -354,7 +344,7 @@
             </section>
             
             <!-- Current State Analysis -->
-            <section id="current-state" class="content-block section-anchor">
+            <section id="current-state" class="content-block section-anchor content-with-toc">
                 <div class="container">
                     <div class="max-w-4xl ml-auto">
                         <h2 class="subsection-title">Current state analysis</h2>
@@ -394,7 +384,7 @@
             </section>
             
             <!-- Opportunity Section -->
-            <section id="opportunity" class="content-block section-anchor">
+            <section id="opportunity" class="content-block section-anchor content-with-toc">
                 <div class="container">
                     <div class="max-w-4xl">
                         <h2 class="section-title">Opportunity</h2>
@@ -446,7 +436,7 @@
             </section>
             
             <!-- Solution Overview -->
-            <section id="solution" class="content-block section-anchor">
+            <section id="solution" class="content-block section-anchor content-with-toc">
                 <div class="container">
                     <div class="max-w-4xl ml-auto">
                         <h2 class="subsection-title">Solution overview</h2>
@@ -481,7 +471,7 @@
             </section>
             
             <!-- Key Features -->
-            <section id="features" class="content-block section-anchor">
+            <section id="features" class="content-block section-anchor content-with-toc">
                 <div class="container">
                     <div class="max-w-4xl ml-auto">
                         <h2 class="subsection-title">Key features</h2>
@@ -521,7 +511,7 @@
             </section>
             
             <!-- Impact Section -->
-            <section id="impact" class="content-block section-anchor">
+            <section id="impact" class="content-block section-anchor content-with-toc">
                 <div class="container">
                     <div class="max-w-4xl">
                         <h2 class="section-title">Impact</h2>
