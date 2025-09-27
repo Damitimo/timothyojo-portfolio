@@ -978,41 +978,7 @@
             }
         );
 
-        // Contact section animation
-        gsap.fromTo("#contact h2, #contact p", 
-            { y: 50, opacity: 0 },
-            { 
-                y: 0, 
-                opacity: 1, 
-                duration: 0.8, 
-                stagger: 0.2,
-                ease: "power2.out",
-                scrollTrigger: {
-                    trigger: "#contact",
-                    start: "top 80%",
-                    end: "bottom 20%",
-                    toggleActions: "play none none reverse"
-                }
-            }
-        );
-
-        // Contact links animation
-        gsap.fromTo("#contact .space-y-6 > div", 
-            { x: -50, opacity: 0 },
-            { 
-                x: 0, 
-                opacity: 1, 
-                duration: 0.6, 
-                stagger: 0.1,
-                ease: "power2.out",
-                scrollTrigger: {
-                    trigger: "#contact .space-y-6",
-                    start: "top 85%",
-                    end: "bottom 15%",
-                    toggleActions: "play none none reverse"
-                }
-            }
-        );
+        // Contact section - no animation, always visible
 
         // Smooth scroll for navigation
         gsap.registerPlugin(ScrollTrigger);
