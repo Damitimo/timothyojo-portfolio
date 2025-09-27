@@ -1,63 +1,114 @@
-// Page Transition System
+// Page Transition System - Webflow Style
 class PageTransitions {
     constructor() {
         this.init();
     }
 
     init() {
-        // Create transition elements
-        this.createTransitionElements();
-        
-        // Handle page load
-        this.handlePageLoad();
-        
-        // Handle navigation clicks
-        this.handleNavigation();
+        // Load Lottie library first
+        this.loadLottieLibrary().then(() => {
+            // Create transition elements
+            this.createTransitionElements();
+            
+            // Handle page load
+            this.handlePageLoad();
+            
+            // Handle navigation clicks
+            this.handleNavigation();
+        });
+    }
+
+    loadLottieLibrary() {
+        return new Promise((resolve) => {
+            if (typeof lottie !== 'undefined') {
+                resolve();
+                return;
+            }
+            
+            const script = document.createElement('script');
+            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js';
+            script.onload = resolve;
+            document.head.appendChild(script);
+        });
     }
 
     createTransitionElements() {
-        // Create overlay for loading screen
-        const overlay = document.createElement('div');
-        overlay.className = 'page-transition-overlay';
-        overlay.innerHTML = '<div class="loading-spinner"></div>';
-        document.body.appendChild(overlay);
+        // Create loader overlay (Webflow style)
+        const loader = document.createElement('div');
+        loader.className = 'loader-hide-me';
+        
+        // Create spinner container
+        const spinner = document.createElement('div');
+        spinner.className = 'spinner';
+        spinner.id = 'lottie-spinner';
+        
+        loader.appendChild(spinner);
+        document.body.appendChild(loader);
 
         // Create page reveal element
         const reveal = document.createElement('div');
         reveal.className = 'page-reveal';
         document.body.appendChild(reveal);
 
-        this.overlay = overlay;
+        this.loader = loader;
+        this.spinner = spinner;
         this.reveal = reveal;
+        
+        // Initialize Lottie animation
+        this.initLottieAnimation();
+    }
+
+    initLottieAnimation() {
+        if (typeof lottie !== 'undefined') {
+            this.lottieAnimation = lottie.loadAnimation({
+                container: this.spinner,
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: 'loading-icon.json',
+                rendererSettings: {
+                    preserveAspectRatio: 'xMidYMid meet'
+                }
+            });
+        }
     }
 
     handlePageLoad() {
-        // Show loading on page load
+        // Show loading on page load (Webflow style)
         document.body.classList.add('page-loading');
+        this.loader.classList.add('show');
         
-        // Simulate loading time (you can adjust this)
+        // Add content loading class to main content
+        const contentSections = document.querySelectorAll('.content-section, main, #hero, #experience, #projects');
+        contentSections.forEach(section => {
+            section.classList.add('loading');
+        });
+        
+        // Simulate loading time
         setTimeout(() => {
             this.hideLoading();
-        }, 800);
+        }, 1200);
     }
 
     hideLoading() {
-        // Hide loading overlay
-        this.overlay.classList.add('hidden');
+        // Hide loader (slide up)
+        this.loader.classList.remove('show');
+        this.loader.classList.add('hide');
         
-        // Show page reveal animation
-        this.reveal.classList.add('active');
-        
-        // Remove loading class from body
+        // Remove loading class from body and content
         document.body.classList.remove('page-loading');
         document.body.classList.add('page-loaded');
         
+        const contentSections = document.querySelectorAll('.content-section, main, #hero, #experience, #projects');
+        contentSections.forEach(section => {
+            section.classList.remove('loading');
+        });
+        
         // Clean up after animation
         setTimeout(() => {
-            this.overlay.style.display = 'none';
-            this.reveal.classList.remove('active');
+            this.loader.style.display = 'none';
             this.reveal.style.display = 'none';
-        }, 600);
+        }, 800);
     }
 
     handleNavigation() {
@@ -78,14 +129,20 @@ class PageTransitions {
     }
 
     animatePageTransition(url) {
-        // Show page reveal animation
+        // Show page reveal animation (Webflow style)
         this.reveal.style.display = 'block';
         this.reveal.classList.add('active');
+        
+        // Add loading class to content sections
+        const contentSections = document.querySelectorAll('.content-section, main, #hero, #experience, #projects');
+        contentSections.forEach(section => {
+            section.classList.add('loading');
+        });
         
         // After reveal animation, navigate
         setTimeout(() => {
             window.location.href = url;
-        }, 300);
+        }, 400);
     }
 
     // Method to trigger transition programmatically
