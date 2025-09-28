@@ -840,38 +840,37 @@
         // GSAP Animations
         gsap.registerPlugin(ScrollTrigger);
 
-        // Hero text animation
+        // Hero text animation - fade in only
         gsap.fromTo("#hero p", 
-            { y: 50, opacity: 0 },
-            { y: 0, opacity: 1, duration: 1, ease: "power3.out" }
+            { opacity: 0 },
+            { opacity: 1, duration: 1, ease: "power3.out" }
         );
 
         gsap.fromTo("#hero h1", 
-            { y: 100, opacity: 0 },
-            { y: 0, opacity: 1, duration: 1.2, delay: 0.2, ease: "power3.out" }
+            { opacity: 0 },
+            { opacity: 1, duration: 1.2, delay: 0.2, ease: "power3.out" }
         );
 
         gsap.fromTo("#hero h2", 
-            { y: 50, opacity: 0 },
-            { y: 0, opacity: 1, duration: 1, delay: 0.4, ease: "power3.out" }
+            { opacity: 0 },
+            { opacity: 1, duration: 1, delay: 0.4, ease: "power3.out" }
         );
 
         gsap.fromTo("#hero h3", 
-            { y: 30, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.8, delay: 0.6, ease: "power3.out" }
+            { opacity: 0 },
+            { opacity: 1, duration: 0.8, delay: 0.6, ease: "power3.out" }
         );
 
-        // Scroll indicator animation
+        // Scroll indicator animation - fade in only
         gsap.fromTo("#hero .animate-bounce", 
-            { y: 0, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.5, delay: 1.5, ease: "power2.out" }
+            { opacity: 0 },
+            { opacity: 1, duration: 0.5, delay: 1.5, ease: "power2.out" }
         );
 
-        // Timeline items animation
+        // Timeline items animation - fade in only
         gsap.fromTo(".timeline-item", 
-            { x: -100, opacity: 0 },
+            { opacity: 0 },
             { 
-                x: 0, 
                 opacity: 1, 
                 duration: 0.8, 
                 stagger: 0.3,
@@ -903,11 +902,10 @@
             }
         );
 
-        // Projects section animation
+        // Projects section animation - fade in only
         gsap.fromTo("#projects h2, #projects p", 
-            { y: 50, opacity: 0 },
+            { opacity: 0 },
             { 
-                y: 0, 
                 opacity: 1, 
                 duration: 0.8, 
                 stagger: 0.2,
@@ -921,11 +919,10 @@
             }
         );
 
-        // Project cards animation
+        // Project cards animation - fade in only
         gsap.fromTo("#projects .space-y-20 > div", 
-            { y: 80, opacity: 0 },
+            { opacity: 0 },
             { 
-                y: 0, 
                 opacity: 1, 
                 duration: 1, 
                 stagger: 0.3,
