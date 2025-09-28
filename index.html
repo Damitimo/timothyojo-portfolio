@@ -902,13 +902,12 @@
             }
         );
 
-        // Projects section animation - fade in only
+        // Projects section animation - fast fade in all at once
         gsap.fromTo("#projects h2, #projects p", 
             { opacity: 0 },
             { 
                 opacity: 1, 
-                duration: 0.8, 
-                stagger: 0.2,
+                duration: 0.3, 
                 ease: "power2.out",
                 scrollTrigger: {
                     trigger: "#projects",
@@ -919,13 +918,12 @@
             }
         );
 
-        // Project cards animation - fade in only
+        // Project cards animation - fast fade in all at once
         gsap.fromTo("#projects .space-y-20 > div", 
             { opacity: 0 },
             { 
                 opacity: 1, 
-                duration: 1, 
-                stagger: 0.3,
+                duration: 0.3, 
                 ease: "power2.out",
                 scrollTrigger: {
                     trigger: "#projects .space-y-20",
