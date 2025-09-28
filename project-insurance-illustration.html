@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Illustration Software - Timothy Ojo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/components.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    maxWidth: {
+                        'container-large': '75rem'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .container {
+            max-width: 75rem;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .content-block {
+            padding: 2rem 0;
+        }
+        
+        .spacer {
+            height: 6rem;
+        }
+        
+        .spacer-top {
+            height: 6rem;
+        }
+        
+        .spacer-section {
+            height: 4rem;
+        }
+        
+        .project-title {
+            font-size: 6rem;
+            font-weight: 700;
+            line-height: 6rem;
+            letter-spacing: -0.15555555555555556rem;
+            color: #111827;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #111827;
+            margin-bottom: 1rem;
+        }
+        
+        .subsection-title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #111827;
+            margin-bottom: 0.5rem;
+        }
+        
+        .body-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #4B5563;
+        }
+        
+        .project-summary {
+            font-size: 1.5rem;
+            line-height: 120%;
+            letter-spacing: -0.01rem;
+            color: #6B7280;
+            text-align: left;
+            max-width: 800px;
+        }
+        
+        .highlight-text {
+            font-size: 1.25rem;
+            line-height: 1.5;
+            color: #111827;
+            font-weight: 500;
+        }
+        
+        .meta-label {
+            font-size: 0.875rem;
+            color: #6B7280;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.25rem;
+        }
+        
+        .meta-value {
+            font-size: 1rem;
+            color: #111827;
+        }
+        
+        .back-link {
+            color: #6B7280;
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+        
+        .back-link:hover {
+            color: #111827;
+        }
+        
+        .image-placeholder {
+            background-color: #374151;
+            width: 100%;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9CA3AF;
+            font-size: 1.125rem;
+        }
+        
+        .image-placeholder-full {
+            background-color: #374151;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9CA3AF;
+            font-size: 1.125rem;
+        }
+        
+        .header-container {
+            max-width: 75rem;
+            margin: 0 auto;
+            padding: 0 2rem;
+            padding-top: 14rem;
+        }
+        
+        .case-study-container {
+            position: relative;
+            max-width: 75rem;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .toc-container {
+            position: sticky;
+            top: 40px;
+            left: 0;
+            width: 200px;
+            z-index: 10;
+            float: left;
+            padding-top: 2rem;
+        }
+        
+        .case-study-content {
+            margin-left: 240px;
+        }
+        
+        .toc-item {
+            display: block;
+            color: #6B7280;
+            text-decoration: none;
+            font-size: 0.875rem;
+            padding: 0.5rem 0;
+            transition: all 0.2s;
+            border-left: 2px solid #E5E7EB;
+            padding-left: 1rem;
+            position: relative;
+        }
+        
+        .toc-item:hover {
+            color: #111827;
+        }
+        
+        .toc-item.active {
+            color: #111827;
+            font-weight: 600;
+            border-left-color: #111827;
+        }
+        
+        .section-anchor {
+            scroll-margin-top: 2rem;
+        }
+        
+        .divider {
+            width: 100px;
+            height: 4px;
+            background-color: #111827;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+    <!-- Navigation -->
+    <header class="absolute top-0 left-0 right-0 z-50">
+        <div class="max-w-container-large mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between py-4">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="text-sm font-medium text-gray-900" style="font-size: 0.888889rem;">Timothy Ojo</a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#experience" class="text-sm text-gray-900 hover:text-gray-600 transition-colors">Experience</a>
+                    <a href="index.html#projects" class="text-sm text-gray-900 hover:text-gray-600 transition-colors">Projects</a>
+                    <a href="about.html" class="text-sm text-gray-900 font-medium hover:text-gray-600 transition-colors">About</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-900 hover:text-gray-600 transition-colors relative z-60">
+                    <svg id="hamburger-icon" class="w-6 h-6 transition-all duration-300 ease-in-out" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path id="line1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16" style="transform-origin: center; transition: all 0.3s ease-in-out;"></path>
+                        <path id="line2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16" style="transform-origin: center; transition: all 0.3s ease-in-out;"></path>
+                        <path id="line3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 18h16" style="transform-origin: center; transition: all 0.3s ease-in-out;"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu Overlay -->
+            <div id="mobile-overlay" class="md:hidden fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4 relative z-50">
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html#experience" class="text-sm text-gray-900 hover:text-gray-600 transition-colors py-3 px-4 min-h-[40px] flex items-center">Experience</a>
+                    <a href="index.html#projects" class="text-sm text-gray-900 hover:text-gray-600 transition-colors py-3 px-4 min-h-[40px] flex items-center">Projects</a>
+                    <a href="about.html" class="text-sm text-gray-900 font-medium hover:text-gray-600 transition-colors py-3 px-4 min-h-[40px] flex items-center">About</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-container">
+        <div class="sections">
+            <!-- Project Title -->
+            <div class="max-w-container-large">
+                <h1 class="project-title">Insurance Illustration Software</h1>
+            </div>
+            
+            <!-- Spacer (4rem) -->
+            <div class="spacer-section"></div>
+            
+            <!-- Divider -->
+            <div class="max-w-container-large">
+                <div class="divider"></div>
+            </div>
+            
+            <!-- Spacer (4rem) -->
+            <div class="spacer-section"></div>
+            
+            <!-- Project Description -->
+            <div class="max-w-container-large">
+                <p class="project-summary">
+                    Led the modernization of RBC's legacy insurance illustration software, partnering with Novinsoft to rebuild the Windows 97-era system using modern technology and improved UX while maintaining design consistency across the RBC ecosystem.
+                </p>
+            </div>
+            
+            <!-- Spacer (4rem) -->
+            <div class="spacer-section"></div>
+            
+            <!-- Project Meta -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-container-large">
+                <div>
+                    <p class="meta-label">Client</p>
+                    <p class="meta-value">RBC Insurance</p>
+                </div>
+                <div>
+                    <p class="meta-label">Date completed</p>
+                    <p class="meta-value">December 2024</p>
+                </div>
+                <div>
+                    <p class="meta-label">Role</p>
+                    <p class="meta-value">Product Manager, RBC</p>
+                </div>
+            </div>
+            
+            <!-- Spacer (4rem) -->
+            <div class="spacer-section"></div>
+            
+            <!-- Hero Image -->
+            <div class="image-placeholder-full">
+                Insurance Illustration Software Interface
+            </div>
+        </div>
+    </div>
+            
+            <!-- Case Study Container -->
+            <div class="case-study-container">
+                <!-- Table of Contents -->
+                <div class="toc-container">
+                    <nav>
+                        <a href="#challenge" class="toc-item">The Challenge</a>
+                        <a href="#competitive" class="toc-item">Competitive Landscape</a>
+                        <a href="#partnership" class="toc-item">Partnership Strategy</a>
+                        <a href="#design-system" class="toc-item">Design System Integration</a>
+                        <a href="#delivery" class="toc-item">Delivery Management</a>
+                        <a href="#impact" class="toc-item">Impact</a>
+                    </nav>
+                </div>
+                
+                <!-- Case Study Content -->
+                <div class="case-study-content">
+        
+                    <!-- The Challenge -->
+                    <section id="challenge" class="content-block section-anchor">
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
+                                <h2 class="subsection-title">The challenge</h2>
+                                <p class="body-text">
+                                    RBC's insurance illustration software had a Windows 97-era interface that was severely outdated compared to competitors like IA and Manulife, who had already modernized their systems. The legacy system created a poor user experience for advisors and potentially impacted sales performance due to its dated appearance and functionality.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+        
+                    <!-- Competitive Landscape -->
+                    <section id="competitive" class="content-block section-anchor">
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
+                                <h2 class="subsection-title">Competitive landscape</h2>
+                                <p class="body-text">
+                                    Our analysis revealed that major competitors like IA and Manulife had already invested in modern illustration software with contemporary UX patterns and visual design. This put RBC at a competitive disadvantage, as advisors might perceive our tools as less professional or reliable compared to the sleek interfaces offered by competitors.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+        
+                    <!-- Partnership Strategy -->
+                    <section id="partnership" class="content-block section-anchor">
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
+                                <h2 class="subsection-title">Partnership strategy</h2>
+                                <p class="body-text">
+                                    We partnered with Novinsoft to rebuild the illustration software using their modern codebase and pre-wired components. While leveraging their technical foundation was beneficial for development speed, we needed to ensure the software would seamlessly integrate with RBC's existing ecosystem and maintain brand consistency.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+        
+                    <!-- Design System Integration -->
+                    <section id="design-system" class="content-block section-anchor">
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
+                                <h2 class="subsection-title">Design system integration</h2>
+                                <p class="body-text">
+                                    One of my key responsibilities was ensuring the Novinsoft team could use their codebase while applying RBC's visual identity. I facilitated the export of our RIG (RBC Insurance Group) design system components through Storybook and Artifactory, providing the development team with comprehensive styling and theme files that maintained brand consistency across the RBC ecosystem.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+        
+                    <!-- Design System Image -->
+                    <section class="content-block">
+                        <div class="container">
+                            <div class="image-placeholder">
+                                RIG Design System Components & Storybook Integration
+                            </div>
+                        </div>
+                    </section>
+        
+                    <!-- Delivery Management -->
+                    <section id="delivery" class="content-block section-anchor">
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
+                                <h2 class="subsection-title">Delivery management</h2>
+                                <p class="body-text">
+                                    I managed the delivery of the project, coordinating between internal stakeholders, the Novinsoft development team, and design system requirements. This involved ensuring timely delivery of design assets, maintaining quality standards, and facilitating smooth integration between the new software and existing RBC systems.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+        
+                    <!-- Impact -->
+                    <section id="impact" class="content-block section-anchor">
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
+                                <h2 class="subsection-title">Impact</h2>
+                                <p class="body-text">
+                                    The modernized insurance illustration software brought RBC's advisor tools in line with industry standards, improving user experience and potentially increasing sales effectiveness. By maintaining design system consistency, we ensured seamless integration with the broader RBC ecosystem while leveraging modern development practices and pre-built components for faster delivery.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+        
+                    <!-- Results Dashboard -->
+                    <section class="content-block">
+                        <div class="container">
+                            <div class="image-placeholder">
+                                Modern Insurance Illustration Interface & Performance Metrics
+                            </div>
+                        </div>
+                    </section>
+        
+                    <!-- Back to Work -->
+                    <section class="content-block">
+                        <div class="container">
+                            <div class="max-w-container-large">
+                                <a href="index.html" class="back-link">← Back to Work</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Component Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <script>
+        // TOC highlighting functionality
+        function updateTOC() {
+            const sections = document.querySelectorAll('.section-anchor');
+            const tocItems = document.querySelectorAll('.toc-item');
+            
+            let currentSection = '';
+            const viewportHeight = window.innerHeight;
+            const triggerPoint = viewportHeight * 0.3;
+            
+            for (let i = 0; i < sections.length; i++) {
+                const section = sections[i];
+                const rect = section.getBoundingClientRect();
+                
+                if (rect.top <= triggerPoint && rect.bottom >= triggerPoint) {
+                    currentSection = section.id;
+                    break;
+                }
+                else if (rect.top <= triggerPoint) {
+                    currentSection = section.id;
+                }
+            }
+            
+            tocItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === '#' + currentSection) {
+                    item.classList.add('active');
+                }
+            });
+        }
+        
+        // Smooth scroll for TOC links
+        document.querySelectorAll('.toc-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Update TOC on scroll
+        window.addEventListener('scroll', updateTOC);
+        
+        // Update TOC on page load
+        document.addEventListener('DOMContentLoaded', updateTOC);
+        
+        // Mobile menu functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileOverlay = document.getElementById('mobile-overlay');
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+        const line1 = document.getElementById('line1');
+        const line2 = document.getElementById('line2');
+        const line3 = document.getElementById('line3');
+        
+        function toggleMobileMenu() {
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            
+            if (isOpen) {
+                mobileMenu.classList.add('hidden');
+                mobileOverlay.classList.add('hidden');
+                line1.style.transform = 'none';
+                line2.style.transform = 'none';
+                line2.style.opacity = '1';
+                line3.style.transform = 'none';
+            } else {
+                mobileMenu.classList.remove('hidden');
+                mobileOverlay.classList.remove('hidden');
+                line1.style.transform = 'rotate(45deg) translate(5px, 5px)';
+                line2.style.transform = 'scaleX(0)';
+                line2.style.opacity = '0';
+                line3.style.transform = 'rotate(-45deg) translate(7px, -6px)';
+            }
+        }
+        
+        mobileMenuButton.addEventListener('click', toggleMobileMenu);
+        mobileOverlay.addEventListener('click', toggleMobileMenu);
+    </script>
+    <script src="js/components.js"></script>
+</body>
+</html>
