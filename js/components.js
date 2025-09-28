@@ -20,5 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Load footer component
+    console.log('Loading footer component...');
     loadComponent('footer', 'footer-placeholder');
 });
