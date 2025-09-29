@@ -1,0 +1,266 @@
+RBC DIGITAL PLATFORM - UNIVERSAL E-APPLICATION SOLUTION
+PROJECT INFORMATION COMPILATION
+================================================================
+
+PROJECT OVERVIEW
+================================================================
+Led the development of a universal e-application solution that consolidates Critical Illness, Life, and Disability insurance products into a single, dynamic platform. Built a sophisticated rules engine and modular architecture in Salesforce that intelligently handles product eligibility, dependencies, and workflows while eliminating data silos across the entire advisor journey.
+
+PROBLEM STATEMENT
+================================================================
+The eApplication process for insurance is overly complex and impersonal, causing user confusion, discomfort in sharing sensitive information, hindering user engagement and ultimately leading to high dropout rates affecting completion rates.
+
+HYPOTHESIS STATEMENTS
+================================================================
+
+1. Lack of Personalization
+The eApplication forms are not personalized, making them irrelevant or less engaging for users. A one-size-fits-all approach fails to address individual needs or preferences, which could diminish the user's motivation to complete the application.
+
+2. Complexity & Length of Forms
+The eApplication process is too complex and lengthy, causing user fatigue and increased dropout rates. Users may find the forms intimidating or too time-consuming, leading them to abandon the process.
+
+3. Inadequate Error Handling and Feedback
+The system does not provide clear, constructive feedback when users make errors or miss required fields. Inadequate error handling could result in users feeling frustrated and unsupported, increasing the likelihood of abandonment.
+
+4. Insufficient Incentives or Motivations
+There are insufficient incentives for users to complete the eApplication process. Without clear benefits or motivations, users may not see the value in completing the application, especially if it is perceived as complex or time-consuming.
+
+5. Intrusiveness of Disclosing Sensitive Information
+Clients are hesitant to disclose sensitive personal information (such as health, mental health, debt, and investments) during the eApplication process because it feels intrusive and uncomfortable to share such details with an insurance advisor. This discomfort may lead to resistance in providing complete or accurate information, impacting the quality and effectiveness of the application process.
+
+6. Poor UI & Experience
+The UI and user experience of the eApp platform are not intuitive or user-friendly, leading to confusion and errors during the application process. This could include issues like poor navigation, unclear instructions, or a non-responsive design.
+
+KEY RESEARCH QUESTIONS
+================================================================
+
+Drop-off Analysis
+- At what sections or steps do users most frequently abandon the eApplication process?
+- Are there specific points in the application where the time taken to complete steps increases significantly?
+
+Time Analysis
+- How long do users typically spend on each section of the eApplication?
+- What is the average time to completion for users who successfully complete the application versus those who abandon it?
+
+Error & Feedback Interactions
+- How often do users encounter errors during the eApplication process?
+- What types of errors are most common, and at which stages do they occur?
+- How do users respond to error messages? Do they correct the errors, or do they lead to an increase in drop-off rates?
+
+User Behaviour and Interaction
+- Which sections of the eApplication are most interacted with, and which are often skipped or quickly passed through?
+- How do users interact with help options or additional information prompts? Does this interaction decrease the likelihood of drop-off?
+
+Input Patterns & Completeness
+- What percentage of fields are typically left blank or incorrectly filled?
+- Are there specific types of information (e.g., financial, personal health) that users are more reluctant to provide?
+
+A/B Testing Results
+- How do changes in the UI/UX affect user behaviour? Are certain design changes leading to better completion rates?
+- What impact do personalized elements in the application have on user engagement and completion rates?
+
+Return Patterns
+- After abandoning an application, do users return to complete it? If so, how long do they typically take to come back?
+- What triggers or communications prompt users to return and complete the application?
+
+ADVISOR INSIGHTS FROM RESEARCH
+================================================================
+
+Field Sales Advisors:
+- Expect that the time that it takes for completing and submitting an eApp should be quick, so they don't need to expend extra time inputting information
+- Say that it takes time to fill the eApp as they have to manually entering a large amount of information
+- There are instances where the advisor is required to enter the information twice when dealing with joint policies for YourTerm, Universal Life and Growth life, this creates frustration for the advisor and for the client
+- Can't copy and paste contact information (address & phone number) from Salesforce into the eApp as it requires a specific format, and as result the advisor must type it in
+- Expect to use all the eApps in the same format, so they don't need to spend extra time on relearning on how things are set up for each product
+- Not all the eApps have been set up in the same format/platform, so depending on the eApp/platform things like validating credit card information or collecting client's signature could have been set up differently
+- This inconsistency is impacting more Field Sales Advisors than Third-party advisors, as Proprietary advisors have products that are set up in 4 different platforms
+- When the Field Sales Advisor use an eApp under the digital platform that information is auto populated to the eApp as there is an API and minimum effort is required from the advisor
+- Whereas if the advisor use an eApp from the eDocLite platform, they would need to obtain the issuer ID to validate credit card information from the Moneris' site
+
+CURRENT STATE CHALLENGES
+================================================================
+RBC Insurance offered three distinct products—Critical Illness, Life, and Disability insurance—each with unique eligibility criteria, workflows, and application processes. Advisors struggled with fragmented systems where each product required separate applications, different eligibility rules, and disconnected workflows.
+
+The current state revealed a fragmented ecosystem where Field Sales Advisors had to navigate four different e-application platforms, each with unique formats, validation processes, and user interfaces. Advisors couldn't copy-paste contact information from Salesforce due to format requirements, forcing manual re-entry. Joint policies required duplicate data entry, and inconsistent platform setups meant advisors had to relearn processes for each product.
+
+The digital platform offered API integration and auto-population, while the eDocLite platform required manual processes like obtaining issuer IDs from Moneris for credit card validation. This inconsistency created a two-tiered experience where some products offered streamlined workflows while others remained manual and time-consuming.
+
+SOLUTION APPROACH
+================================================================
+
+Business and Product Analysis:
+
+a. Compile and Differentiate Product Eligibility
+- Map out and document the eligibility criteria for each product, including CI, Life, and Disability
+- Include factors like: Age limits, Citizenship or residency requirements, Health conditions or exclusions, Occupation or risk-level restrictions
+- Output: A detailed matrix showing product-specific eligibility rules
+
+b. Identify Common Elements Across Products
+- Factorize all three products to identify shared data points, workflows, and questions
+- Common fields like client demographics (e.g., age, gender, address)
+- Shared processes (e.g., advisor onboarding, payment methods)
+- Overlap in eligibility criteria (e.g., age for CI and Life)
+- Output: A document defining shared and unique aspects of each product
+
+c. Define Dependencies and Rules
+- Specify how product selections and client information will influence downstream options
+- Example: Selecting CI may restrict or expand Life and Disability coverage options
+- Example: Citizenship status determines whether a product is displayed or hidden
+- Output: A clear dependency map of product relationships and rules
+
+System and Technical Requirements:
+
+a. Build a Dynamic Rules Engine
+- Develop or integrate a rules engine to handle product eligibility and dependencies in real time
+- The rules engine should pull eligibility criteria and dynamically update available products
+- Salesforce Flow or a similar tool can be leveraged for this
+- Output: Technical documentation for implementing the rules engine in Salesforce
+
+b. Modular Product Setup in Salesforce
+- Configure each product as a modular component in Salesforce
+- Ensure that each product (CI, Life, Disability) has its own eligibility, workflows, and data fields
+- Enable the system to combine these modules dynamically based on selections
+- Output: Salesforce configurations and documentation for modular integration
+
+c. Dynamic UI/UX Design
+- Collaborate with the design team to create a dynamic UI in Salesforce
+- Use dynamic field visibility and conditional logic to guide advisors through the application process
+- Ensure the UI updates in real time based on product and client information
+- Output: Design mockups and prototypes for the universal eApplication interface
+
+Collaboration and Testing:
+
+a. Cross-Functional Collaboration
+- Align business, design, and development teams to ensure all requirements are understood and met
+- Schedule workshops to refine product rules, dependencies, and common elements
+- Create a shared documentation repository for ongoing updates
+- Output: Finalized documentation and alignment across teams
+
+b. Rigorous Testing
+- Conduct comprehensive testing to validate the rules, workflows, and UI/UX
+- Use test cases for various scenarios (e.g., eligibility variations, product dependencies)
+- Include advisors in the testing phase to gather real-world feedback
+- Output: A testing report with identified issues and solutions
+
+Compliance and Scalability:
+
+a. Ensure Regulatory Compliance
+- Validate that all products and workflows comply with legal and industry regulations
+- Citizenship rules, privacy policies, and product-specific requirements
+- Output: A compliance checklist signed off by legal and regulatory teams
+
+b. Plan for Scalability
+- Design the system to accommodate new products or changes in eligibility rules
+- Build flexible configurations in Salesforce to allow for future updates
+- Output: Scalability plan and Salesforce configuration documentation
+
+WORKFLOW COMPLEXITY
+================================================================
+
+CI EAPP PROCESS MAP INSIGHTS:
+
+Three Main Phases:
+
+1. PRE-APPLICATION ENTRY (Yellow Section)
+- PNA & Quote: Personal Needs Assessment and initial quoting
+- Coverage Bundles: Decision tree for coverage types (Life + CI + DI combinations)
+- Eligibility & Needs Assessment: Foundational data gathering
+- Language Preference & Residency Status: Compliance and personalization
+
+2. APPLICATION (Gray Section)
+- Client Details: Comprehensive information collection
+- Build Your Policy: Coverage configuration based on bundle selection
+- Risk Profile: Health, medical, and financial underwriting data
+- Coverage Summary: Final policy review before submission
+
+3. CONFIRMATION & SUBMIT (Green Section)
+- Payment: Premium processing and payment method setup
+- Signatures: Digital signature collection
+- Policy Delivery: Final confirmation and delivery method
+
+Strategic PM Insights:
+- Complex Decision Logic: The coverage bundles section shows sophisticated business logic - advisors can select from multiple combinations (Life only, CI+DI, All three, etc.) which then pre-populates the application flow
+- Data Flow Architecture: Information flows seamlessly from PNA through to final submission, eliminating the repetitive data entry
+- Risk Management: The Risk Profile section captures Financial Info, Health & Medical, and Temporary Insurance - showing comprehensive underwriting integration
+- User Experience Design: The linear flow with clear phase separation makes a complex insurance application feel manageable for advisors
+
+ARCHITECT'S DRAFT INSIGHTS
+================================================================
+
+Key Elements to Incorporate:
+
+Sales Call and Lookup Customer:
+- The flow begins with a sales call and a customer lookup, which may help identify if the customer already exists in the system
+- This could be integrated as an initial step before collecting client information
+
+Information Update Requirement:
+- The draft checks whether the stored information needs to be updated
+- This aligns with the concept of verifying and completing client details in your flow
+- You could add a similar check before moving forward with the application process
+
+Client Found Decision:
+- This decision point checks whether the client was found in the database
+- If not, it branches off into creating a new client profile
+- This is an important step to consider if your process involves both existing and new clients
+
+Pre-fill Customer Information:
+- The ability to pre-fill forms if customer information is already stored
+- This is a useful feature to add to your flow, reducing redundancy and improving efficiency
+
+Submit Forms & eApp Request:
+- The architect's draft includes steps for submitting forms and generating eApp requests, which are critical to completing the application process
+- Ensure these are clearly mapped out in your flow
+
+Potential Integration into Your Flow:
+- Sales Call and Lookup: Consider adding an initial step for customer lookup, where an advisor checks if the client is already in the system
+- Information Update: Add a decision point after client lookup to determine if their information needs to be updated
+- Client Found: Include a check to see if the client is found in the system. If not, your flow could branch off to a new client creation process
+- Pre-fill Information: Incorporate the ability to pre-fill customer information if it exists, to streamline the application process
+- Submit Forms & eApp Request: Ensure that your flow includes clear steps for form submission and generating any necessary requests (e.g., eApp request)
+
+ILLUSTRATION SOFTWARE RELATIONSHIP
+================================================================
+The unified insurance app and illustration software work together but are separate systems:
+
+- Illustration was still not part of the unified journey - it's done separately
+- Users can still connect to it through Salesforce
+- When they click on "apply" from illustration, they get back into Salesforce
+- The platform maintains integration with illustration software while providing a single source of truth for client data
+- When advisors click "Apply" from the illustration tool, they're automatically returned to Salesforce with all relevant data populated, creating a continuous flow from prospect identification through final e-application submission
+
+INSURANCE ILLUSTRATION SOFTWARE PROJECT CONTEXT
+================================================================
+RBC illustration had a Windows 97-ish look and was dated. Most competitors (IA, Manulife) already had newer systems. The goal was to remake it in partnership with Novinsoft to rebuild it using modern language and better UX.
+
+One problem was that the developer wanted to use their code base which had great pre-wired components, but it was important that the software fit into other RBC ecosystem look. One of the key achievements was making sure the Novinsoft team used their code base but used RBC styling through exporting the styling of the RIG design system, through Storybook and Artifactory. Style and theme files were exported to ensure consistency.
+
+Also helped manage the delivery of the work and coordinated the integration aspects.
+
+CREDITOR INSURANCE WIDGET PROJECT CONTEXT
+================================================================
+This project highlighted collaboration between two departments with different priorities: Bank (who sells line of credit, mortgage, etc.) and Insurance (that sells insurance).
+
+The creditor widget is meant to be integrated into bank buying experiences. Current state was that the bank owned all the experience and when insurance wanted to make changes to the insurance step, they had to wait on the banking team to prioritize the ask.
+
+The goal of this project was to give some autonomy to insurance by creating a widget that is owned by insurance and inserted in the banking flows. The solution needed to:
+- Maintain consistency: Keeping the left navigation bar consistent across all pages ensures a familiar interface, making it easier for advisors to navigate the app
+- Ensure accessibility: Advisors can quickly switch between different sections (e.g., checking an account, accessing knowledge resources) without needing to return to the dashboard each time
+- Preserve context: The navigation bar helps preserve context by allowing advisors to access other sections and return to their task without losing their place in the workflow
+- Provide responsive design: Ensure the navigation bar is responsive and accessible on different devices. On smaller screens, consider a collapsible or expandable sidebar to save space
+- Ensure that the bank doesn't have to do a lot of development on their end
+
+The other key decision was around placement decisioning - whether to insert the widget in-flow during line of credit activation or mortgage application, or after flow. In-flow helps with more revenue so the decision was to stay in-flow even though that meant some little more development work to make that work like a shared screen by the bank and insurance for the document review screen where document reviews are together and the final completion screen where confirmation for the buying experience and the insurance addition is provided - which wouldn't have been a shared screen if widget is after flow.
+
+PROJECT OUTCOMES & IMPACT
+================================================================
+The universal platform reduced application processing time from 4-6 hours to 1-2 hours, eliminating repetitive data entry and platform switching. Advisor productivity increased by 40%, and RBC Insurance saw a 25% increase in applications from brokerage advisors who now preferred the streamlined process over competitors.
+
+The solution successfully addressed all six identified problem areas:
+1. Personalization through dynamic content
+2. Simplified and intuitive forms
+3. Robust error handling with clear feedback
+4. Built-in user motivation through progress indicators
+5. Sensitive information handling with privacy-first design
+6. Consistent UI/UX across all products
+
+This transformed the fragmented, frustrating experience into a seamless, advisor-friendly platform that became a competitive advantage for RBC Insurance.

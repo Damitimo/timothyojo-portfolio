@@ -22,7 +22,7 @@
         .container {
             max-width: 75rem;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0; /* No padding - case-study-container handles it */
         }
         
         .content-block {
@@ -56,7 +56,7 @@
             font-size: 6rem;
             font-weight: 700;
             line-height: 6rem;
-            letter-spacing: -0.15555555555555556rem;
+            letter-spacing: -0.125rem;
             color: #111827;
         }
         
@@ -135,7 +135,7 @@
         .header-container {
             max-width: 75rem;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1rem; /* Same as px-4 (16px) to match homepage */
             padding-top: 14rem; /* Account for absolute navigation (py-4 + content height) + 14rem spacing */
         }
         
@@ -143,7 +143,7 @@
             position: relative;
             max-width: 75rem;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1rem; /* Same as px-4 (16px) to match homepage */
         }
         
         .toc-container {
@@ -175,7 +175,7 @@
             }
             
             .container {
-                padding: 0 1rem;
+                padding: 0; /* No padding - case-study-container handles it */
             }
             
             .project-title {
@@ -278,7 +278,7 @@
         <div class="sections">
             <!-- Project Title -->
             <div class="max-w-container-large">
-                <h1 class="project-title">RBC Insurance Digital Transformation</h1>
+                <h1 class="project-title">Transforming RBC Insurance: Building a Unified e-Application Platform</h1>
             </div>
             
             <!-- Spacer (4rem) -->
@@ -295,7 +295,7 @@
             <!-- Project Description -->
             <div class="max-w-container-large">
                 <p class="project-summary">
-                    Led the development of a unified insurance platform that consolidates the entire advisor journey from prospect account creation to final e-application submission. Eliminated data silos and repetitive data entry across multiple platforms, resulting in increased advisor productivity and improved sales conversion rates.
+                    Led the development of a universal e-application solution that consolidates Critical Illness, Life, and Disability insurance products into a single, dynamic platform. Built a sophisticated rules engine and modular architecture in Salesforce that intelligently handles product eligibility, dependencies, and workflows while eliminating data silos across the entire advisor journey.
                 </p>
             </div>
             
@@ -335,10 +335,13 @@
                     <nav>
                         <a href="#challenge" class="toc-item">The Challenge</a>
                         <a href="#research" class="toc-item">Research</a>
+                        <a href="#methodology" class="toc-item">Research Methodology</a>
                         <a href="#findings" class="toc-item">Key Findings</a>
                         <a href="#current-state" class="toc-item">Current State</a>
                         <a href="#opportunity" class="toc-item">Opportunity</a>
                         <a href="#solution" class="toc-item">Solution</a>
+                        <a href="#architecture" class="toc-item">Product Architecture</a>
+                        <a href="#workflow" class="toc-item">Advisor Workflow</a>
                         <a href="#features" class="toc-item">Key Features</a>
                         <a href="#impact" class="toc-item">Impact</a>
                     </nav>
@@ -353,7 +356,10 @@
                             <div class="max-w-container-large ml-auto">
                             <h2 class="subsection-title">The challenge</h2>
                             <p class="body-text">
-                                The insurance advisor journey was fragmented across multiple disconnected platforms. Advisors had to create prospect accounts in Salesforce, conduct Personal Needs Assessments (PNA) in Salesforce, perform quoting in a separate platform, and submit e-applications in yet another system. This disjointed flow required repetitive data entry, increased processing time, and created friction that led brokerage advisors to choose competitors over RBC Insurance.
+                                RBC Insurance offered three distinct products—Critical Illness, Life, and Disability insurance—each with unique eligibility criteria, workflows, and application processes. Advisors struggled with fragmented systems where each product required separate applications, different eligibility rules, and disconnected workflows. The complexity of managing product dependencies, citizenship requirements, age limits, and health conditions across multiple platforms created inefficiencies and advisor frustration.
+                            </p>
+                            <p class="body-text">
+                                Additionally, there was no unified way to handle common elements across products or dynamically adjust available options based on client information and product selections. This led to errors, compliance issues, and a cumbersome experience that drove advisors to choose competitors with more streamlined solutions.
                             </p>
                         </div>
                     </div>
@@ -365,7 +371,10 @@
                             <div class="max-w-container-large ml-auto">
                                 <h2 class="subsection-title">Research</h2>
                                 <p class="body-text">
-                                    We conducted extensive user research with insurance advisors to map the complete journey from prospect to policy. Through interviews, workflow analysis, and time-motion studies, we identified critical pain points: repetitive data entry across four different platforms, context switching between systems, and the time-consuming nature of the fragmented process that discouraged advisors from choosing RBC Insurance.
+                                    We conducted comprehensive user research with both advisors and clients to understand the complete e-application experience. Our research revealed that the process suffered from high dropout rates due to complexity, lack of personalization, and inadequate error handling. We identified specific pain points including advisor frustration with manual data entry, inconsistent platforms across products, and client discomfort with sharing sensitive information.
+                                </p>
+                                <p class="body-text">
+                                    Through detailed analysis, we discovered that advisors were spending excessive time on data entry, often entering information twice for joint policies, and struggling with format inconsistencies across different e-application platforms. Field Sales Advisors were particularly impacted, having to relearn different formats for each product and navigate between four separate platforms with varying validation processes.
                                 </p>
                             </div>
                         </div>
@@ -380,13 +389,40 @@
                 </div>
             </section>
             
+                    <!-- Research Methodology -->
+                    <section id="methodology" class="content-block section-anchor">
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
+                                <h2 class="subsection-title">Research methodology</h2>
+                                <p class="body-text">
+                                    Our research approach focused on understanding both user behavior and system performance through comprehensive data analysis. We established key research questions around drop-off analysis, time analysis, error patterns, user interactions, and A/B testing results. This methodology enabled us to identify specific pain points and measure the effectiveness of our solution iterations.
+                                </p>
+                                <p class="body-text">
+                                    Key research areas included: analyzing where users most frequently abandon the application process, measuring time spent on each section, identifying common error types and their impact on completion rates, understanding user interaction patterns with help options, and evaluating input completeness across different information types. We also examined return patterns to understand user re-engagement behavior after initial abandonment.
+                                </p>
+                                <p class="body-text">
+                                    This data-driven approach allowed us to establish an observability practice for ongoing e-application optimization, ensuring our solution addressed real user needs rather than assumptions.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+            
+            <!-- Methodology Diagram -->
+            <section class="content-block">
+                <div class="container">
+                    <div class="image-placeholder">
+                        Research Framework & Data Analysis Approach
+                    </div>
+                </div>
+            </section>
+            
                     <!-- Key Findings -->
                     <section id="findings" class="content-block section-anchor">
                         <div class="container">
                             <div class="max-w-container-large ml-auto">
                                 <h2 class="subsection-title">Key findings</h2>
                                 <p class="highlight-text">
-                                    Advisors were losing 2-3 hours per application due to repetitive data entry and platform switching. 60% of brokerage advisors cited the cumbersome process as a reason for choosing competitors over RBC Insurance.
+                                    Our research identified six core problems: lack of personalization, complex and lengthy forms, inadequate error handling, insufficient user motivation, client discomfort with sensitive information disclosure, and poor UI/UX across inconsistent platforms. These issues resulted in high dropout rates and advisor frustration, with Field Sales Advisors particularly impacted by having to navigate four different e-application platforms.
                                 </p>
                             </div>
                         </div>
@@ -398,7 +434,10 @@
                             <div class="max-w-container-large ml-auto">
                                 <h2 class="subsection-title">Current state analysis</h2>
                                 <p class="body-text">
-                                    The insurance journey was split across four separate platforms: Salesforce for account creation and PNA, a standalone quoting system, and a separate e-application platform. Each step required re-entering client information, creating data inconsistencies and advisor frustration. The entire process could take 4-6 hours for a single application.
+                                    The current state revealed a fragmented ecosystem where Field Sales Advisors had to navigate four different e-application platforms, each with unique formats, validation processes, and user interfaces. Advisors couldn't copy-paste contact information from Salesforce due to format requirements, forcing manual re-entry. Joint policies required duplicate data entry, and inconsistent platform setups meant advisors had to relearn processes for each product.
+                                </p>
+                                <p class="body-text">
+                                    The digital platform offered API integration and auto-population, while the eDocLite platform required manual processes like obtaining issuer IDs from Moneris for credit card validation. This inconsistency created a two-tiered experience where some products offered streamlined workflows while others remained manual and time-consuming.
                                 </p>
                             </div>
                         </div>
@@ -424,7 +463,7 @@
                             <div class="max-w-container-large ml-auto">
                                 <h2 class="subsection-title">Opportunity</h2>
                                 <p class="body-text">
-                                    By creating a single platform that carries information seamlessly from account creation through final application submission, we could eliminate repetitive data entry, reduce processing time, and make RBC Insurance the preferred choice for brokerage advisors. The opportunity was to create a unified experience that flows naturally from prospect to policy.
+                                    The opportunity was to create a universal e-application solution that addressed all six identified problem areas: personalization through dynamic content, simplified and intuitive forms, robust error handling with clear feedback, built-in user motivation through progress indicators, sensitive information handling with privacy-first design, and consistent UI/UX across all products. This would transform the fragmented, frustrating experience into a seamless, advisor-friendly platform.
                                 </p>
                             </div>
                         </div>
@@ -435,7 +474,7 @@
                 <div class="container">
                     <div class="max-w-container-large ml-auto">
                         <p class="highlight-text">
-                            A unified platform where advisors create prospect accounts, conduct Personal Needs Assessments, generate quotes with multiple variations, and submit e-applications—all while information flows seamlessly between steps without repetitive data entry.
+                            A universal e-application solution where advisors can seamlessly handle Critical Illness, Life, and Disability insurance products through a single, intelligent platform that dynamically adjusts based on client information and product selections, powered by a sophisticated rules engine and modular architecture.
                         </p>
                     </div>
                 </div>
@@ -447,7 +486,7 @@
                             <div class="max-w-container-large ml-auto">
                                 <h2 class="subsection-title">Solution overview</h2>
                                 <p class="body-text">
-                                    The unified platform consolidates the entire insurance journey into a single, seamless flow. Advisors create prospect accounts, conduct Personal Needs Assessments, generate quotes with multiple variations, and submit e-applications—all within one platform where information carries forward automatically, eliminating repetitive data entry and reducing processing time.
+                                    The universal e-application solution consolidates Critical Illness, Life, and Disability insurance products into a single, dynamic platform. Built on a modular architecture in Salesforce, the system uses a sophisticated rules engine to handle product eligibility, dependencies, and workflows in real-time. The platform intelligently adjusts available options based on client information, citizenship status, age limits, and product selections while maintaining compliance across all regulatory requirements.
                                 </p>
                             </div>
                         </div>
@@ -462,13 +501,67 @@
                 </div>
             </section>
             
+                    <!-- Product Architecture -->
+                    <section id="architecture" class="content-block section-anchor">
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
+                                <h2 class="subsection-title">Product architecture</h2>
+                                <p class="body-text">
+                                    The solution required comprehensive business and product analysis to map eligibility criteria across all three insurance products. We created a detailed matrix documenting age limits, citizenship requirements, health conditions, and occupation restrictions for each product. This analysis revealed common elements like client demographics and shared processes, while identifying unique aspects that required specialized handling.
+                                </p>
+                                <p class="body-text">
+                                    The technical architecture centers on a dynamic rules engine built in Salesforce that handles product eligibility and dependencies in real-time. Each product (CI, Life, Disability) was configured as a modular component with its own eligibility criteria, workflows, and data fields. The system dynamically combines these modules based on client selections, using conditional logic and dynamic field visibility to guide advisors through the application process.
+                                </p>
+                                <p class="body-text">
+                                    Key architectural decisions included building flexible configurations to accommodate future products, ensuring regulatory compliance across all workflows, and creating a scalable foundation that could adapt to changing business requirements without requiring system overhauls.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+            
+            <!-- Architecture Diagram -->
+            <section class="content-block">
+                <div class="container">
+                    <div class="image-placeholder">
+                        Modular Product Architecture & Rules Engine
+                    </div>
+                </div>
+            </section>
+            
+                    <!-- Advisor Workflow -->
+                    <section id="workflow" class="content-block section-anchor">
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
+                                <h2 class="subsection-title">Advisor workflow</h2>
+                                <p class="body-text">
+                                    The platform orchestrates a complex workflow that begins with sales calls and customer lookup in Salesforce. The system intelligently determines whether client information needs updating, pre-fills forms when data exists, and seamlessly integrates with illustration software for policy calculations. When advisors click "Apply" from the illustration tool, they're automatically returned to Salesforce with all relevant data populated, creating a continuous flow from prospect identification through final e-application submission.
+                                </p>
+                                <p class="body-text">
+                                    Key workflow elements include: client lookup and persona-based searches, automatic information verification and updates, seamless data transfer between Salesforce and illustration software, and intelligent form pre-filling based on existing client data. This eliminates the manual data transfer that previously caused errors and delays.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+            
+            <!-- Workflow Diagram -->
+            <section class="content-block">
+                <div class="container">
+                    <div class="image-placeholder">
+                        Advisor Workflow Diagram - Salesforce Integration
+                    </div>
+                </div>
+            </section>
+            
                     <!-- Key Features -->
                     <section id="features" class="content-block section-anchor">
                         <div class="container">
                             <div class="max-w-container-large ml-auto">
                                 <h2 class="subsection-title">Key features</h2>
                                 <p class="body-text">
-                                    The platform features a seamless flow from prospect account creation through e-application submission, with automatic data carryover between steps. Advisors can conduct Personal Needs Assessments, generate multiple quote variations, and submit applications without re-entering information. The system includes progress tracking, automated workflows, and real-time collaboration tools.
+                                    The platform features dynamic product selection based on real-time eligibility checking, intelligent form pre-filling using existing client data, and conditional workflows that adapt to product combinations. Key features include a sophisticated rules engine that handles complex product dependencies, modular product configurations that enable easy updates, and comprehensive compliance validation across all regulatory requirements.
+                                </p>
+                                <p class="body-text">
+                                    The system dynamically adjusts the user interface based on product selections and client information, hiding irrelevant options and surfacing relevant choices. Cross-functional collaboration tools enable business, design, and development teams to maintain and update product rules without requiring system rebuilds.
                                 </p>
                             </div>
                         </div>
