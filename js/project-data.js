@@ -1,8 +1,8 @@
 // Project data - single source of truth
 const projectData = {
     'rbc-digital-platform': {
-        title: 'From Fragmented to Unified: Building a Dynamic Insurance Platform That Reduced Application Processing Time by 60%',
-        description: 'Led the end-to-end development of a unified digital platform in Salesforce that consolidated Critical Illness, Life, and Disability insurance products.',
+        title: 'From Fragmented to Unified: Building a Dynamic Insurance Platform That Reduced Application Processing Time by 50%',
+        description: 'Led product strategy and cross-functional development of a unified Salesforce platform consolidating Critical Illness, Life, and Disability insurance products. Defined requirements for a dynamic rules engine and modular architecture that eliminated data silos, reduced processing time by 50% (4-6 hours to 1-2 hours), and increased advisor productivity by 40%, driving a 25% uplift in applications from brokerage advisors.',
         url: 'project-rbc-digital-platform.html'
     },
     'insurance-illustration': {
