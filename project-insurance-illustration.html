@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insurance Illustration Software - Timothy Ojo</title>
+    <title>Insurance Illustration Software Modernization - Timothy Ojo</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="js/components.js"></script>
     <script src="js/project-data.js"></script>
@@ -277,7 +277,7 @@
         <div class="sections">
             <!-- Project Title -->
             <div class="max-w-container-large">
-                <h1 class="project-title">Insurance Illustration Software</h1>
+                <h1 class="project-title">Insurance Illustration Software Modernization</h1>
             </div>
             
             <!-- Spacer (4rem) -->
@@ -294,7 +294,7 @@
             <!-- Project Description -->
             <div class="max-w-container-large">
                 <p class="project-summary">
-                    Led the modernization of RBC's legacy insurance illustration software, partnering with Novinsoft to rebuild the Windows 97-era system using modern technology and improved UX while maintaining design consistency across the RBC ecosystem.
+                    Led the strategic modernization of RBC's Windows 97-era insurance illustration software, architecting a vendor partnership with Novinsoft that balanced technical reuse with brand consistency. Navigated complex technical trade-offs including security, compliance, and intellectual property protection while delivering a modern, scalable solution.
                 </p>
             </div>
             
@@ -334,6 +334,9 @@
                     <nav>
                         <a href="#challenge" class="toc-item">The Challenge</a>
                         <a href="#competitive" class="toc-item">Competitive Landscape</a>
+                        <a href="#decision-framework" class="toc-item">Decision Framework</a>
+                        <a href="#technical-architecture" class="toc-item">Technical Architecture</a>
+                        <a href="#cloud-transformation" class="toc-item">Cloud Transformation</a>
                         <a href="#partnership" class="toc-item">Partnership Strategy</a>
                         <a href="#design-system" class="toc-item">Design System Integration</a>
                         <a href="#delivery" class="toc-item">Delivery Management</a>
@@ -350,7 +353,10 @@
                             <div class="max-w-container-large ml-auto">
                                 <h2 class="subsection-title">The challenge</h2>
                                 <p class="body-text">
-                                    RBC's insurance illustration software had a Windows 97-era interface that was severely outdated compared to competitors like IA and Manulife, who had already modernized their systems. The legacy system created a poor user experience for advisors and potentially impacted sales performance due to its dated appearance and functionality.
+                                    RBC's insurance illustration software had a Windows 97-era interface that was severely outdated compared to competitors like IA and Manulife, who had already modernized their systems. Beyond the visual design issues, the legacy system was fully offline, requiring advisors to complete illustrations on their specific device with no ability to share work-in-progress with colleagues or access illustrations from multiple locations.
+                                </p>
+                                <p class="body-text">
+                                    This offline architecture created significant operational limitations: advisors couldn't collaborate on complex illustrations, work was trapped on individual devices, there was no backup or recovery capability, and advisors couldn't access their work remotely. These technical constraints directly impacted advisor productivity and client service quality.
                                 </p>
                             </div>
                         </div>
@@ -368,13 +374,97 @@
                         </div>
                     </section>
         
+                    <!-- Decision Framework -->
+                    <section id="decision-framework" class="content-block section-anchor">
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
+                                <h2 class="subsection-title">Decision framework</h2>
+                                <p class="body-text">
+                                    I led the evaluation of three strategic options for the Novinsoft RIG collaboration, analyzing each approach across multiple dimensions including security risk, compliance requirements, ongoing maintenance, design consistency, and long-term sustainability. This comprehensive decision matrix evaluated trade-offs between technical efficiency and strategic control.
+                                </p>
+                                <p class="body-text">
+                                    The analysis covered critical factors: security risks from external code sharing, compliance requirements for legal review and procurement, maintenance complexity for ongoing updates, intellectual property protection, and scalability for future vendor relationships. Each option was rated across these dimensions to inform the optimal technical architecture decision.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+        
+                    <!-- Decision Matrix -->
+                    <section class="content-block">
+                        <div class="container">
+                            <div class="image-placeholder">
+                                Novinsoft RIG Collaboration Decision Matrix
+                            </div>
+                        </div>
+                    </section>
+        
+                    <!-- Technical Architecture -->
+                    <section id="technical-architecture" class="content-block section-anchor">
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
+                                <h2 class="subsection-title">Technical architecture</h2>
+                                <p class="body-text">
+                                    Based on the decision framework analysis, I recommended the "Novinsoft Components with RIG Styling" approach, which achieved the optimal balance of speed, security, and brand consistency. This solution allowed Novinsoft to leverage their existing component library while applying RBC's visual design through exported styling properties, all built on a modern cloud-based architecture.
+                                </p>
+                                <p class="body-text">
+                                    The technical architecture transformed the system from offline-only to cloud-enabled, enabling critical new capabilities: cloud data storage for persistent illustrations, multi-device access for advisor flexibility, real-time collaboration between advisors and colleagues, automatic backup and recovery, and seamless integration with RBC's broader digital ecosystem.
+                                </p>
+                                <p class="body-text">
+                                    Key technical decisions included: maintaining low security risk by sharing only visual design specifications (no proprietary code), ensuring standard vendor agreement compliance, enabling periodic styling updates through automated processes, achieving excellent design consistency through actual RIG components, implementing secure cloud storage architecture, and establishing a seamless integration path for future RBC system transfers.
+                                </p>
+                                <p class="body-text">
+                                    This architecture provided fast implementation speed with low complexity while preserving RBC's intellectual property, maintaining full control over brand presentation, and delivering modern cloud-based functionality that matched competitor capabilities.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+        
+                    <!-- Architecture Diagram -->
+                    <section class="content-block">
+                        <div class="container">
+                            <div class="image-placeholder">
+                                Technical Architecture: Component Library + RIG Styling Integration
+                            </div>
+                        </div>
+                    </section>
+        
+                    <!-- Cloud Transformation -->
+                    <section id="cloud-transformation" class="content-block section-anchor">
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
+                                <h2 class="subsection-title">Cloud transformation</h2>
+                                <p class="body-text">
+                                    The modernization project fundamentally transformed the illustration software from a fully offline desktop application to a cloud-enabled platform, addressing critical operational limitations that had constrained advisor productivity for years. This architectural shift represented one of the most significant technical improvements in the modernization.
+                                </p>
+                                <p class="body-text">
+                                    Key cloud capabilities delivered include: persistent cloud storage allowing advisors to save and access illustrations from any device, real-time collaboration enabling multiple advisors to work on complex illustrations together, automatic backup and recovery eliminating the risk of lost work, cross-device synchronization for seamless workflow continuity, and integration readiness for future RBC digital ecosystem connections.
+                                </p>
+                                <p class="body-text">
+                                    The business impact was immediate: advisors could now start an illustration in the office and complete it at a client site, senior advisors could collaborate with junior staff on complex cases, and the risk of losing critical client work due to device failure was eliminated. This cloud transformation brought RBC's illustration capabilities in line with modern competitor offerings.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+        
+                    <!-- Cloud Benefits Diagram -->
+                    <section class="content-block">
+                        <div class="container">
+                            <div class="image-placeholder">
+                                Offline vs. Cloud-Enabled: Advisor Workflow Transformation
+                            </div>
+                        </div>
+                    </section>
+        
                     <!-- Partnership Strategy -->
                     <section id="partnership" class="content-block section-anchor">
                         <div class="container">
                             <div class="max-w-container-large ml-auto">
                                 <h2 class="subsection-title">Partnership strategy</h2>
                                 <p class="body-text">
-                                    We partnered with Novinsoft to rebuild the illustration software using their modern codebase and pre-wired components. While leveraging their technical foundation was beneficial for development speed, we needed to ensure the software would seamlessly integrate with RBC's existing ecosystem and maintain brand consistency.
+                                    The partnership strategy with Novinsoft was designed to balance technical efficiency with strategic control. Rather than building from scratch or outsourcing completely, I architected a hybrid approach that leveraged Novinsoft's proven component library while maintaining RBC's design authority and intellectual property protection.
+                                </p>
+                                <p class="body-text">
+                                    This approach delivered multiple strategic benefits: accelerated time-to-market by leveraging existing components, reduced development risk through proven technical foundation, maintained brand consistency through RIG design system integration, preserved RBC's IP by limiting code sharing to visual specifications, and established a scalable framework for future vendor collaborations.
                                 </p>
                             </div>
                         </div>
@@ -386,7 +476,13 @@
                             <div class="max-w-container-large ml-auto">
                                 <h2 class="subsection-title">Design system integration</h2>
                                 <p class="body-text">
-                                    One of my key responsibilities was ensuring the Novinsoft team could use their codebase while applying RBC's visual identity. I facilitated the export of our RIG (RBC Insurance Group) design system components through Storybook and Artifactory, providing the development team with comprehensive styling and theme files that maintained brand consistency across the RBC ecosystem.
+                                    I architected the technical integration between Novinsoft's component library and RBC's RIG design system, establishing a streamlined process for maintaining brand consistency without compromising development velocity. The solution involved exporting RIG design tokens, component specifications, and styling properties through our existing Storybook and Artifactory infrastructure.
+                                </p>
+                                <p class="body-text">
+                                    The technical implementation included: automated export of design tokens (colors, typography, spacing) from RIG to Novinsoft's development environment, component specification documentation through Storybook for consistent implementation, CSS/SCSS theme files distributed via Artifactory for seamless integration, and automated testing to ensure visual consistency across both systems.
+                                </p>
+                                <p class="body-text">
+                                    This approach achieved excellent design consistency while maintaining fast implementation speed and low complexity for ongoing maintenance, scoring as the optimal solution in our decision matrix analysis.
                                 </p>
                             </div>
                         </div>
@@ -419,7 +515,13 @@
                             <div class="max-w-container-large ml-auto">
                                 <h2 class="subsection-title">Impact</h2>
                                 <p class="body-text">
-                                    The modernized insurance illustration software brought RBC's advisor tools in line with industry standards, improving user experience and potentially increasing sales effectiveness. By maintaining design system consistency, we ensured seamless integration with the broader RBC ecosystem while leveraging modern development practices and pre-built components for faster delivery.
+                                    The modernized insurance illustration software delivered transformative business impact by addressing both user experience and operational efficiency challenges. The cloud transformation eliminated the offline limitations that had constrained advisor productivity, while the modern interface brought RBC's tools to competitive parity with industry leaders like IA and Manulife.
+                                </p>
+                                <p class="body-text">
+                                    Key business outcomes included: enhanced advisor productivity through multi-device access and cloud storage, improved collaboration capabilities enabling team-based client service, reduced risk of lost work through automatic backup and recovery, accelerated client engagement through anywhere-access to illustrations, and strengthened competitive positioning with modern, professional-looking tools.
+                                </p>
+                                <p class="body-text">
+                                    The technical architecture decisions ensured long-term sustainability: maintained brand consistency through RIG design system integration, preserved intellectual property through strategic vendor partnership, established scalable framework for future enhancements, and delivered modern development practices with pre-built components for faster iteration cycles.
                                 </p>
                             </div>
                         </div>

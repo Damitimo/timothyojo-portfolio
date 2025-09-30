@@ -1,13 +1,13 @@
 // Project data - single source of truth
 const projectData = {
     'rbc-digital-platform': {
-        title: 'RBC Insurance Digital Transformation',
-        description: 'Led comprehensive digital insurance platform that unified multiple touchpoints into a seamless omni-channel experience.',
+        title: 'From Fragmented to Unified: Building a Dynamic Insurance Platform That Reduced Application Processing Time by 60%',
+        description: 'Led the end-to-end development of a unified digital platform in Salesforce that consolidated Critical Illness, Life, and Disability insurance products.',
         url: 'project-rbc-digital-platform.html'
     },
     'insurance-illustration': {
-        title: 'Insurance Illustration Software',
-        description: 'Modernized legacy insurance illustration system with RBC\'s RIG design system integration.',
+        title: 'Insurance Illustration Software Modernization',
+        description: 'Led strategic modernization of RBC\'s legacy insurance illustration software, architecting vendor partnership with complex technical trade-offs.',
         url: 'project-insurance-illustration.html'
     },
     'creditor-insurance-widget': {
