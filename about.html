@@ -91,87 +91,89 @@
             
             <!-- About Section -->
             <section class="space-y-12 sm:space-y-16 lg:space-y-20">
-                <h1 class="text-3xl sm:text-4xl lg:text-5xl typography-section-headline-bold text-foreground">About Me</h1>
-
-                <!-- Image Grid -->
-                <div class="mb-12">
-                    <img src="public/Timothy image grid.png" alt="Timothy Ojo" class="w-full h-auto rounded-lg">
+                <!-- Hero Section -->
+                <div class="bg-gray-900 rounded-lg p-8 sm:p-12 lg:p-16 flex flex-col md:flex-row items-center gap-8">
+                    <!-- Profile Image -->
+                    <div class="flex-shrink-0">
+                        <img src="public/Ojo_Timothy_headshot.jpg" alt="Timothy Ojo" class="w-48 h-48 object-cover rounded-lg grayscale">
+                    </div>
+                    
+                    <!-- Content -->
+                    <div class="flex-1 text-white">
+                        <div class="inline-block bg-yellow-400 text-black px-3 py-1 text-sm font-semibold rounded mb-4">
+                            Open to work
+                        </div>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">Timothy Ojo</h1>
+                        <p class="text-lg sm:text-xl text-gray-300 mb-6">Product Manager, Designer, Pharmacist</p>
+                        <div class="flex flex-wrap gap-4 text-sm">
+                            <a href="https://linkedin.com/in/ojo-timothy" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-gray-300 hover:text-white transition-colors">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                @ojo-timothy
+                            </a>
+                            <a href="https://twitter.com/dammytimo" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-gray-300 hover:text-white transition-colors">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                                @dammytimo
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-12 sm:gap-16 lg:gap-20">
-                    <div class="space-y-6 sm:space-y-8">
+                    <!-- Left Column -->
+                    <div class="space-y-12">
                         <div>
-                            <h3 class="typography-subheadline mb-4 sm:mb-6">Background</h3>
+                            <h3 class="typography-subheadline mb-3" style="font-size: 2rem;">Background</h3>
                             <p class="text-muted-foreground leading-relaxed">
-                                I earned my Bachelor of Pharmacy with distinction from Obafemi Awolowo University before transitioning into tech through self-teaching.
-                                This unique path equipped me with both the empathy to understand people and the structured thinking to build solutions that improve their experiences.
+                                I earned my Bachelor of Pharmacy with distinction from Obafemi Awolowo University before transitioning into tech through self-teaching. As a pharmacist, I counseled patients on complex medication regimens, learning to translate technical information into clear guidance. This skill now shapes how I communicate product requirements to diverse stakeholders and design intuitive user experiences.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 class="typography-section-headline-bold text-foreground mb-3" style="font-size: 2rem;">My Journey</h3>
+                            <div class="space-y-4">
+                                <p class="text-muted-foreground leading-relaxed">
+                                    My journey from healthcare to technology has been driven by a desire to create meaningful impact at scale. Managing drug interaction protocols taught me to think in systems, understanding how one change ripples through an entire workflow. This systems thinking now informs how I design product features that integrate seamlessly across platforms.
+                                </p>
+                                
+                                <p class="text-muted-foreground leading-relaxed">
+                                    At RBC, I led digital transformation initiatives serving millions of customers, reducing application processing time by 50% and increasing advisor productivity by 40%. The experience reinforced that great products aren't just about features. They're about understanding the human experience and designing solutions that feel intuitive and empowering.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="typography-subheadline mb-3" style="font-size: 2rem;">Currently</h3>
+                            <p class="text-muted-foreground leading-relaxed">
+                                At USC Marshall, I'm combining my healthcare expertise with tech and business strategy to explore how AI and blockchain can solve healthcare's most persistent challenges, from patient data interoperability to medication adherence at scale.
                             </p>
                         </div>
                     </div>
 
-                    <div class="space-y-6">
+                    <!-- Right Column -->
+                    <div class="space-y-12">
                         <div>
-                            <h3 class="typography-subheadline mb-3">Outside of work</h3>
+                            <h3 class="typography-section-headline-bold text-foreground mb-3" style="font-size: 2rem;">My PM Philosophy</h3>
+                            <div class="space-y-4">
+                                <p class="text-muted-foreground leading-relaxed">
+                                    I'm a product manager who obsesses over both strategy and execution. I'm the kind who'll define a product vision and then lose sleep over a misaligned button. My pharmacy background taught me to ask "why aren't patients using this?" This question led me to build a medication adherence app and transition into tech.
+                                </p>
+                                
+                                <p class="text-muted-foreground leading-relaxed">
+                                    I've since led transformations in healthcare, finance, and insurance, but I stay technical: I prototype with Cursor and Next.js because understanding how things work makes me a better strategist. I prioritize solving real problems over building features, measuring impact over output, and enabling teams over managing tasks.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="typography-subheadline mb-3" style="font-size: 2rem;">Outside of school</h3>
                             <p class="text-muted-foreground leading-relaxed">
                                 You'll find me exploring LA's food scene, writing reflective essays, or playing chess. I believe diverse
                                 experiences inform better product decisions.
                             </p>
                         </div>
-                    </div>
-                </div>
 
-                <!-- My Journey -->
-                <div class="space-y-8 sm:space-y-12">
-                    <h3 class="typography-section-headline-bold text-foreground">My Journey</h3>
-                    
-                    <div class="space-y-6">
-                        <p class="text-lg text-muted-foreground leading-relaxed">
-                            My journey from healthcare to technology has been driven by a desire to create meaningful impact at scale. 
-                            As a pharmacist, I learned to understand complex systems and the importance of precision in decision-making. 
-                            This foundation has been invaluable in product management, where I apply the same analytical rigor to 
-                            understand user needs and build solutions that truly matter.
-                        </p>
-                        
-                        <p class="text-lg text-muted-foreground leading-relaxed">
-                            At RBC, I had the privilege of leading digital transformation initiatives that directly impacted millions 
-                            of customers. The experience taught me that great products aren't just about features—they're about 
-                            understanding the human experience and designing solutions that feel intuitive and empowering.
-                        </p>
-                        
-                        <p class="text-lg text-muted-foreground leading-relaxed">
-                            Now, as I pursue my MBA at USC Marshall, I'm exploring the intersection of health tech, product strategy, 
-                            and innovation. I'm particularly interested in how emerging technologies can be applied to solve 
-                            complex healthcare challenges and improve patient outcomes.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- My PM Philosophy -->
-                <div class="space-y-8 sm:space-y-12">
-                    <h3 class="typography-section-headline-bold text-foreground">My PM Philosophy</h3>
-                    
-                    <div class="space-y-6">
-                        <p class="text-lg text-muted-foreground leading-relaxed">
-                            I believe in building products that truly resonate with users. My approach combines analytical thinking
-                            from my pharmacy background with design sensibility and technical understanding to create solutions that
-                            work. Great products emerge from deep user empathy, rigorous data analysis, and cross-functional collaboration.
-                        </p>
-                        
-                        <p class="text-lg text-muted-foreground leading-relaxed">
-                            I prioritize solving real problems over building features, measuring impact over output, and enabling teams
-                            over managing tasks. Product management is about being the voice of the user while balancing business objectives
-                            and technical constraints—finding elegant solutions in complex systems.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Skills & Interests -->
-                <div class="space-y-8 sm:space-y-12">
-                    <h3 class="typography-section-headline-bold text-foreground">Skills & Interests</h3>
-                    
-                    <div class="grid md:grid-cols-2 gap-8 sm:gap-12">
-                        <div class="space-y-4">
-                            <h3 class="typography-subheadline">Core Skills</h3>
+                        <div>
+                            <h3 class="typography-subheadline mb-3" style="font-size: 2rem;">Core Skills</h3>
                             <div class="flex flex-wrap gap-2">
                                 <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
                                     <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Product Strategy</div>
@@ -193,9 +195,9 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="space-y-4">
-                            <h3 class="typography-subheadline">Interests</h3>
+
+                        <div>
+                            <h3 class="typography-subheadline mb-3" style="font-size: 2rem;">Interests</h3>
                             <div class="flex flex-wrap gap-2">
                                 <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
                                     <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Health Tech</div>
@@ -218,6 +220,11 @@
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <!-- Image Grid at Bottom -->
+                <div class="mt-12">
+                    <img src="public/Timothy image grid.png" alt="Timothy Ojo" class="w-full h-auto rounded-lg">
                 </div>
             </section>
         </div>
