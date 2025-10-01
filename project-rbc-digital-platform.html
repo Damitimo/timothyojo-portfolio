@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RBC Digital Insurance Platform - Timothy Ojo</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script src="js/components.js"></script>
     <script src="js/project-data.js"></script>
     <script>
@@ -13,7 +14,43 @@
                 extend: {
                     maxWidth: {
                         'container-large': '75rem'
-                    }
+                    },
+                    colors: {
+                        border: "hsl(214.3 31.8% 91.4%)",
+                        input: "hsl(214.3 31.8% 91.4%)",
+                        ring: "hsl(222.2 84% 4.9%)",
+                        background: "hsl(0 0% 100%)",
+                        foreground: "hsl(222.2 84% 4.9%)",
+                        primary: {
+                            DEFAULT: "hsl(222.2 47.4% 11.2%)",
+                            foreground: "hsl(210 40% 98%)",
+                        },
+                        secondary: {
+                            DEFAULT: "hsl(210 40% 96.1%)",
+                            foreground: "hsl(222.2 47.4% 11.2%)",
+                        },
+                        destructive: {
+                            DEFAULT: "hsl(0 84.2% 60.2%)",
+                            foreground: "hsl(210 40% 98%)",
+                        },
+                        muted: {
+                            DEFAULT: "hsl(210 40% 96.1%)",
+                            foreground: "hsl(215.4 16.3% 46.9%)",
+                        },
+                        accent: {
+                            DEFAULT: "hsl(210 40% 96.1%)",
+                            foreground: "hsl(222.2 47.4% 11.2%)",
+                        },
+                        card: {
+                            DEFAULT: "hsl(0 0% 100%)",
+                            foreground: "hsl(222.2 84% 4.9%)",
+                        },
+                    },
+                    borderRadius: {
+                        lg: "0.5rem",
+                        md: "calc(0.5rem - 2px)",
+                        sm: "calc(0.5rem - 4px)",
+                    },
                 }
             }
         }
@@ -608,29 +645,32 @@
                         </div>
 
                         <!-- Impact callout -->
-                        <div style="margin-top: 2rem; background: #fee2e2; border-left: 4px solid #dc2626; padding: 1.5rem; border-radius: 0 0.5rem 0.5rem 0;">
-                            <div style="font-weight: bold; color: #991b1b; margin-bottom: 0.75rem; font-size: 1.125rem;">The Result: Massive Inefficiency</div>
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="mt-8 bg-destructive/10 border-l-4 border-destructive rounded-r-lg p-6">
+                            <div class="flex items-center gap-2 mb-4">
+                                <i data-lucide="alert-circle" class="w-5 h-5 text-destructive"></i>
+                                <div class="font-bold text-destructive text-lg">The Result: Massive Inefficiency</div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
-                                    <ul style="font-size: 0.875rem; color: #991b1b; space-y: 0.5rem;">
-                                        <li style="display: flex; align-items: flex-start; gap: 0.5rem;">
-                                            <span style="color: #dc2626; font-weight: bold;">⏱️</span>
+                                    <ul class="text-sm text-destructive space-y-3">
+                                        <li class="flex items-start gap-3">
+                                            <i data-lucide="clock" class="w-4 h-4 text-destructive mt-0.5 flex-shrink-0"></i>
                                             <span><strong>2+ hours</strong> to complete 3 applications</span>
                                         </li>
-                                        <li style="display: flex; align-items: flex-start; gap: 0.5rem;">
-                                            <span style="color: #dc2626; font-weight: bold;">⚠️</span>
+                                        <li class="flex items-start gap-3">
+                                            <i data-lucide="alert-triangle" class="w-4 h-4 text-destructive mt-0.5 flex-shrink-0"></i>
                                             <span><strong>20% error rate</strong> from manual re-entry</span>
                                         </li>
                                     </ul>
                                 </div>
                                 <div>
-                                    <ul style="font-size: 0.875rem; color: #991b1b; space-y: 0.5rem;">
-                                        <li style="display: flex; align-items: flex-start; gap: 0.5rem;">
-                                            <span style="color: #dc2626; font-weight: bold;">🔄</span>
+                                    <ul class="text-sm text-destructive space-y-3">
+                                        <li class="flex items-start gap-3">
+                                            <i data-lucide="refresh-cw" class="w-4 h-4 text-destructive mt-0.5 flex-shrink-0"></i>
                                             <span><strong>4 platform logins</strong> and context switching</span>
                                         </li>
-                                        <li style="display: flex; align-items: flex-start; gap: 0.5rem;">
-                                            <span style="color: #dc2626; font-weight: bold;">😤</span>
+                                        <li class="flex items-start gap-3">
+                                            <i data-lucide="trending-down" class="w-4 h-4 text-destructive mt-0.5 flex-shrink-0"></i>
                                             <span>Advisors switching to <strong>competitors</strong></span>
                                         </li>
                                     </ul>
@@ -688,92 +728,131 @@
                                 </div>
 
                                 <!-- Research methodology callout -->
-                                <div style="background: #eff6ff; border-left: 4px solid #3b82f6; padding: 1.5rem; border-radius: 0 0.5rem 0.5rem 0; margin-bottom: 2rem;">
-                                    <div style="font-weight: bold; color: #1e40af; margin-bottom: 0.5rem;">Research Methodology</div>
-                                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.875rem; color: #1e40af;">
+                                <div class="bg-blue-50 border-l-4 border-blue-500 rounded-r-lg p-6 mb-8">
+                                    <div class="flex items-center gap-2 mb-4">
+                                        <i data-lucide="flask-conical" class="w-5 h-5 text-blue-700"></i>
+                                        <div class="font-bold text-blue-900">Research Methodology</div>
+                                    </div>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-blue-900">
                                         <div>
-                                            <div style="font-weight: 600; margin-bottom: 0.5rem;">Qualitative Research:</div>
-                                            <ul style="space-y: 0.25rem; margin-left: 1rem;">
-                                                <li>• 15+ advisor interviews</li>
-                                                <li>• Field observation sessions</li>
-                                                <li>• Pain point mapping workshops</li>
+                                            <div class="flex items-center gap-2 font-semibold mb-2">
+                                                <i data-lucide="users" class="w-4 h-4"></i>
+                                                <span>Qualitative Research:</span>
+                                            </div>
+                                            <ul class="space-y-1 ml-6">
+                                                <li class="flex items-center gap-2">
+                                                    <i data-lucide="check" class="w-3 h-3"></i>
+                                                    <span>15+ advisor interviews</span>
+                                                </li>
+                                                <li class="flex items-center gap-2">
+                                                    <i data-lucide="check" class="w-3 h-3"></i>
+                                                    <span>Field observation sessions</span>
+                                                </li>
+                                                <li class="flex items-center gap-2">
+                                                    <i data-lucide="check" class="w-3 h-3"></i>
+                                                    <span>Pain point mapping workshops</span>
+                                                </li>
                                             </ul>
                                         </div>
                                         <div>
-                                            <div style="font-weight: 600; margin-bottom: 0.5rem;">Quantitative Analysis:</div>
-                                            <ul style="space-y: 0.25rem; margin-left: 1rem;">
-                                                <li>• 1000+ application records analyzed</li>
-                                                <li>• Drop-off pattern identification</li>
-                                                <li>• Time and error tracking</li>
+                                            <div class="flex items-center gap-2 font-semibold mb-2">
+                                                <i data-lucide="bar-chart-3" class="w-4 h-4"></i>
+                                                <span>Quantitative Analysis:</span>
+                                            </div>
+                                            <ul class="space-y-1 ml-6">
+                                                <li class="flex items-center gap-2">
+                                                    <i data-lucide="check" class="w-3 h-3"></i>
+                                                    <span>1000+ application records analyzed</span>
+                                                </li>
+                                                <li class="flex items-center gap-2">
+                                                    <i data-lucide="check" class="w-3 h-3"></i>
+                                                    <span>Drop-off pattern identification</span>
+                                                </li>
+                                                <li class="flex items-center gap-2">
+                                                    <i data-lucide="check" class="w-3 h-3"></i>
+                                                    <span>Time and error tracking</span>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- Key findings grid -->
-                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
-                                    <div style="background: #fef2f2; border: 2px solid #fca5a5; border-radius: 0.5rem; padding: 1.5rem; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
-                                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
-                                            <div style="font-size: 2.5rem;">⏱️</div>
-                                            <div style="flex: 1;">
-                                                <div style="font-size: 0.875rem; font-weight: 500; color: #6b7280; margin-bottom: 0.25rem;">Average Processing Time</div>
-                                                <div style="font-size: 1.875rem; font-weight: bold; margin-bottom: 0.25rem; color: #991b1b;">2 hours</div>
-                                                <div style="font-size: 0.875rem; color: #6b7280;">per 3-product application</div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                                    <div class="bg-card border-2 border-border rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+                                        <div class="flex items-start gap-4">
+                                            <div class="p-3 bg-red-50 rounded-lg">
+                                                <i data-lucide="clock" class="w-8 h-8 text-red-600"></i>
+                                            </div>
+                                            <div class="flex-1">
+                                                <div class="text-sm font-medium text-muted-foreground mb-1">Average Processing Time</div>
+                                                <div class="text-3xl font-bold text-red-600 mb-1">2 hours</div>
+                                                <div class="text-sm text-muted-foreground">per 3-product application</div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div style="background: #fff7ed; border: 2px solid #fed7aa; border-radius: 0.5rem; padding: 1.5rem; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
-                                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
-                                            <div style="font-size: 2.5rem;">⚠️</div>
-                                            <div style="flex: 1;">
-                                                <div style="font-size: 0.875rem; font-weight: 500; color: #6b7280; margin-bottom: 0.25rem;">Error Rate</div>
-                                                <div style="font-size: 1.875rem; font-weight: bold; margin-bottom: 0.25rem; color: #c2410c;">20%</div>
-                                                <div style="font-size: 0.875rem; color: #6b7280;">due to manual re-entry</div>
+                                    <div class="bg-card border-2 border-border rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+                                        <div class="flex items-start gap-4">
+                                            <div class="p-3 bg-orange-50 rounded-lg">
+                                                <i data-lucide="alert-triangle" class="w-8 h-8 text-orange-600"></i>
+                                            </div>
+                                            <div class="flex-1">
+                                                <div class="text-sm font-medium text-muted-foreground mb-1">Error Rate</div>
+                                                <div class="text-3xl font-bold text-orange-600 mb-1">20%</div>
+                                                <div class="text-sm text-muted-foreground">due to manual re-entry</div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div style="background: #faf5ff; border: 2px solid #d8b4fe; border-radius: 0.5rem; padding: 1.5rem; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
-                                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
-                                            <div style="font-size: 2.5rem;">🔄</div>
-                                            <div style="flex: 1;">
-                                                <div style="font-size: 0.875rem; font-weight: 500; color: #6b7280; margin-bottom: 0.25rem;">Platform Switches</div>
-                                                <div style="font-size: 1.875rem; font-weight: bold; margin-bottom: 0.25rem; color: #7c3aed;">4 systems</div>
-                                                <div style="font-size: 0.875rem; color: #6b7280;">separate logins required</div>
+                                    <div class="bg-card border-2 border-border rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+                                        <div class="flex items-start gap-4">
+                                            <div class="p-3 bg-purple-50 rounded-lg">
+                                                <i data-lucide="repeat" class="w-8 h-8 text-purple-600"></i>
+                                            </div>
+                                            <div class="flex-1">
+                                                <div class="text-sm font-medium text-muted-foreground mb-1">Platform Switches</div>
+                                                <div class="text-3xl font-bold text-purple-600 mb-1">4 systems</div>
+                                                <div class="text-sm text-muted-foreground">separate logins required</div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div style="background: #eff6ff; border: 2px solid #93c5fd; border-radius: 0.5rem; padding: 1.5rem; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
-                                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
-                                            <div style="font-size: 2.5rem;">📝</div>
-                                            <div style="flex: 1;">
-                                                <div style="font-size: 0.875rem; font-weight: 500; color: #6b7280; margin-bottom: 0.25rem;">Data Re-entry Instances</div>
-                                                <div style="font-size: 1.875rem; font-weight: bold; margin-bottom: 0.25rem; color: #1e40af;">4 times</div>
-                                                <div style="font-size: 0.875rem; color: #6b7280;">same client information</div>
+                                    <div class="bg-card border-2 border-border rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+                                        <div class="flex items-start gap-4">
+                                            <div class="p-3 bg-blue-50 rounded-lg">
+                                                <i data-lucide="copy" class="w-8 h-8 text-blue-600"></i>
+                                            </div>
+                                            <div class="flex-1">
+                                                <div class="text-sm font-medium text-muted-foreground mb-1">Data Re-entry Instances</div>
+                                                <div class="text-3xl font-bold text-blue-600 mb-1">4 times</div>
+                                                <div class="text-sm text-muted-foreground">same client information</div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div style="background: #eef2ff; border: 2px solid #a5b4fc; border-radius: 0.5rem; padding: 1.5rem; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
-                                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
-                                            <div style="font-size: 2.5rem;">📚</div>
-                                            <div style="flex: 1;">
-                                                <div style="font-size: 0.875rem; font-weight: 500; color: #6b7280; margin-bottom: 0.25rem;">Advisor Training Time</div>
-                                                <div style="font-size: 1.875rem; font-weight: bold; margin-bottom: 0.25rem; color: #4338ca;">8 hours</div>
-                                                <div style="font-size: 0.875rem; color: #6b7280;">to learn all platforms</div>
+                                    <div class="bg-card border-2 border-border rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+                                        <div class="flex items-start gap-4">
+                                            <div class="p-3 bg-indigo-50 rounded-lg">
+                                                <i data-lucide="graduation-cap" class="w-8 h-8 text-indigo-600"></i>
+                                            </div>
+                                            <div class="flex-1">
+                                                <div class="text-sm font-medium text-muted-foreground mb-1">Advisor Training Time</div>
+                                                <div class="text-3xl font-bold text-indigo-600 mb-1">8 hours</div>
+                                                <div class="text-sm text-muted-foreground">to learn all platforms</div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div style="background: #fef2f2; border: 2px solid #fca5a5; border-radius: 0.5rem; padding: 1.5rem; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
-                                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
-                                            <div style="font-size: 2.5rem;">📉</div>
-                                            <div style="flex: 1;">
-                                                <div style="font-size: 0.875rem; font-weight: 500; color: #6b7280; margin-bottom: 0.25rem;">Application Drop-off Rate</div>
-                                                <div style="font-size: 1.875rem; font-weight: bold; margin-bottom: 0.25rem; color: #991b1b;">High</div>
-                                                <div style="font-size: 0.875rem; color: #6b7280;">complexity causing abandonment</div>
+                                    <div class="bg-card border-2 border-border rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+                                        <div class="flex items-start gap-4">
+                                            <div class="p-3 bg-red-50 rounded-lg">
+                                                <i data-lucide="trending-down" class="w-8 h-8 text-red-600"></i>
+                                            </div>
+                                            <div class="flex-1">
+                                                <div class="text-sm font-medium text-muted-foreground mb-1">Application Drop-off Rate</div>
+                                                <div class="text-3xl font-bold text-red-600 mb-1">High</div>
+                                                <div class="text-sm text-muted-foreground">complexity causing abandonment</div>
                                             </div>
                                         </div>
                                     </div>
@@ -1237,6 +1316,11 @@
             if (container) {
                 const relatedSection = renderRelatedProjects('rbc-digital-platform');
                 container.appendChild(relatedSection);
+            }
+            
+            // Initialize Lucide icons
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
             }
         });
         
