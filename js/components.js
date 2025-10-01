@@ -10,8 +10,14 @@ function loadComponent(componentName, targetElementId) {
         });
 }
 
-// Load footer component when DOM is ready
+// Load components when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
+    // Load header if placeholder exists
+    if (document.getElementById('header-placeholder')) {
+        console.log('Loading header component...');
+        loadComponent('header', 'header-placeholder');
+    }
+    
     // Create footer placeholder if it doesn't exist
     if (!document.getElementById('footer-placeholder')) {
         const footerPlaceholder = document.createElement('div');
