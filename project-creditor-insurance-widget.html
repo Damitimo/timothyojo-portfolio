@@ -7,6 +7,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="js/components.js"></script>
     <script src="js/project-data.js"></script>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+    </script>
     <script>
         tailwind.config = {
             theme: {
@@ -432,7 +436,25 @@
                                     The existing model created operational inefficiencies that impacted both departments:
                                 </p>
                                 
-                                <div style="margin-top: 1rem;"></div>
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <div class="mermaid">
+graph LR
+    A[Insurance Team<br/>Needs Changes] --> B[Request to<br/>Banking Team]
+    B --> C[Banking Team<br/>Prioritization]
+    C --> D[Development<br/>Queue]
+    D --> E[Implementation]
+    E --> F[Release]
+    
+    style A fill:#e74c3c
+    style B fill:#e67e22
+    style C fill:#e67e22
+    style D fill:#e67e22
+    style E fill:#f39c12
+    style F fill:#27ae60
+                                </div>
+                                
+                                <div style="margin-top: 2rem;"></div>
                                 
                                 <p class="body-text"><strong>Key Problems:</strong></p>
                                 <ul class="body-text" style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
@@ -453,7 +475,30 @@
                                     I proposed creating a self-contained creditor insurance widget that could be owned and managed by the Insurance department while seamlessly integrating into Banking flows. This approach would minimize Banking development work while giving Insurance the autonomy they needed.
                                 </p>
                                 
-                                <div style="margin-top: 1rem;"></div>
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <div class="mermaid">
+graph TB
+    subgraph "New Model: Widget Architecture"
+        A[Banking Flow] --> B[Integration Point]
+        B --> C[Insurance Widget]
+        C --> D[Shared Screens]
+        D --> E[Complete]
+        
+        F[Insurance Team] -.->|Owns & Iterates| C
+        G[Banking Team] -.->|Owns| A
+        H[Both Teams] -.->|Collaborate| D
+    end
+    
+    style C fill:#3498db
+    style A fill:#2ecc71
+    style D fill:#9b59b6
+    style F fill:#3498db,stroke:#2c3e50,stroke-width:2px
+    style G fill:#2ecc71,stroke:#2c3e50,stroke-width:2px
+    style H fill:#9b59b6,stroke:#2c3e50,stroke-width:2px
+                                </div>
+                                
+                                <div style="margin-top: 2rem;"></div>
                                 
                                 <p class="body-text"><strong>Widget Benefits:</strong></p>
                                 <ul class="body-text" style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
@@ -513,6 +558,25 @@
                                     <li><strong>Strategic Timing:</strong> Users were most receptive to additional financial products during their primary Banking task, not after completion</li>
                                     <li><strong>Manageable Trade-offs:</strong> The technical complexity could be addressed through careful shared screen architecture</li>
                                 </ul>
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <div class="mermaid">
+graph LR
+    subgraph "Decision Factors"
+        A[Technical<br/>Complexity] --> D{Inflow<br/>Widget}
+        B[Revenue<br/>Impact] --> D
+        C[User<br/>Experience] --> D
+        
+        D --> E[Selected<br/>Approach]
+    end
+    
+    style A fill:#e67e22
+    style B fill:#27ae60
+    style C fill:#27ae60
+    style D fill:#3498db
+    style E fill:#2ecc71
+                                </div>
                                 <p class="body-text">
                                     Key evaluation criteria included: technical complexity of shared screens vs. standalone implementation, revenue optimization through timing and user engagement, user experience coherence and perceived relevance, departmental ownership and maintenance autonomy, and long-term integration scalability with banking systems.
                                 </p>
