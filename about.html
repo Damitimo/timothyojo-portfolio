@@ -52,18 +52,18 @@
             <div class="flex items-center justify-between py-4">
                 <!-- Logo -->
                 <div class="flex items-center">
-                    <a href="index.html" class="text-sm font-medium text-gray-900" style="font-size: 0.888889rem;">Timothy Ojo</a>
+                    <a href="index.html" class="text-sm font-medium text-white" style="font-size: 0.888889rem;">Timothy Ojo</a>
                 </div>
                 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html#experience" class="text-sm text-gray-900 hover:text-gray-600 transition-colors">Experience</a>
-                    <a href="index.html#projects" class="text-sm text-gray-900 hover:text-gray-600 transition-colors">Projects</a>
-                    <a href="about.html" class="text-sm text-gray-900 font-medium hover:text-gray-600 transition-colors">About</a>
+                    <a href="index.html#experience" class="text-sm text-white hover:text-gray-300 transition-colors">Experience</a>
+                    <a href="index.html#projects" class="text-sm text-white hover:text-gray-300 transition-colors">Projects</a>
+                    <a href="about.html" class="text-sm text-white font-medium hover:text-gray-300 transition-colors">About</a>
                 </div>
                 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-button" class="md:hidden text-gray-900 hover:text-gray-600 transition-colors relative z-60">
+                <button id="mobile-menu-button" class="md:hidden text-white hover:text-gray-300 transition-colors relative z-60">
                     <svg id="hamburger-icon" class="w-6 h-6 transition-all duration-300 ease-in-out" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path id="line1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16" style="transform-origin: center; transition: all 0.3s ease-in-out;"></path>
                         <path id="line2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16" style="transform-origin: center; transition: all 0.3s ease-in-out;"></path>
@@ -86,24 +86,22 @@
         </div>
     </header>
 
-    <main class="min-h-screen bg-background pt-24">
-        <div class="max-w-container-large mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
-            
-            <!-- About Section -->
-            <section class="space-y-12 sm:space-y-16 lg:space-y-20">
-                <!-- Hero Section -->
-                <div class="bg-gray-900 rounded-lg p-8 sm:p-12 lg:p-16 flex flex-col md:flex-row items-center gap-8">
+    <main class="min-h-screen bg-background">
+        <!-- Full Width Hero Section -->
+        <div class="bg-gray-900 w-full pt-24">
+            <div class="max-w-container-large mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+                <div class="flex flex-col md:flex-row md:items-center gap-8">
                     <!-- Profile Image -->
                     <div class="flex-shrink-0">
-                        <img src="public/Ojo_Timothy_headshot.jpg" alt="Timothy Ojo" class="w-48 h-48 object-cover rounded-lg grayscale">
+                        <img src="public/Ojo_Timothy_headshot.jpg" alt="Timothy Ojo" class="w-48 h-48 object-cover grayscale">
                     </div>
                     
                     <!-- Content -->
                     <div class="flex-1 text-white">
-                        <div class="inline-block bg-yellow-400 text-black px-3 py-1 text-sm font-semibold rounded mb-4">
+                        <div class="inline-block bg-yellow-400 text-black px-3 py-1 text-sm font-semibold mb-4">
                             Open to work
                         </div>
-                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">Timothy Ojo</h1>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-2">Timothy Ojo</h1>
                         <p class="text-lg sm:text-xl text-gray-300 mb-6">Product Manager, Designer, Pharmacist</p>
                         <div class="flex flex-wrap gap-4 text-sm">
                             <a href="https://linkedin.com/in/ojo-timothy" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-gray-300 hover:text-white transition-colors">
@@ -117,7 +115,12 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
 
+        <!-- Content Section -->
+        <div class="max-w-container-large mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+            <section class="space-y-12 sm:space-y-16 lg:space-y-20">
                 <div class="grid md:grid-cols-2 gap-12 sm:gap-16 lg:gap-20">
                     <!-- Left Column -->
                     <div class="space-y-12">
@@ -155,11 +158,11 @@
                             <h3 class="typography-section-headline-bold text-foreground mb-3" style="font-size: 2rem;">My PM Philosophy</h3>
                             <div class="space-y-4">
                                 <p class="text-muted-foreground leading-relaxed">
-                                    I'm a product manager who obsesses over both strategy and execution. I'm the kind who'll define a product vision and then lose sleep over a misaligned button. My pharmacy background taught me to ask "why aren't patients using this?" This question led me to build a medication adherence app and transition into tech.
+                                    My pharmacy training taught me that the best solutions balance efficacy with usability. A 90% effective treatment patients won't take is worthless. I apply this same lens to product: features that don't fit user workflows are just noise. Great products emerge when you deeply understand the problem, measure what matters, and iterate relentlessly.
                                 </p>
                                 
                                 <p class="text-muted-foreground leading-relaxed">
-                                    I've since led transformations in healthcare, finance, and insurance, but I stay technical: I prototype with Cursor and Next.js because understanding how things work makes me a better strategist. I prioritize solving real problems over building features, measuring impact over output, and enabling teams over managing tasks.
+                                    I prioritize solving real problems over building features, measuring impact over output, and enabling teams over managing tasks. Product management is about being the voice of the user while balancing business objectives and technical constraints to find elegant solutions in complex systems.
                                 </p>
                             </div>
                         </div>
@@ -222,9 +225,10 @@
                     </div>
                 </div>
 
-                <!-- Image Grid at Bottom -->
-                <div class="mt-12">
-                    <img src="public/Timothy image grid.png" alt="Timothy Ojo" class="w-full h-auto rounded-lg">
+                    <!-- Image Grid at Bottom -->
+                    <div class="mt-12">
+                        <img src="public/Timothy image grid.png" alt="Timothy Ojo" class="w-full h-auto rounded-lg">
+                    </div>
                 </div>
             </section>
         </div>
