@@ -76,12 +76,29 @@
         
         /* Mobile responsive layout */
         @media (max-width: 768px) {
-            .header-container {
-                padding-top: 8rem;
+            .toc-container {
+                position: static;
+                width: 100%;
+                float: none;
+                padding-top: 1rem;
+                margin-bottom: 2rem;
             }
             
             .case-study-content {
                 margin-left: 0;
+            }
+            
+            .container {
+                padding: 0; /* No padding - case-study-container handles it */
+            }
+            
+            .project-title {
+                font-size: 3rem;
+                line-height: 3rem;
+            }
+            
+            .header-container {
+                padding-top: 8rem;
             }
         }
         
@@ -564,7 +581,7 @@
                                 <th>Weight</th>
                                 <th>Custom Backend</th>
                                 <th>Firebase</th>
-                                <th style="background: #e8f5e9;">Supabase ✓</th>
+                                <th style="background: #e8f5e9;">Supabase <i data-lucide="check-circle"></i></th>
                             </tr>
                         </thead>
                         <tbody>

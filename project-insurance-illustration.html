@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Illustration Online Quoting Tool - Timothy Ojo</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <script src="js/components.js"></script>
     <script src="js/project-data.js"></script>
     <script>
@@ -183,12 +184,55 @@
             }
             
             .project-title {
-                font-size: 3rem;
-                line-height: 3rem;
+                font-size: 2.5rem;
+                line-height: 2.5rem;
+                letter-spacing: -0.0625rem;
+                padding-right: 2rem;
+            }
+            
+            .project-summary {
+                padding-right: 2rem;
             }
             
             .header-container {
                 padding-top: 8rem;
+            }
+            
+            /* Mobile table scrolling */
+            .decision-matrix-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .decision-matrix-table thead,
+            .decision-matrix-table tbody,
+            .decision-matrix-table tr {
+                display: table;
+                width: 100%;
+                table-layout: fixed;
+            }
+            
+            .decision-matrix-table th,
+            .decision-matrix-table td {
+                min-width: 180px;
+                white-space: normal;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+            
+            /* Specific styling for option columns (not criteria) */
+            .decision-matrix-table th:not(.criteria-col),
+            .decision-matrix-table td:not(.criteria-col) {
+                min-width: 300px;
+            }
+            
+            .criteria-col {
+                position: sticky;
+                left: 0;
+                z-index: 10;
+                background: #f1f8ff !important;
             }
         }
         
@@ -258,6 +302,23 @@
             font-weight: 600;
             color: #34495e;
             background: #f1f8ff;
+        }
+        
+        /* Mobile-specific criteria column overrides */
+        @media (max-width: 768px) {
+            .criteria-col {
+                width: 160px !important;
+                min-width: 160px !important;
+                font-size: 1rem !important;
+                padding: 1rem !important;
+            }
+            
+            /* Force wider option columns on mobile */
+            .decision-matrix-table th.option-header,
+            .decision-matrix-table td:not(.criteria-col) {
+                min-width: 200px !important;
+                width: 200px !important;
+            }
         }
         .option-header {
             background: #005dab;
@@ -635,19 +696,19 @@
                             </div>
                         </div>
                     </section>
-            
+        
             <!-- Old Quote Images -->
             <section class="content-block-no-padding">
-                <div class="container">
+                        <div class="container">
                     <div class="bg-background">
                         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 1rem;">
                             <img src="public/old quote 1.jpg" alt="Old insurance quote interface 1" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
                             <img src="public/Old quote 2.jpg" alt="Old insurance quote interface 2" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
                         </div>
-                    </div>
-                </div>
-            </section>
-            
+                            </div>
+                        </div>
+                    </section>
+        
             <div style="margin-top: 2rem;"></div>
         
                     <!-- Strategic Decision Framework -->
@@ -661,10 +722,10 @@
                             </div>
                         </div>
                     </section>
-            
+        
             <!-- Decision Matrix Diagram -->
             <section class="content-block-no-padding">
-                <div class="container">
+                        <div class="container">
                     <div class="bg-background">
                         <h3 class="text-xl font-medium text-foreground mb-4 text-center">Novinsoft RIG Collaboration Options</h3>
                         <table class="decision-matrix-table">
@@ -814,16 +875,16 @@
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
-                </div>
-            </section>
-            
+                            </div>
+                        </div>
+                    </section>
+        
             <div style="margin-top: 2rem;"></div>
             
             <section class="content-block-no-padding">
-                <div class="container">
-                    <div class="max-w-container-large ml-auto">
-                        <p class="body-text">
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
+                                <p class="body-text">
                             After analyzing the options, I recommended "Novinsoft Components with RIG Styling" to business leadership. This approach balanced development speed with security by sharing only visual design specifications rather than proprietary code, while maintaining good design consistency and low compliance overhead. The recommendation prioritized fast implementation and IP protection over perfect design consistency, accepting that minor component behavior differences were an acceptable trade-off for reduced security risk and faster time-to-market.
                         </p>
                     </div>
@@ -844,10 +905,10 @@
                             </div>
                         </div>
                     </section>
-            
+        
             <!-- Requirements Diagram -->
             <section class="content-block-no-padding">
-                <div class="container">
+                        <div class="container">
                     <div class="bg-background">
                         <div class="req-section">
                             <div class="req-section-title">Functional Requirements</div>
@@ -1028,10 +1089,10 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </section>
-            
+                            </div>
+                        </div>
+                    </section>
+        
             <div style="margin-top: 2rem;"></div>
             
                     <!-- The Solution -->
@@ -1045,19 +1106,19 @@
                             </div>
                         </div>
                     </section>
-            
+        
             <!-- Solution Quote Images -->
             <section class="content-block-no-padding">
-                <div class="container">
+                        <div class="container">
                     <div class="bg-background">
                         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 1rem;">
                             <img src="public/quote1.jpg" alt="Modernized insurance quote interface 1" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
                             <img src="public/quote2.jpg" alt="Modernized insurance quote interface 2" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
                         </div>
-                    </div>
-                </div>
-            </section>
-            
+                            </div>
+                        </div>
+                    </section>
+        
             <div style="margin-top: 2rem;"></div>
             
                     <!-- Delivery Management -->
@@ -1071,7 +1132,7 @@
                             </div>
                         </div>
                     </section>
-            
+        
             <div style="margin-top: 2rem;"></div>
             
                     <!-- Impact & Learnings -->
@@ -1082,22 +1143,22 @@
                             </div>
                         </div>
                     </section>
-            
+        
             <!-- Quantitative Results Metrics -->
             <section class="content-block-no-padding">
-                <div class="container">
+                        <div class="container">
                     <div class="bg-background">
                         <h3 class="text-xl font-medium text-foreground mb-6 text-center">Quantitative Results</h3>
                         <div class="metrics-grid">
                             <div class="metric-card">
-                                <div class="metric-icon">👥</div>
+                                <div class="metric-icon"><i data-lucide="users"></i></div>
                                 <div class="metric-value">2,500</div>
                                 <div class="metric-label">Insurance Advisors</div>
                                 <div class="metric-context">Deployed across RBC Insurance</div>
                             </div>
                             
                             <div class="metric-card">
-                                <div class="metric-icon">⭐</div>
+                                <div class="metric-icon"><i data-lucide="star"></i></div>
                                 <div class="metric-value">4.3<span style="font-size: 24px; color: #888;">/5</span></div>
                                 <div class="metric-label">User Satisfaction</div>
                                 <div class="metric-context">Likert scale rating</div>
@@ -1107,11 +1168,11 @@
                                     <span class="star">★</span>
                                     <span class="star">★</span>
                                     <span class="star empty">★</span>
-                                </div>
+                        </div>
                             </div>
                             
                             <div class="metric-card">
-                                <div class="metric-icon">✓</div>
+                                <div class="metric-icon"><i data-lucide="check-circle"></i></div>
                                 <div class="metric-value">6.3<span style="font-size: 24px; color: #888;">/7</span></div>
                                 <div class="metric-label">Ease of Use</div>
                                 <div class="metric-context">For most illustration types</div>
@@ -1120,15 +1181,15 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </section>
-            
+                            </div>
+                        </div>
+                    </section>
+        
             <div style="margin-top: 2rem;"></div>
             
             <section class="content-block-no-padding">
-                <div class="container">
-                    <div class="max-w-container-large ml-auto">
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
                                 
                                 <p class="body-text">
                                     <strong>Operational Improvements</strong>
@@ -1273,5 +1334,9 @@
         mobileOverlay.addEventListener('click', toggleMobileMenu);
     </script>
     <script src="js/components.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
 </body>
 </html>
