@@ -17,13 +17,13 @@ const projectData = {
         description: 'Designed and implemented a creditor insurance widget that resolved inter-departmental collaboration challenges between Banking and Insurance teams. Optimized for revenue through strategic inflow placement while enabling departmental autonomy.',
         url: 'project-creditor-insurance-widget.html',
         image: 'public/creditor home page.jpg'
-    },
-    'vectorgurus': {
-        title: 'VectorGurus: End-to-End Product Development',
-        description: 'Transformed a manual email-based vector tracing service into a scalable SaaS platform with user authentication, quote management, and cloud file storage. Reduced operational overhead by 6 hours/month while enabling customer self-service.',
-        url: 'project-vectorgurus.html',
-        image: 'public/vectorgurus-home.jpg'
     }
+    // 'vectorgurus': {
+    //     title: 'VectorGurus: End-to-End Product Development',
+    //     description: 'Transformed a manual email-based vector tracing service into a scalable SaaS platform with user authentication, quote management, and cloud file storage. Reduced operational overhead by 6 hours/month while enabling customer self-service.',
+    //     url: 'project-vectorgurus.html',
+    //     image: 'public/vectorgurus-home.jpg'
+    // }
 };
 
 // Function to get related projects (excludes current project)
@@ -46,7 +46,7 @@ function renderRelatedProjects(currentProjectId) {
     section.innerHTML = `
         <div class="max-w-container-large mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-2xl font-bold text-gray-900 mb-8">Related Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 ${relatedProjects.map(project => `
                     <a href="${project.url}" class="group">
                         <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
