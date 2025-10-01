@@ -444,15 +444,177 @@
                                 <p class="body-text">
                                     I developed a decision framework evaluating three strategic approaches for the Novinsoft collaboration. The analysis examined trade-offs across security risk, compliance requirements, ongoing maintenance, design consistency, future transferability, IP protection, sustainability, implementation speed, and scalability.
                                 </p>
-                                
-                                <div style="margin-top: 1rem;"></div>
-                                
-                                <p class="body-text">
-                                    After analyzing the options, I recommended "Novinsoft Components with RIG Styling" to business leadership. This approach balanced development speed with security by sharing only visual design specifications rather than proprietary code, while maintaining good design consistency and low compliance overhead. The recommendation prioritized fast implementation and IP protection over perfect design consistency, accepting that minor component behavior differences were an acceptable trade-off for reduced security risk and faster time-to-market.
-                                </p>
                             </div>
                         </div>
                     </section>
+            
+            <!-- Decision Matrix Diagram -->
+            <section class="content-block-no-padding">
+                <div class="container">
+                    <div class="bg-background">
+                        <h3 class="text-xl font-medium text-foreground mb-4 text-center">Novinsoft RIG Collaboration Options</h3>
+                        <table class="decision-matrix-table">
+                            <thead>
+                                <tr>
+                                    <th class="criteria-col">Evaluation Criteria</th>
+                                    <th class="option-header">Option 1: Manual Code Download</th>
+                                    <th class="option-header">Option 2: Mirrored Repository</th>
+                                    <th class="option-header recommended">Option 3: Novinsoft Components with RIG Styling</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="criteria-col">Security Risk</td>
+                                    <td>
+                                        <span class="badge high">HIGH</span>
+                                        <div class="dm-description">Requires legal approval, code sharing outside RBC domain</div>
+                                    </td>
+                                    <td>
+                                        <span class="badge medium">MEDIUM</span>
+                                        <div class="dm-description">Automated but involves external code repository, requires mirroring setup</div>
+                                    </td>
+                                    <td>
+                                        <span class="badge low">LOW</span>
+                                        <div class="dm-description">No RBC code shared, vendor only accesses visual design specs</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="criteria-col">Compliance Requirements</td>
+                                    <td>
+                                        <span class="badge high">HIGH</span>
+                                        <div class="dm-description">Legal review, procurement amendments, monthly Sharepoint attestations</div>
+                                    </td>
+                                    <td>
+                                        <span class="badge medium">MEDIUM</span>
+                                        <div class="dm-description">Initial legal setup required, automated compliance monitoring required</div>
+                                    </td>
+                                    <td>
+                                        <span class="badge low">LOW</span>
+                                        <div class="dm-description">Standard vendor agreement, no code sharing restrictions</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="criteria-col">Ongoing Maintenance</td>
+                                    <td>
+                                        <span class="badge high">HIGH</span>
+                                        <div class="dm-description">Manual file extraction and distribution for every RIG update that involves utilized components</div>
+                                    </td>
+                                    <td>
+                                        <span class="badge high">HIGH</span>
+                                        <div class="dm-description">Still requires access management, updates need to be pushed to mirrored repo, Novinsoft would have to pull libraries periodically when library gets updated</div>
+                                    </td>
+                                    <td>
+                                        <span class="badge medium">LOW-MEDIUM</span>
+                                        <div class="dm-description">May require styling updates periodically</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="criteria-col">Design Consistency</td>
+                                    <td>
+                                        <span class="badge excellent">EXCELLENT</span>
+                                        <div class="dm-description">Uses actual RIG component</div>
+                                    </td>
+                                    <td>
+                                        <span class="badge excellent">EXCELLENT</span>
+                                        <div class="dm-description">Uses actual RIG component</div>
+                                    </td>
+                                    <td>
+                                        <span class="badge good">GOOD</span>
+                                        <div class="dm-description">Visual match achievable, may have minor differences in component behaviour</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="criteria-col">Future Transferability to RBC</td>
+                                    <td>
+                                        <span class="badge seamless">SEAMLESS</span>
+                                        <div class="dm-description">Built with RIG, can be directly integrated into RBC systems</div>
+                                    </td>
+                                    <td>
+                                        <span class="badge seamless">SEAMLESS</span>
+                                        <div class="dm-description">Built with RIG, can be directly integrated into RBC systems</div>
+                                    </td>
+                                    <td>
+                                        <span class="badge complex">COMPLEX</span>
+                                        <div class="dm-description">Requires component replacement/refactoring for internal upgrades and maintenance</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="criteria-col">Intellectual Property Protection</td>
+                                    <td>
+                                        <span class="badge high">HIGH RISK</span>
+                                        <div class="dm-description">RBC code distributed externally</div>
+                                    </td>
+                                    <td>
+                                        <span class="badge high">HIGH RISK</span>
+                                        <div class="dm-description">RBC code in external repository</div>
+                                    </td>
+                                    <td>
+                                        <span class="badge low">LOW RISK</span>
+                                        <div class="dm-description">No proprietary code shared</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="criteria-col">Long-term Sustainability</td>
+                                    <td>
+                                        <span class="badge poor">POOR</span>
+                                        <div class="dm-description">High maintenance overhead, manual processes</div>
+                                    </td>
+                                    <td>
+                                        <span class="badge good">GOOD</span>
+                                        <div class="dm-description">Automated, but requires infrastructure maintenance</div>
+                                    </td>
+                                    <td>
+                                        <span class="badge good">GOOD</span>
+                                        <div class="dm-description">Self-sustaining, vendor handles maintenance, already factored in the engagement</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="criteria-col">Setup Speed & Complexity</td>
+                                    <td>
+                                        <span class="badge medium">MEDIUM</span>
+                                        <div class="dm-description">Medium speed, high complexity. Vendor must understand RIG architecture and dependencies. Should be straightforward once approved by legal</div>
+                                    </td>
+                                    <td>
+                                        <span class="badge high">HIGH</span>
+                                        <div class="dm-description">Slow speed, high complexity. Does not currently exist. Requires infrastructure development, continuous integration/continuous deployment (CI/CD)</div>
+                                    </td>
+                                    <td>
+                                        <span class="badge low">LOW</span>
+                                        <div class="dm-description">Fast speed, low complexity. Immediate access to styling once dev mode permission is granted</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="criteria-col">Scalability</td>
+                                    <td>
+                                        <span class="badge poor">POOR</span>
+                                        <div class="dm-description">Manual process doesn't scale to multiple vendors</div>
+                                    </td>
+                                    <td>
+                                        <span class="badge excellent">EXCELLENT</span>
+                                        <div class="dm-description">Can support multiple vendors</div>
+                                    </td>
+                                    <td>
+                                        <span class="badge medium">MEDIUM</span>
+                                        <div class="dm-description">Each vendor manages independently</div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+            
+            <div style="margin-top: 2rem;"></div>
+            
+            <section class="content-block-no-padding">
+                <div class="container">
+                    <div class="max-w-container-large ml-auto">
+                        <p class="body-text">
+                            After analyzing the options, I recommended "Novinsoft Components with RIG Styling" to business leadership. This approach balanced development speed with security by sharing only visual design specifications rather than proprietary code, while maintaining good design consistency and low compliance overhead. The recommendation prioritized fast implementation and IP protection over perfect design consistency, accepting that minor component behavior differences were an acceptable trade-off for reduced security risk and faster time-to-market.
+                        </p>
+                    </div>
+                </div>
+            </section>
         
 
             <div style="margin-top: 2rem;"></div>
