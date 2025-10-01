@@ -17,6 +17,12 @@ const projectData = {
         description: 'Designed and implemented a creditor insurance widget that resolved inter-departmental collaboration challenges between Banking and Insurance teams. Optimized for revenue through strategic inflow placement while enabling departmental autonomy.',
         url: 'project-creditor-insurance-widget.html',
         image: 'public/creditor home page.jpg'
+    },
+    'vectorgurus': {
+        title: 'VectorGurus: End-to-End Product Development',
+        description: 'Transformed a manual email-based vector tracing service into a scalable SaaS platform with user authentication, quote management, and cloud file storage. Reduced operational overhead by 6 hours/month while enabling customer self-service.',
+        url: 'project-vectorgurus.html',
+        image: 'public/vectorgurus-home.jpg'
     }
 };
 

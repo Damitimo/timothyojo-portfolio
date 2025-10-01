@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VectorGurus: End-to-End Product Development - Timothy Ojo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="js/components.js"></script>
+    <script src="js/project-data.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    maxWidth: {
+                        'container-large': '75rem'
+                    },
+                    colors: {
+                        border: "hsl(214.3 31.8% 91.4%)",
+                        input: "hsl(214.3 31.8% 91.4%)",
+                        ring: "hsl(222.2 84% 4.9%)",
+                        background: "hsl(0 0% 100%)",
+                        foreground: "hsl(222.2 84% 4.9%)",
+                        primary: {
+                            DEFAULT: "hsl(222.2 47.4% 11.2%)",
+                            foreground: "hsl(210 40% 98%)",
+                        },
+                        secondary: {
+                            DEFAULT: "hsl(210 40% 96.1%)",
+                            foreground: "hsl(222.2 47.4% 11.2%)",
+                        },
+                        destructive: {
+                            DEFAULT: "hsl(0 84.2% 60.2%)",
+                            foreground: "hsl(210 40% 98%)",
+                        },
+                        muted: {
+                            DEFAULT: "hsl(210 40% 96.1%)",
+                            foreground: "hsl(215.4 16.3% 46.9%)",
+                        },
+                        accent: {
+                            DEFAULT: "hsl(210 40% 96.1%)",
+                            foreground: "hsl(222.2 47.4% 11.2%)",
+                        },
+                        card: {
+                            DEFAULT: "hsl(0 0% 100%)",
+                            foreground: "hsl(222.2 84% 4.9%)",
+                        },
+                    },
+                    borderRadius: {
+                        lg: "0.5rem",
+                        md: "calc(0.5rem - 2px)",
+                        sm: "calc(0.5rem - 4px)",
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .container {
+            max-width: 75rem;
+            margin: 0 auto;
+            padding: 0;
+        }
+        
+        .content-block {
+            padding: 2rem 0;
+        }
+        
+        .content-block-no-padding {
+            padding: 0;
+        }
+        
+        .spacer {
+            height: 6rem;
+        }
+        
+        .spacer-top {
+            height: 6rem;
+        }
+        
+        .spacer-section {
+            height: 4rem;
+        }
+        
+        .image-placeholder {
+            background-color: #374151;
+            width: 100%;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9CA3AF;
+            font-size: 1.125rem;
+        }
+        
+        .project-title {
+            font-size: 6rem;
+            font-weight: 700;
+            line-height: 6rem;
+            letter-spacing: -0.125rem;
+            color: #111827;
+            margin-bottom: 0;
+        }
+        
+        .project-summary {
+            font-size: 1.5rem;
+            line-height: 2rem;
+            color: #6B7280;
+            margin-top: 1.5rem;
+        }
+        
+        .case-study-container {
+            max-width: 75rem;
+            margin: 0 auto;
+            padding: 0 1rem; /* Same as px-4 (16px) to match homepage */
+        }
+        
+        .section-title {
+            font-size: 3.75rem;
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -0.025em;
+            color: #111827;
+        }
+        
+        .subsection-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 2rem;
+            color: #111827;
+            margin-bottom: 1rem;
+        }
+        
+        .body-text {
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+            color: #374151;
+        }
+        
+        .body-text + .body-text {
+            margin-top: 1rem;
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        
+        .toc-container {
+            position: sticky;
+            top: 40px;
+            left: 0;
+            width: 200px;
+            z-index: 10;
+        }
+        
+        .content-wrapper {
+            margin-left: 240px;
+        }
+        
+        /* Mobile responsive layout */
+        @media (max-width: 768px) {
+            .toc-container {
+                position: static;
+                width: 100%;
+                float: none;
+                padding-top: 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .content-wrapper {
+                margin-left: 0;
+            }
+        }
+        
+        .toc-item {
+            display: block;
+            color: #6B7280;
+            text-decoration: none;
+            font-size: 0.875rem;
+            padding: 0.5rem 0;
+            transition: all 0.2s;
+            border-left: 2px solid #E5E7EB;
+            padding-left: 1rem;
+            position: relative;
+        }
+        
+        .toc-item:hover {
+            color: #111827;
+        }
+        
+        .toc-item.active {
+            color: #111827;
+            font-weight: 600;
+            border-left-color: #111827;
+        }
+        
+        .section-anchor {
+            scroll-margin-top: 2rem;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .metric-card {
+            background: white;
+            border: 1px solid hsl(214.3 31.8% 91.4%);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .metric-label {
+            font-size: 0.875rem;
+            color: #6B7280;
+            margin-top: 0.5rem;
+        }
+
+        .decision-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: white;
+            border: 1px solid hsl(214.3 31.8% 91.4%);
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+
+        .decision-table th,
+        .decision-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid hsl(214.3 31.8% 91.4%);
+        }
+
+        .decision-table th {
+            background: hsl(210 40% 96.1%);
+            font-weight: 600;
+            color: #111827;
+        }
+
+        .decision-table tr:last-child td {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body class="bg-background">
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Hero Image -->
+    <div style="padding: 0; background: white;">
+        <img src="public/vectorgurus-hero.jpg" alt="VectorGurus Platform" class="hero-image">
+    </div>
+
+    <!-- Project Title & Summary -->
+    <div style="padding: 4rem 1rem; max-width: 75rem; margin: 0 auto;">
+        <h1 class="project-title">VectorGurus: End-to-End Product Development</h1>
+        <p class="project-summary">
+            Transformed a manual email-based vector tracing service into a scalable SaaS platform with user authentication, quote management, and cloud file storage. Reduced operational overhead by 6 hours/month while enabling customer self-service through a modern dashboard interface.
+        </p>
+        
+        <!-- Key Metrics -->
+        <div class="metric-grid">
+            <div class="metric-card">
+                <div class="metric-value">4</div>
+                <div class="metric-label">Weeks to Production</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">$0</div>
+                <div class="metric-label">Infrastructure Cost/Month</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">60%</div>
+                <div class="metric-label">Quote Time Reduction</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">0</div>
+                <div class="metric-label">Production Incidents</div>
+            </div>
+        </div>
+        
+        <!-- Project Details -->
+        <div style="margin-top: 2rem; display: flex; gap: 2rem; flex-wrap: wrap; color: #6B7280; font-size: 1rem;">
+            <div><strong style="color: #111827;">Role:</strong> Product Manager & Technical Lead</div>
+            <div><strong style="color: #111827;">Duration:</strong> October 2024 (4 weeks)</div>
+            <div><strong style="color: #111827;">Status:</strong> Live at vectorgurus.com</div>
+        </div>
+    </div>
+            
+            <!-- Case Study Container -->
+            <div class="case-study-container">
+                <!-- Table of Contents -->
+                <div class="toc-container">
+                    <nav>
+                        <a href="#problem" class="toc-item">Problem & Opportunity</a>
+                        <a href="#strategy" class="toc-item">Product Strategy</a>
+                        <a href="#requirements" class="toc-item">Requirements & Prioritization</a>
+                        <a href="#architecture" class="toc-item">Technical Architecture</a>
+                        <a href="#decisions" class="toc-item">Key Product Decisions</a>
+                        <a href="#challenges" class="toc-item">Technical Challenges & Solutions</a>
+                        <a href="#impact" class="toc-item">Results & Impact</a>
+                        <a href="#competencies" class="toc-item">PM Competencies Demonstrated</a>
+                        <a href="#takeaways" class="toc-item">Key Takeaways</a>
+                    </nav>
+                </div>
+                
+                <!-- Main Content -->
+                <div class="content-wrapper">
+
+            <!-- Problem & Opportunity -->
+            <section id="problem" class="content-block section-anchor">
+                <h2 class="section-title">Problem & Opportunity</h2>
+            </section>
+
+            <section class="content-block-no-padding">
+                    <h3 class="subsection-title">Business Pain Points</h3>
+                    <p class="body-text">
+                        <strong>For Customers:</strong>
+                    </p>
+                    <ul class="body-text" style="list-style: disc; padding-left: 2rem; margin-top: 0.5rem;">
+                        <li>Lost quote emails in cluttered inboxes</li>
+                        <li>No visibility into project status</li>
+                        <li>Repeated requests for completed files</li>
+                    </ul>
+                    <p class="body-text">
+                        <strong>For Business:</strong>
+                    </p>
+                    <ul class="body-text" style="list-style: disc; padding-left: 2rem; margin-top: 0.5rem;">
+                        <li>Manual quote tracking across email threads</li>
+                        <li>10 min/quote spent on admin work</li>
+                        <li>No systematic customer history</li>
+                        <li>File sharing via email (size limits, security risks)</li>
+                    </ul>
+                    <p class="body-text">
+                        <strong>Market Gap:</strong> Competitors offer either automated (low quality) or high-cost agency services. No one provides manual quality with modern tracking infrastructure.
+                    </p>
+            </section>
+
+            <div style="margin-top: 2rem;"></div>
+
+            <!-- Product Strategy -->
+            <section id="strategy" class="content-block section-anchor">
+                    <h2 class="section-title">Product Strategy</h2>
+            </section>
+
+            <section class="content-block-no-padding">
+                    <h3 class="subsection-title">Positioning</h3>
+                    <p class="body-text">
+                        "Professional manual tracing with enterprise-level tracking"
+                    </p>
+                    <p class="body-text">
+                        Premium quality through human expertise, combined with self-service transparency that customers expect from modern SaaS.
+                    </p>
+                </div>
+            </section>
+
+            <section class="content-block-no-padding">
+                <div class="max-w-container-large ml-auto">
+                    <h3 class="subsection-title">Target Users</h3>
+                    <p class="body-text">
+                        <strong>PRIMARY: Small Business Owners</strong>
+                    </p>
+                    <ul class="body-text" style="list-style: disc; padding-left: 2rem; margin-top: 0.5rem;">
+                        <li>Need: Logo vectorization for print/signage</li>
+                        <li>Pain: Lost in email threads, unclear timelines</li>
+                        <li>Goal: Quick turnaround, clear communication</li>
+                    </ul>
+                    <p class="body-text">
+                        <strong>SECONDARY: Repeat Customers</strong>
+                    </p>
+                    <ul class="body-text" style="list-style: disc; padding-left: 2rem; margin-top: 0.5rem;">
+                        <li>Need: Access to previous projects</li>
+                        <li>Pain: Re-requesting same files</li>
+                        <li>Goal: Self-service file downloads</li>
+                    </ul>
+                </div>
+            </section>
+
+            <div style="margin-top: 2rem;"></div>
+
+            <!-- Requirements & Prioritization -->
+            <section id="requirements" class="content-block">
+                <div class="max-w-container-large ml-auto">
+                    <h2 class="section-title">Requirements & Prioritization</h2>
+                </div>
+            </section>
+
+            <section class="content-block-no-padding">
+                <div class="max-w-container-large ml-auto">
+                    <h3 class="subsection-title">MVP Feature Set (MoSCoW)</h3>
+                    <table class="decision-table">
+                        <thead>
+                            <tr>
+                                <th>Priority</th>
+                                <th>Feature</th>
+                                <th>Rationale</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Must Have</strong></td>
+                                <td>User authentication</td>
+                                <td>Enable quote history tracking</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Must Have</strong></td>
+                                <td>Quote submission + file upload</td>
+                                <td>Core service delivery</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Must Have</strong></td>
+                                <td>User dashboard</td>
+                                <td>Self-service status tracking</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Must Have</strong></td>
+                                <td>Secure file storage</td>
+                                <td>Replace email attachments</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Should Have</strong></td>
+                                <td>Email notifications</td>
+                                <td>Reach guest users</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Should Have</strong></td>
+                                <td>Mobile responsive</td>
+                                <td>Users check status on-the-go</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Should Have</strong></td>
+                                <td>SEO optimization</td>
+                                <td>Organic acquisition</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Could Have</strong></td>
+                                <td>Real-time notifications</td>
+                                <td>Nice-to-have engagement</td>
+                                <td>⏳</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Could Have</strong></td>
+                                <td>Payment integration</td>
+                                <td>Revenue automation</td>
+                                <td>⏳</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Won't Have</strong></td>
+                                <td>Admin dashboard</td>
+                                <td>Use Supabase directly</td>
+                                <td>❌</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Won't Have</strong></td>
+                                <td>Automated vectorization</td>
+                                <td>Focus on quality differentiation</td>
+                                <td>❌</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <div style="margin-top: 2rem;"></div>
+
+            <!-- Technical Architecture -->
+            <section id="architecture" class="content-block">
+                <div class="max-w-container-large ml-auto">
+                    <h2 class="section-title">Technical Architecture</h2>
+                </div>
+            </section>
+
+            <section class="content-block-no-padding">
+                <div class="max-w-container-large ml-auto">
+                    <h3 class="subsection-title">Stack Selection Decision Matrix</h3>
+                    <table class="decision-table">
+                        <thead>
+                            <tr>
+                                <th>Criteria</th>
+                                <th>Weight</th>
+                                <th>Custom Backend</th>
+                                <th>Firebase</th>
+                                <th style="background: #e8f5e9;">Supabase ✓</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Time to Market</td>
+                                <td>30%</td>
+                                <td>2/10</td>
+                                <td>7/10</td>
+                                <td><strong>9/10</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Cost (Free Tier)</td>
+                                <td>25%</td>
+                                <td>0/10</td>
+                                <td>7/10</td>
+                                <td><strong>9/10</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Scalability</td>
+                                <td>20%</td>
+                                <td>10/10</td>
+                                <td>8/10</td>
+                                <td><strong>9/10</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Data Model Fit</td>
+                                <td>15%</td>
+                                <td>10/10</td>
+                                <td>5/10</td>
+                                <td><strong>10/10</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Learning Curve</td>
+                                <td>10%</td>
+                                <td>3/10</td>
+                                <td>7/10</td>
+                                <td><strong>8/10</strong></td>
+                            </tr>
+                            <tr style="background: #f9fafb;">
+                                <td colspan="2"><strong>Weighted Score</strong></td>
+                                <td><strong>4.95</strong></td>
+                                <td><strong>6.9</strong></td>
+                                <td><strong>9.05</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="body-text" style="margin-top: 1rem;">
+                        <strong>Decision:</strong> Supabase for all-in-one backend (PostgreSQL + Auth + Storage)
+                    </p>
+                </div>
+            </section>
+
+            <section class="content-block-no-padding">
+                <div class="max-w-container-large ml-auto">
+                    <h3 class="subsection-title">Database Schema</h3>
+                    <div style="background: #f9fafb; padding: 1.5rem; border-radius: 0.5rem; font-family: monospace; font-size: 0.875rem; color: #374151;">
+                        <pre style="margin: 0;">users (Supabase Auth)
+  ↓ 1:many
+quotes
+  ├─ id (UUID, primary key)
+  ├─ user_id (FK → auth.users)
+  ├─ email (TEXT)
+  ├─ project_description (TEXT)
+  ├─ formats (TEXT[])
+  ├─ status (ENUM: pending, in_progress, completed, cancelled)
+  └─ created_at (TIMESTAMP)
+  ↓ 1:many
+quote_files
+  ├─ id (UUID, primary key)
+  ├─ quote_id (FK → quotes)
+  ├─ file_name (TEXT)
+  ├─ storage_path (TEXT)
+  └─ is_result (BOOLEAN)  -- Distinguishes uploads from completed vectors</pre>
+                    </div>
+                    <p class="body-text" style="margin-top: 1rem;">
+                        <strong>Key Design Decisions:</strong>
+                    </p>
+                    <ul class="body-text" style="list-style: disc; padding-left: 2rem; margin-top: 0.5rem;">
+                        <li>Row Level Security (RLS) for multi-tenant data isolation</li>
+                        <li>Cascade deletes for GDPR compliance</li>
+                        <li>Normalized schema (3NF) for data integrity</li>
+                    </ul>
+                </div>
+            </section>
+
+            <div style="margin-top: 2rem;"></div>
+
+            <!-- Key Product Decisions -->
+            <section id="decisions" class="content-block">
+                <div class="max-w-container-large ml-auto">
+                    <h2 class="section-title">Key Product Decisions</h2>
+                </div>
+            </section>
+
+            <section class="content-block-no-padding">
+                <div class="max-w-container-large ml-auto">
+                    <h3 class="subsection-title">Decision 1: Hybrid Guest/Authenticated Model</h3>
+                    <p class="body-text">
+                        <strong>Context:</strong> Should users create accounts before submitting quotes?
+                    </p>
+                    <p class="body-text">
+                        <strong>Options:</strong>
+                    </p>
+                    <ul class="body-text" style="list-style: disc; padding-left: 2rem; margin-top: 0.5rem;">
+                        <li>A) Require login → Higher friction, better retention</li>
+                        <li>B) Guest-only → Lower friction, no history</li>
+                        <li>C) Hybrid → Allow both</li>
+                    </ul>
+                    <p class="body-text">
+                        <strong>Decision: Hybrid approach</strong>
+                    </p>
+                    <p class="body-text">
+                        <strong>Rationale:</strong>
+                    </p>
+                    <ul class="body-text" style="list-style: disc; padding-left: 2rem; margin-top: 0.5rem;">
+                        <li>First-time users have low commitment (friction kills conversion)</li>
+                        <li>Repeat customers see value after first quote (organic incentive to register)</li>
+                        <li>Data retention happens either way (guest submissions stored)</li>
+                    </ul>
+                    <p class="body-text">
+                        <strong>Success Metrics:</strong>
+                    </p>
+                    <ul class="body-text" style="list-style: disc; padding-left: 2rem; margin-top: 0.5rem;">
+                        <li>Guest-to-registered conversion: Target >20%</li>
+                        <li>Dashboard return rate: Target >40%</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-block-no-padding">
+                <div class="max-w-container-large ml-auto">
+                    <h3 class="subsection-title">Decision 2: Database-First Architecture</h3>
+                    <p class="body-text">
+                        <strong>Context:</strong> Where should quotes be stored as source of truth?
+                    </p>
+                    <p class="body-text">
+                        <strong>Decision:</strong> Database primary, email as notification fallback
+                    </p>
+                    <p class="body-text">
+                        <strong>Database-First Benefits:</strong>
+                    </p>
+                    <ul class="body-text" style="list-style: disc; padding-left: 2rem; margin-top: 0.5rem;">
+                        <li>Reliability: Guaranteed persistence vs. email delivery uncertainty</li>
+                        <li>Scalability: No attachment size limits</li>
+                        <li>User Experience: Always-available dashboard</li>
+                        <li>Operations: Centralized quote management</li>
+                    </ul>
+                    <p class="body-text">
+                        <strong>Trade-offs:</strong>
+                    </p>
+                    <ul class="body-text" style="list-style: disc; padding-left: 2rem; margin-top: 0.5rem;">
+                        <li>More complex architecture</li>
+                        <li>Dependency on Supabase uptime</li>
+                        <li>BUT: Better long-term foundation for growth</li>
+                    </ul>
+                </div>
+            </section>
+
+            <div style="margin-top: 2rem;"></div>
+
+            <!-- Technical Challenges & Solutions -->
+            <section id="challenges" class="content-block">
+                <div class="max-w-container-large ml-auto">
+                    <h2 class="section-title">Technical Challenges & Solutions</h2>
+                </div>
+            </section>
+
+            <section class="content-block-no-padding">
+                <div class="max-w-container-large ml-auto">
+                    <h3 class="subsection-title">Challenge 1: Fake Vectorization Feature Pivot</h3>
+                    <p class="body-text">
+                        <strong>Issue:</strong> Attempted to add automated preview using Potrace library
+                    </p>
+                    <p class="body-text">
+                        <strong>Technical Barrier:</strong>
+                    </p>
+                    <ul class="body-text" style="list-style: disc; padding-left: 2rem; margin-top: 0.5rem;">
+                        <li>Native C dependencies incompatible with Vercel serverless</li>
+                        <li>Workarounds produced low-quality geometric patterns (not real vectorization)</li>
+                    </ul>
+                    <p class="body-text">
+                        <strong>Critical Decision Point:</strong>
+                    </p>
+                    <ul class="body-text" style="list-style: disc; padding-left: 2rem; margin-top: 0.5rem;">
+                        <li>Option A: Spend more time debugging → Sunk cost fallacy</li>
+                        <li>Option B: Ship "fake" feature → Damages trust</li>
+                        <li>Option C: Cut feature entirely → Authentic positioning</li>
+                    </ul>
+                    <p class="body-text">
+                        <strong>Decision: Removed feature completely</strong>
+                    </p>
+                    <p class="body-text">
+                        <strong>Impact:</strong>
+                    </p>
+                    <ul class="body-text" style="list-style: disc; padding-left: 2rem; margin-top: 0.5rem;">
+                        <li>Clearer value proposition (manual = quality)</li>
+                        <li>Faster deployment (no technical debt)</li>
+                        <li>Better brand trust</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-block-no-padding">
+                <div class="max-w-container-large ml-auto">
+                    <h3 class="subsection-title">Challenge 2: Multi-Select Component UX</h3>
+                    <p class="body-text">
+                        <strong>Issue:</strong> Shadcn multi-select had command palette search (overkill for 6 options)
+                    </p>
+                    <p class="body-text">
+                        <strong>User Feedback:</strong> "Doesn't work, doesn't need search"
+                    </p>
+                    <p class="body-text">
+                        <strong>Solution:</strong> Simplified to checkbox dropdown with horizontal badge display
+                    </p>
+                    <p class="body-text">
+                        <strong>Approach:</strong> User feedback > framework defaults
+                    </p>
+                </div>
+            </section>
+
+            <section class="content-block-no-padding">
+                <div class="max-w-container-large ml-auto">
+                    <h3 class="subsection-title">Challenge 3: useSearchParams Build Error</h3>
+                    <p class="body-text">
+                        <strong>Issue:</strong> Next.js pre-rendering failing on login page
+                    </p>
+                    <p class="body-text">
+                        <strong>Root Cause:</strong> useSearchParams requires Suspense boundary for SSR
+                    </p>
+                    <p class="body-text">
+                        <strong>Solution:</strong>
+                    </p>
+                    <div style="background: #f9fafb; padding: 1.5rem; border-radius: 0.5rem; font-family: monospace; font-size: 0.875rem; color: #374151; margin-top: 0.5rem;">
+                        <pre style="margin: 0;">&lt;Suspense fallback={&lt;div&gt;Loading...&lt;/div&gt;}&gt;
+  &lt;LoginForm /&gt;
+&lt;/Suspense&gt;</pre>
+                    </div>
+                    <p class="body-text" style="margin-top: 1rem;">
+                        <strong>Learning:</strong> Framework requirements for SSR/SSG compatibility aren't optional
+                    </p>
+                </div>
+            </section>
+
+            <div style="margin-top: 2rem;"></div>
+
+            <!-- Results & Impact -->
+            <section id="impact" class="content-block">
+                <div class="max-w-container-large ml-auto">
+                    <h2 class="section-title">Results & Impact</h2>
+                </div>
+            </section>
+
+            <section class="content-block-no-padding">
+                <div class="max-w-container-large ml-auto">
+                    <h3 class="subsection-title">Operational Efficiency</h3>
+                    <table class="decision-table">
+                        <thead>
+                            <tr>
+                                <th>Metric</th>
+                                <th>Before</th>
+                                <th>After</th>
+                                <th>Impact</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Quote submission time</td>
+                                <td>5 min</td>
+                                <td>2 min</td>
+                                <td><strong>60% faster</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Manual tracking per quote</td>
+                                <td>10 min</td>
+                                <td>0 min</td>
+                                <td><strong>100% automated</strong></td>
+                            </tr>
+                            <tr>
+                                <td>File retrieval time</td>
+                                <td>5 min (email search)</td>
+                                <td>30 sec (dashboard)</td>
+                                <td><strong>90% faster</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Customer support time</td>
+                                <td>3 min/inquiry</td>
+                                <td>0 min (self-service)</td>
+                                <td><strong>100% reduction</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="body-text" style="margin-top: 1rem;">
+                        <strong>Total Time Saved:</strong> ~18 min/quote × 20 quotes/month = <strong>6 hours/month</strong>
+                    </p>
+                </div>
+            </section>
+
+            <section class="content-block-no-padding">
+                <div class="max-w-container-large ml-auto">
+                    <h3 class="subsection-title">Technical Performance</h3>
+                    <p class="body-text">
+                        <strong>Lighthouse Scores:</strong>
+                    </p>
+                    <ul class="body-text" style="list-style: disc; padding-left: 2rem; margin-top: 0.5rem;">
+                        <li>Performance: 95+</li>
+                        <li>Accessibility: 98</li>
+                        <li>Best Practices: 100</li>
+                        <li>SEO: 100</li>
+                    </ul>
+                    <p class="body-text">
+                        <strong>Core Metrics:</strong>
+                    </p>
+                    <ul class="body-text" style="list-style: disc; padding-left: 2rem; margin-top: 0.5rem;">
+                        <li>Page Load: &lt;1.2s</li>
+                        <li>Time to Interactive: &lt;2.5s</li>
+                        <li>Database Query Time: &lt;100ms</li>
+                        <li>Production Incidents: 0</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-block-no-padding">
+                <div class="max-w-container-large ml-auto">
+                    <h3 class="subsection-title">Scalability Achieved</h3>
+                    <p class="body-text">
+                        <strong>Current Capacity (Free Tier):</strong>
+                    </p>
+                    <ul class="body-text" style="list-style: disc; padding-left: 2rem; margin-top: 0.5rem;">
+                        <li>50,000 monthly active users (Supabase Auth)</li>
+                        <li>1GB storage (~1,000 quotes at 1MB/file avg)</li>
+                        <li>Unlimited database rows (PostgreSQL)</li>
+                    </ul>
+                    <p class="body-text">
+                        <strong>Cost Structure:</strong>
+                    </p>
+                    <ul class="body-text" style="list-style: disc; padding-left: 2rem; margin-top: 0.5rem;">
+                        <li>Infrastructure: $0/month</li>
+                        <li>Domain: $12/year ($1/month)</li>
+                        <li>Total: $1/month until scale requires paid tiers</li>
+                    </ul>
+                </div>
+            </section>
+
+            <div style="margin-top: 2rem;"></div>
+
+            <!-- PM Competencies Demonstrated -->
+            <section id="competencies" class="content-block">
+                <div class="max-w-container-large ml-auto">
+                    <h2 class="section-title">PM Competencies Demonstrated</h2>
+                </div>
+            </section>
+
+            <section class="content-block-no-padding">
+                <div class="max-w-container-large ml-auto">
+                    <h3 class="subsection-title">1. Technical Depth</h3>
+                    <ul class="body-text" style="list-style: disc; padding-left: 2rem;">
+                        <li>Evaluated 3 backend options with weighted decision matrix</li>
+                        <li>Understood serverless constraints (Vercel + native dependencies)</li>
+                        <li>Debugged production issues (ESLint, middleware, SSR)</li>
+                        <li>Designed normalized database schema with security policies</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-block-no-padding">
+                <div class="max-w-container-large ml-auto">
+                    <h3 class="subsection-title">2. User-Centric Thinking</h3>
+                    <ul class="body-text" style="list-style: disc; padding-left: 2rem;">
+                        <li>Hybrid guest/auth model reduced friction</li>
+                        <li>Iterated multi-select based on direct feedback</li>
+                        <li>Prioritized transparency (status tracking) over admin features</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-block-no-padding">
+                <div class="max-w-container-large ml-auto">
+                    <h3 class="subsection-title">3. Scope Management</h3>
+                    <ul class="body-text" style="list-style: disc; padding-left: 2rem;">
+                        <li>Cut vectorization feature when it didn't deliver value</li>
+                        <li>Shipped MVP in 4 weeks vs. over-engineering</li>
+                        <li>Database-first approach (reliability > feature complexity)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-block-no-padding">
+                <div class="max-w-container-large ml-auto">
+                    <h3 class="subsection-title">4. Data-Driven Decision Making</h3>
+                    <p class="body-text">
+                        <strong>Metrics Framework:</strong>
+                    </p>
+                    <ul class="body-text" style="list-style: disc; padding-left: 2rem; margin-top: 0.5rem;">
+                        <li>North Star Metric: Quote Completion Rate</li>
+                        <li>Acquisition: Sign-up conversion, traffic</li>
+                        <li>Engagement: Dashboard logins, resubmission rate</li>
+                        <li>Retention: 30-day actives, repeat customers</li>
+                        <li>Technical: API errors &lt;1%, page load &lt;3s</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-block-no-padding">
+                <div class="max-w-container-large ml-auto">
+                    <h3 class="subsection-title">5. Business Acumen</h3>
+                    <ul class="body-text" style="list-style: disc; padding-left: 2rem;">
+                        <li>$0 infrastructure through strategic free tier usage</li>
+                        <li>6 hrs/month efficiency = ~$150/month labor savings</li>
+                        <li>Scalable to 1,000 quotes before requiring paid services</li>
+                    </ul>
+                </div>
+            </section>
+
+            <div style="margin-top: 2rem;"></div>
+
+            <!-- Key Takeaways -->
+            <section id="takeaways" class="content-block">
+                <div class="max-w-container-large ml-auto">
+                    <h2 class="section-title">Key Takeaways</h2>
+                </div>
+            </section>
+
+            <section class="content-block-no-padding">
+                <div class="max-w-container-large ml-auto">
+                    <h3 class="subsection-title">What This Project Demonstrates</h3>
+                    
+                    <p class="body-text">
+                        <strong>0→1 Product Development</strong>
+                    </p>
+                    <ul class="body-text" style="list-style: disc; padding-left: 2rem; margin-top: 0.5rem;">
+                        <li>Identified market opportunity through competitive analysis</li>
+                        <li>Defined strategic positioning and target personas</li>
+                        <li>Shipped MVP to production in 4 weeks</li>
+                    </ul>
+                    
+                    <p class="body-text">
+                        <strong>Technical Product Management</strong>
+                    </p>
+                    <ul class="body-text" style="list-style: disc; padding-left: 2rem; margin-top: 0.5rem;">
+                        <li>Made build vs. buy decisions with data</li>
+                        <li>Evaluated architecture trade-offs (scalability, cost, complexity)</li>
+                        <li>Optimized infrastructure costs ($0/month through free tiers)</li>
+                    </ul>
+                    
+                    <p class="body-text">
+                        <strong>User-Centric Design</strong>
+                    </p>
+                    <ul class="body-text" style="list-style: disc; padding-left: 2rem; margin-top: 0.5rem;">
+                        <li>Prioritized pain points (lost emails, status visibility)</li>
+                        <li>Iterated based on direct user feedback</li>
+                        <li>Reduced friction through hybrid guest/auth model</li>
+                    </ul>
+                    
+                    <p class="body-text">
+                        <strong>Execution Excellence</strong>
+                    </p>
+                    <ul class="body-text" style="list-style: disc; padding-left: 2rem; margin-top: 0.5rem;">
+                        <li>Shipped on timeline with zero production incidents</li>
+                        <li>Managed scope aggressively (cut features when needed)</li>
+                        <li>Balanced technical debt vs. speed-to-market</li>
+                    </ul>
+                    
+                    <p class="body-text">
+                        <strong>Business Impact</strong>
+                    </p>
+                    <ul class="body-text" style="list-style: disc; padding-left: 2rem; margin-top: 0.5rem;">
+                        <li>6 hours/month operational efficiency gained</li>
+                        <li>Scalable to 1,000 quotes on free tier</li>
+                        <li>2x CLV improvement potential through retention</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-block-no-padding">
+                <div class="max-w-container-large ml-auto">
+                    <h3 class="subsection-title">Technical Stack</h3>
+                    <table class="decision-table">
+                        <thead>
+                            <tr>
+                                <th>Layer</th>
+                                <th>Technology</th>
+                                <th>Why</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Frontend</td>
+                                <td>Next.js 14, React, TypeScript</td>
+                                <td>SSR for SEO, type safety</td>
+                            </tr>
+                            <tr>
+                                <td>UI</td>
+                                <td>Shadcn UI, Tailwind CSS</td>
+                                <td>Modern components, utility-first styling</td>
+                            </tr>
+                            <tr>
+                                <td>Backend</td>
+                                <td>Next.js API Routes</td>
+                                <td>Serverless, co-located with frontend</td>
+                            </tr>
+                            <tr>
+                                <td>Database</td>
+                                <td>PostgreSQL (Supabase)</td>
+                                <td>Relational data model, RLS security</td>
+                            </tr>
+                            <tr>
+                                <td>Auth</td>
+                                <td>Supabase Auth</td>
+                                <td>JWT-based, integrated with DB</td>
+                            </tr>
+                            <tr>
+                                <td>Storage</td>
+                                <td>Supabase Storage</td>
+                                <td>Same vendor, 1GB free</td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td>Nodemailer + Gmail</td>
+                                <td>Zero cost, sufficient for MVP</td>
+                            </tr>
+                            <tr>
+                                <td>Hosting</td>
+                                <td>Vercel</td>
+                                <td>Free tier, instant deployments</td>
+                            </tr>
+                            <tr>
+                                <td>Monitoring</td>
+                                <td>Vercel Analytics</td>
+                                <td>Built-in performance tracking</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="content-block-no-padding">
+                <div class="max-w-container-large ml-auto">
+                    <div style="background: #f9fafb; padding: 2rem; border-radius: 0.5rem; text-align: center; margin-top: 2rem;">
+                        <p class="body-text" style="margin: 0;">
+                            <strong>Live Demo:</strong> <a href="https://vectorgurus.com" target="_blank" style="color: #2563eb; text-decoration: underline;">vectorgurus.com</a>
+                        </p>
+                        <p class="body-text" style="margin-top: 0.5rem;">
+                            <strong>GitHub:</strong> <a href="https://github.com/Damitimo/vectorpro" target="_blank" style="color: #2563eb; text-decoration: underline;">github.com/Damitimo/vectorpro</a>
+                        </p>
+                    </div>
+                </div>
+            </section>
+                </div>
+            </div>
+
+    <!-- Related Projects -->
+    <div id="related-projects-placeholder"></div>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
+
