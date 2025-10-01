@@ -76,6 +76,10 @@
         
         /* Mobile responsive layout */
         @media (max-width: 768px) {
+            .header-container {
+                padding-top: 8rem;
+            }
+            
             .case-study-content {
                 margin-left: 0;
             }
@@ -118,6 +122,13 @@
             line-height: 2rem;
             color: #6B7280;
             margin-top: 1.5rem;
+        }
+        
+        .header-container {
+            max-width: 75rem;
+            margin: 0 auto;
+            padding: 0 1rem; /* Same as px-4 (16px) to match homepage */
+            padding-top: 14rem;
         }
         
         .case-study-container {
@@ -271,8 +282,8 @@
     <div id="header-placeholder"></div>
 
     <!-- Hero Section -->
-    <div style="background: white; padding: 4rem 0 0 0;">
-        <div style="max-width: 75rem; margin: 0 auto; padding: 0 2rem;">
+    <div class="header-container page-content" style="background: white;">
+        <div class="sections">
             
             <!-- Spacer (4rem) -->
             <div class="spacer-section"></div>
