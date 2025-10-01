@@ -29,6 +29,10 @@
             padding: 2rem 0;
         }
         
+        .content-block-no-padding {
+            padding: 0;
+        }
+        
         .spacer {
             height: 6rem;
         }
@@ -229,6 +233,76 @@
         @keyframes pageFadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
+        }
+        
+        /* Decision Matrix Styles */
+        .decision-matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .decision-matrix-table th, .decision-matrix-table td {
+            padding: 20px;
+            text-align: left;
+            border: 1px solid #e0e0e0;
+        }
+        .decision-matrix-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 14px;
+        }
+        .criteria-col {
+            width: 200px;
+            font-weight: 600;
+            color: #34495e;
+            background: #f1f8ff;
+        }
+        .option-header {
+            background: #005dab;
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+        .high { background: #fee; color: #c33; }
+        .medium { background: #fff4e6; color: #d97706; }
+        .low { background: #e8f5e9; color: #2e7d32; }
+        .excellent { background: #1976d2; color: white; }
+        .good { background: #7cb342; color: white; }
+        .poor { background: #e57373; color: white; }
+        .seamless { background: #0288d1; color: white; }
+        .complex { background: #f4511e; color: white; }
+        .dm-description {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #555;
+        }
+        .recommended {
+            position: relative;
+        }
+        .recommended::after {
+            content: "✓ RECOMMENDED";
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #2e7d32;
+            color: white;
+            padding: 6px 12px;
+            font-size: 11px;
+            font-weight: 700;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
     </style>
 </head>
