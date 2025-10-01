@@ -381,81 +381,278 @@
             <section class="content-block">
                 <div class="container">
                     <div style="padding: 3rem; background: white;">
-                        <div style="text-align: center; margin-bottom: 3rem;">
-                            <h2 style="font-size: 1.5rem; font-weight: bold; color: #111827; margin-bottom: 0.5rem;">Before: Fragmented Platform Ecosystem</h2>
-                            <p style="color: #6b7280;">Advisors navigated 4 separate systems with no data integration</p>
+                        <div style="text-align: center; margin-bottom: 2rem;">
+                            <h2 style="font-size: 1.5rem; font-weight: bold; color: #111827; margin-bottom: 0.5rem;">Before: Sequential Data Re-entry Across 4 Platforms</h2>
+                            <p style="color: #6b7280;">To submit 3 products for one client, advisors manually re-entered the same information 4 times</p>
                         </div>
 
-                        <div class="flex flex-col lg:flex-row gap-8 items-center">
-                            <!-- Left side - Problem visualization -->
-                            <div class="flex-1">
-                                <div style="background: #fef2f2; border: 2px solid #fca5a5; border-radius: 1rem; padding: 2rem; text-align: center;">
-                                    <div style="font-size: 2rem; margin-bottom: 1rem;">🔴</div>
-                                    <h3 style="font-size: 1.25rem; font-weight: bold; color: #991b1b; margin-bottom: 1rem;">4 Separate Platforms</h3>
-                                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
-                                        <div style="background: white; border: 1px solid #fca5a5; border-radius: 0.5rem; padding: 1rem;">
-                                            <div style="font-weight: 600; color: #dc2626; margin-bottom: 0.5rem;">Salesforce CRM</div>
-                                            <div style="font-size: 0.875rem; color: #6b7280;">Client data entry</div>
+                        <div style="background: #eff6ff; border: 2px solid #93c5fd; border-radius: 0.5rem; padding: 1rem; margin-bottom: 2rem; text-align: center;">
+                            <div style="font-weight: bold; color: #1e3a8a; margin-bottom: 0.25rem;">Scenario: Client needs Critical Illness, Life, and Disability insurance</div>
+                            <div style="font-size: 0.875rem; color: #1d4ed8;">Watch the same client data get re-entered 4 times...</div>
+                        </div>
+
+                        <!-- 2x2 Grid Layout for Desktop -->
+                        <div class="hidden lg:grid grid-cols-2 gap-6">
+                            <!-- Top Row -->
+                            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                                <div style="flex-shrink: 0; background: #2563eb; color: white; width: 3rem; height: 3rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.25rem;">
+                                    1
+                                </div>
+                                <div style="flex: 1; background: #eff6ff; border: 2px solid #93c5fd; border-radius: 0.5rem; padding: 1.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                                        <div style="background: #2563eb; color: white; padding: 0.5rem 1rem; border-radius: 0.375rem; font-weight: bold;">
+                                            Platform A: Salesforce (CRM)
                                         </div>
-                                        <div style="background: white; border: 1px solid #fca5a5; border-radius: 0.5rem; padding: 1rem;">
-                                            <div style="font-weight: 600; color: #dc2626; margin-bottom: 0.5rem;">Life Insurance</div>
-                                            <div style="font-size: 0.875rem; color: #6b7280;">Separate e-app</div>
-                                        </div>
-                                        <div style="background: white; border: 1px solid #fca5a5; border-radius: 0.5rem; padding: 1rem;">
-                                            <div style="font-weight: 600; color: #dc2626; margin-bottom: 0.5rem;">Critical Illness</div>
-                                            <div style="font-size: 0.875rem; color: #6b7280;">Different format</div>
-                                        </div>
-                                        <div style="background: white; border: 1px solid #fca5a5; border-radius: 0.5rem; padding: 1rem;">
-                                            <div style="font-weight: 600; color: #dc2626; margin-bottom: 0.5rem;">Disability</div>
-                                            <div style="font-size: 0.875rem; color: #6b7280;">Legacy system</div>
-                                        </div>
+                                        <div style="font-size: 0.875rem; color: #1d4ed8; font-weight: 600;">✓ Client data created</div>
                                     </div>
-                                    <div style="background: #fee2e2; border-radius: 0.5rem; padding: 1rem;">
-                                        <div style="font-weight: 600; color: #991b1b; margin-bottom: 0.5rem;">❌ No Data Integration</div>
-                                        <div style="font-size: 0.875rem; color: #991b1b;">Manual re-entry required across all platforms</div>
+                                    <div style="background: white; border-radius: 0.375rem; padding: 0.75rem; font-size: 0.875rem; color: #374151; border: 1px solid #bfdbfe;">
+                                        <div style="font-weight: 600; margin-bottom: 0.5rem;">Advisor enters client information:</div>
+                                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.75rem;">
+                                            <div>• Name: John Smith</div>
+                                            <div>• DOB: 01/15/1980</div>
+                                            <div>• Address: 123 Main St</div>
+                                            <div>• Phone: 555-1234</div>
+                                            <div>• Email: john@email.com</div>
+                                            <div>• SIN: 123-456-789</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Center arrow -->
-                            <div class="hidden lg:block" style="font-size: 2rem; color: #dc2626;">→</div>
+                            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                                <div style="flex-shrink: 0; background: #dc2626; color: white; width: 3rem; height: 3rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.25rem;">
+                                    2
+                                </div>
+                                <div style="flex: 1; background: #fef2f2; border: 2px solid #fca5a5; border-radius: 0.5rem; padding: 1.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                                        <div style="background: #dc2626; color: white; padding: 0.5rem 1rem; border-radius: 0.375rem; font-weight: bold;">
+                                            Platform B: Life Insurance e-App
+                                        </div>
+                                        <div style="font-size: 0.875rem; color: #b91c1c; font-weight: 600;">⚠️ No data transfer</div>
+                                    </div>
+                                    <div style="background: white; border-radius: 0.375rem; padding: 0.75rem; font-size: 0.875rem; color: #374151; border: 1px solid #fca5a5;">
+                                        <div style="font-weight: 600; margin-bottom: 0.5rem; color: #991b1b;">Advisor RE-ENTERS same client data manually:</div>
+                                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.75rem;">
+                                            <div>• Name: John Smith <span style="color: #dc2626;">(again)</span></div>
+                                            <div>• DOB: 01/15/1980 <span style="color: #dc2626;">(again)</span></div>
+                                            <div>• Address: 123 Main St <span style="color: #dc2626;">(again)</span></div>
+                                            <div>• Phone: 555-1234 <span style="color: #dc2626;">(again)</span></div>
+                                        </div>
+                                        <div style="margin-top: 0.5rem; font-size: 0.75rem; color: #b91c1c;">+ Format incompatibilities, can't copy-paste from Salesforce</div>
+                                    </div>
+                                </div>
+                            </div>
 
-                            <!-- Right side - Impact -->
-                            <div class="flex-1">
-                                <div style="background: #fef2f2; border: 2px solid #fca5a5; border-radius: 1rem; padding: 2rem;">
-                                    <h3 style="font-size: 1.25rem; font-weight: bold; color: #991b1b; margin-bottom: 1.5rem; text-align: center;">The Impact</h3>
-                                    <div style="space-y: 1rem;">
-                                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                                            <div style="background: #dc2626; color: white; width: 3rem; height: 3rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">
-                                                2h
-                                            </div>
-                                            <div>
-                                                <div style="font-weight: 600; color: #991b1b;">Processing Time</div>
-                                                <div style="font-size: 0.875rem; color: #6b7280;">Per application</div>
-                                            </div>
+                            <!-- Bottom Row -->
+                            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                                <div style="flex-shrink: 0; background: #ea580c; color: white; width: 3rem; height: 3rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.25rem;">
+                                    3
+                                </div>
+                                <div style="flex: 1; background: #fff7ed; border: 2px solid #fdba74; border-radius: 0.5rem; padding: 1.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                                        <div style="background: #ea580c; color: white; padding: 0.5rem 1rem; border-radius: 0.375rem; font-weight: bold;">
+                                            Platform C: Critical Illness e-App
                                         </div>
-                                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                                            <div style="background: #dc2626; color: white; width: 3rem; height: 3rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">
-                                                20%
-                                            </div>
-                                            <div>
-                                                <div style="font-weight: 600; color: #991b1b;">Error Rate</div>
-                                                <div style="font-size: 0.875rem; color: #6b7280;">From manual entry</div>
-                                            </div>
+                                        <div style="font-size: 0.875rem; color: #c2410c; font-weight: 600;">⚠️ Different format</div>
+                                    </div>
+                                    <div style="background: white; border-radius: 0.375rem; padding: 0.75rem; font-size: 0.875rem; color: #374151; border: 1px solid #fdba74;">
+                                        <div style="font-weight: 600; margin-bottom: 0.5rem; color: #c2410c;">Advisor RE-ENTERS same data a THIRD time:</div>
+                                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.75rem;">
+                                            <div>• Name: John Smith <span style="color: #ea580c;">(3rd time)</span></div>
+                                            <div>• DOB: 01/15/1980 <span style="color: #ea580c;">(3rd time)</span></div>
+                                            <div>• Address: 123 Main St <span style="color: #ea580c;">(3rd time)</span></div>
+                                            <div>• Phone: 555-1234 <span style="color: #ea580c;">(3rd time)</span></div>
                                         </div>
-                                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                                            <div style="background: #dc2626; color: white; width: 3rem; height: 3rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">
-                                                4x
-                                            </div>
-                                            <div>
-                                                <div style="font-weight: 600; color: #991b1b;">Platform Switches</div>
-                                                <div style="font-size: 0.875rem; color: #6b7280;">Context switching</div>
-                                            </div>
+                                        <div style="margin-top: 0.5rem; font-size: 0.75rem; color: #c2410c;">+ Different validation rules, separate login required</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                                <div style="flex-shrink: 0; background: #7c3aed; color: white; width: 3rem; height: 3rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.25rem;">
+                                    4
+                                </div>
+                                <div style="flex: 1; background: #faf5ff; border: 2px solid #c4b5fd; border-radius: 0.5rem; padding: 1.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                                        <div style="background: #7c3aed; color: white; padding: 0.5rem 1rem; border-radius: 0.375rem; font-weight: bold;">
+                                            Platform D: Disability e-App
                                         </div>
-                                        <div style="background: #fee2e2; border-radius: 0.5rem; padding: 1rem; margin-top: 1.5rem; text-align: center;">
-                                            <div style="font-weight: 600; color: #991b1b; font-size: 0.875rem;">😤 Advisors switching to competitors</div>
+                                        <div style="font-size: 0.875rem; color: #6b21a8; font-weight: 600;">⚠️ Legacy system</div>
+                                    </div>
+                                    <div style="background: white; border-radius: 0.375rem; padding: 0.75rem; font-size: 0.875rem; color: #374151; border: 1px solid #c4b5fd;">
+                                        <div style="font-weight: 600; margin-bottom: 0.5rem; color: #6b21a8;">Advisor RE-ENTERS same data a FOURTH time:</div>
+                                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.75rem;">
+                                            <div>• Name: John Smith <span style="color: #7c3aed;">(4th time!)</span></div>
+                                            <div>• DOB: 01/15/1980 <span style="color: #7c3aed;">(4th time!)</span></div>
+                                            <div>• Address: 123 Main St <span style="color: #7c3aed;">(4th time!)</span></div>
+                                            <div>• Phone: 555-1234 <span style="color: #7c3aed;">(4th time!)</span></div>
+                                        </div>
+                                        <div style="margin-top: 0.5rem; font-size: 0.75rem; color: #6b21a8;">+ Manual Moneris ID lookup, outdated interface</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Vertical Stack for Mobile -->
+                        <div class="lg:hidden space-y-6">
+                            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                                <div style="flex-shrink: 0; background: #2563eb; color: white; width: 3rem; height: 3rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.25rem;">
+                                    1
+                                </div>
+                                <div style="flex: 1; background: #eff6ff; border: 2px solid #93c5fd; border-radius: 0.5rem; padding: 1.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                                        <div style="background: #2563eb; color: white; padding: 0.5rem 1rem; border-radius: 0.375rem; font-weight: bold;">
+                                            Platform A: Salesforce (CRM)
+                                        </div>
+                                        <div style="font-size: 0.875rem; color: #1d4ed8; font-weight: 600;">✓ Client data created</div>
+                                    </div>
+                                    <div style="background: white; border-radius: 0.375rem; padding: 0.75rem; font-size: 0.875rem; color: #374151; border: 1px solid #bfdbfe;">
+                                        <div style="font-weight: 600; margin-bottom: 0.5rem;">Advisor enters client information:</div>
+                                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.75rem;">
+                                            <div>• Name: John Smith</div>
+                                            <div>• DOB: 01/15/1980</div>
+                                            <div>• Address: 123 Main St</div>
+                                            <div>• Phone: 555-1234</div>
+                                            <div>• Email: john@email.com</div>
+                                            <div>• SIN: 123-456-789</div>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+
+                            <!-- Mobile Arrow -->
+                            <div style="display: flex; align-items: center; padding-left: 4rem;">
+                                <div style="flex: 1; display: flex; align-items: center;">
+                                    <div style="width: 0.25rem; height: 3rem; background: #f87171;"></div>
+                                    <div style="flex: 1; border-top: 2px solid #f87171; border-style: dashed;"></div>
+                                    <div style="background: #fee2e2; color: #991b1b; padding: 0.25rem 1rem; border-radius: 9999px; font-size: 0.75rem; font-weight: bold; border: 2px solid #f87171;">
+                                        ❌ Manual re-entry required
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                                <div style="flex-shrink: 0; background: #dc2626; color: white; width: 3rem; height: 3rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.25rem;">
+                                    2
+                                </div>
+                                <div style="flex: 1; background: #fef2f2; border: 2px solid #fca5a5; border-radius: 0.5rem; padding: 1.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                                        <div style="background: #dc2626; color: white; padding: 0.5rem 1rem; border-radius: 0.375rem; font-weight: bold;">
+                                            Platform B: Life Insurance e-App
+                                        </div>
+                                        <div style="font-size: 0.875rem; color: #b91c1c; font-weight: 600;">⚠️ No data transfer</div>
+                                    </div>
+                                    <div style="background: white; border-radius: 0.375rem; padding: 0.75rem; font-size: 0.875rem; color: #374151; border: 1px solid #fca5a5;">
+                                        <div style="font-weight: 600; margin-bottom: 0.5rem; color: #991b1b;">Advisor RE-ENTERS same client data manually:</div>
+                                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.75rem;">
+                                            <div>• Name: John Smith <span style="color: #dc2626;">(again)</span></div>
+                                            <div>• DOB: 01/15/1980 <span style="color: #dc2626;">(again)</span></div>
+                                            <div>• Address: 123 Main St <span style="color: #dc2626;">(again)</span></div>
+                                            <div>• Phone: 555-1234 <span style="color: #dc2626;">(again)</span></div>
+                                        </div>
+                                        <div style="margin-top: 0.5rem; font-size: 0.75rem; color: #b91c1c;">+ Format incompatibilities, can't copy-paste from Salesforce</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Mobile Arrow -->
+                            <div style="display: flex; align-items: center; padding-left: 4rem;">
+                                <div style="flex: 1; display: flex; align-items: center;">
+                                    <div style="width: 0.25rem; height: 3rem; background: #f87171;"></div>
+                                    <div style="flex: 1; border-top: 2px solid #f87171; border-style: dashed;"></div>
+                                    <div style="background: #fee2e2; color: #991b1b; padding: 0.25rem 1rem; border-radius: 9999px; font-size: 0.75rem; font-weight: bold; border: 2px solid #f87171;">
+                                        ❌ Manual re-entry required AGAIN
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                                <div style="flex-shrink: 0; background: #ea580c; color: white; width: 3rem; height: 3rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.25rem;">
+                                    3
+                                </div>
+                                <div style="flex: 1; background: #fff7ed; border: 2px solid #fdba74; border-radius: 0.5rem; padding: 1.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                                        <div style="background: #ea580c; color: white; padding: 0.5rem 1rem; border-radius: 0.375rem; font-weight: bold;">
+                                            Platform C: Critical Illness e-App
+                                        </div>
+                                        <div style="font-size: 0.875rem; color: #c2410c; font-weight: 600;">⚠️ Different format</div>
+                                    </div>
+                                    <div style="background: white; border-radius: 0.375rem; padding: 0.75rem; font-size: 0.875rem; color: #374151; border: 1px solid #fdba74;">
+                                        <div style="font-weight: 600; margin-bottom: 0.5rem; color: #c2410c;">Advisor RE-ENTERS same data a THIRD time:</div>
+                                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.75rem;">
+                                            <div>• Name: John Smith <span style="color: #ea580c;">(3rd time)</span></div>
+                                            <div>• DOB: 01/15/1980 <span style="color: #ea580c;">(3rd time)</span></div>
+                                            <div>• Address: 123 Main St <span style="color: #ea580c;">(3rd time)</span></div>
+                                            <div>• Phone: 555-1234 <span style="color: #ea580c;">(3rd time)</span></div>
+                                        </div>
+                                        <div style="margin-top: 0.5rem; font-size: 0.75rem; color: #c2410c;">+ Different validation rules, separate login required</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Mobile Arrow -->
+                            <div style="display: flex; align-items: center; padding-left: 4rem;">
+                                <div style="flex: 1; display: flex; align-items: center;">
+                                    <div style="width: 0.25rem; height: 3rem; background: #f87171;"></div>
+                                    <div style="flex: 1; border-top: 2px solid #f87171; border-style: dashed;"></div>
+                                    <div style="background: #fee2e2; color: #991b1b; padding: 0.25rem 1rem; border-radius: 9999px; font-size: 0.75rem; font-weight: bold; border: 2px solid #f87171;">
+                                        ❌ Manual re-entry required YET AGAIN
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                                <div style="flex-shrink: 0; background: #7c3aed; color: white; width: 3rem; height: 3rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.25rem;">
+                                    4
+                                </div>
+                                <div style="flex: 1; background: #faf5ff; border: 2px solid #c4b5fd; border-radius: 0.5rem; padding: 1.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                                        <div style="background: #7c3aed; color: white; padding: 0.5rem 1rem; border-radius: 0.375rem; font-weight: bold;">
+                                            Platform D: Disability e-App
+                                        </div>
+                                        <div style="font-size: 0.875rem; color: #6b21a8; font-weight: 600;">⚠️ Legacy system</div>
+                                    </div>
+                                    <div style="background: white; border-radius: 0.375rem; padding: 0.75rem; font-size: 0.875rem; color: #374151; border: 1px solid #c4b5fd;">
+                                        <div style="font-weight: 600; margin-bottom: 0.5rem; color: #6b21a8;">Advisor RE-ENTERS same data a FOURTH time:</div>
+                                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.75rem;">
+                                            <div>• Name: John Smith <span style="color: #7c3aed;">(4th time!)</span></div>
+                                            <div>• DOB: 01/15/1980 <span style="color: #7c3aed;">(4th time!)</span></div>
+                                            <div>• Address: 123 Main St <span style="color: #7c3aed;">(4th time!)</span></div>
+                                            <div>• Phone: 555-1234 <span style="color: #7c3aed;">(4th time!)</span></div>
+                                        </div>
+                                        <div style="margin-top: 0.5rem; font-size: 0.75rem; color: #6b21a8;">+ Manual Moneris ID lookup, outdated interface</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Impact callout -->
+                        <div style="margin-top: 2rem; background: #fee2e2; border-left: 4px solid #dc2626; padding: 1.5rem; border-radius: 0 0.5rem 0.5rem 0;">
+                            <div style="font-weight: bold; color: #991b1b; margin-bottom: 0.75rem; font-size: 1.125rem;">The Result: Massive Inefficiency</div>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                <div>
+                                    <ul style="font-size: 0.875rem; color: #991b1b; space-y: 0.5rem;">
+                                        <li style="display: flex; align-items: flex-start; gap: 0.5rem;">
+                                            <span style="color: #dc2626; font-weight: bold;">⏱️</span>
+                                            <span><strong>2+ hours</strong> to complete 3 applications</span>
+                                        </li>
+                                        <li style="display: flex; align-items: flex-start; gap: 0.5rem;">
+                                            <span style="color: #dc2626; font-weight: bold;">⚠️</span>
+                                            <span><strong>20% error rate</strong> from manual re-entry</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <ul style="font-size: 0.875rem; color: #991b1b; space-y: 0.5rem;">
+                                        <li style="display: flex; align-items: flex-start; gap: 0.5rem;">
+                                            <span style="color: #dc2626; font-weight: bold;">🔄</span>
+                                            <span><strong>4 platform logins</strong> and context switching</span>
+                                        </li>
+                                        <li style="display: flex; align-items: flex-start; gap: 0.5rem;">
+                                            <span style="color: #dc2626; font-weight: bold;">😤</span>
+                                            <span>Advisors switching to <strong>competitors</strong></span>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
