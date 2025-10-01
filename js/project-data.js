@@ -1,19 +1,22 @@
 // Project data - single source of truth
 const projectData = {
     'rbc-digital-platform': {
-        title: 'From Fragmented to Unified: Building a Dynamic Insurance Platform That Reduced Application Processing Time by 50%',
-        description: 'Led product strategy and cross-functional development of a unified Salesforce platform consolidating Critical Illness, Life, and Disability insurance products. Defined requirements for a dynamic rules engine and modular architecture that eliminated data silos, reduced processing time by 50% (2 hours to 1 hour), and increased advisor productivity by 40%, driving a 25% uplift in applications from brokerage advisors.',
-        url: 'project-rbc-digital-platform.html'
+        title: 'RBC Digital Platform',
+        description: 'Led product strategy and cross-functional development of a unified Salesforce platform consolidating Critical Illness, Life, and Disability insurance products. Reduced processing time by 50% and increased advisor productivity by 40%.',
+        url: 'project-rbc-digital-platform.html',
+        image: 'public/eapp home page.jpg'
     },
     'insurance-illustration': {
-        title: 'Insurance Illustration Software Modernization',
-        description: 'Led strategic modernization of RBC\'s legacy insurance illustration software, architecting vendor partnership with complex technical trade-offs.',
-        url: 'project-insurance-illustration.html'
+        title: 'Illustration Online Quoting Tool',
+        description: 'Led the modernization of RBC\'s Windows 97-era insurance illustration software serving 2,500 advisors. Developed strategic framework to evaluate vendor partnerships, balancing security, compliance, and IP protection while delivering a cloud-enabled platform.',
+        url: 'project-insurance-illustration.html',
+        image: 'public/Illustration home.jpg'
     },
     'creditor-insurance-widget': {
-        title: 'Streamlining Insurance Enrollment in Banking Flows',
-        description: 'Designed creditor insurance widget for seamless banking flow integration.',
-        url: 'project-creditor-insurance-widget.html'
+        title: 'Creditor Insurance Widget Integration',
+        description: 'Designed and implemented a creditor insurance widget that resolved inter-departmental collaboration challenges between Banking and Insurance teams. Optimized for revenue through strategic inflow placement while enabling departmental autonomy.',
+        url: 'project-creditor-insurance-widget.html',
+        image: 'public/creditor home page.jpg'
     }
 };
 
@@ -39,11 +42,18 @@ function renderRelatedProjects(currentProjectId) {
             <h2 class="text-2xl font-bold text-gray-900 mb-8">Related Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 ${relatedProjects.map(project => `
-                    <div class="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-2">${project.title}</h3>
-                        <p class="text-gray-600 text-sm mb-4">${project.description}</p>
-                        <a href="${project.url}" class="text-blue-600 hover:text-blue-800 font-medium text-sm">View Project →</a>
-                    </div>
+                    <a href="${project.url}" class="group">
+                        <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
+                            <div class="aspect-video overflow-hidden">
+                                <img src="${project.image}" alt="${project.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">${project.title}</h3>
+                                <p class="text-gray-600 text-sm mb-4 line-clamp-3">${project.description}</p>
+                                <span class="text-blue-600 group-hover:text-blue-800 font-medium text-sm">View Project →</span>
+                            </div>
+                        </div>
+                    </a>
                 `).join('')}
             </div>
         </div>
