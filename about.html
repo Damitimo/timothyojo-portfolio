@@ -93,6 +93,22 @@
             <section class="space-y-12 sm:space-y-16 lg:space-y-20">
                 <h1 class="text-3xl sm:text-4xl lg:text-5xl typography-section-headline-bold text-foreground">About Me</h1>
 
+                <!-- Image Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+                    <div class="aspect-square rounded-lg overflow-hidden bg-gray-200">
+                        <img src="public/timothy-1.jpg" alt="Timothy Ojo" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'w-full h-full bg-gray-200 flex items-center justify-center text-gray-400\'>Image 1</div>'">
+                    </div>
+                    <div class="aspect-square rounded-lg overflow-hidden bg-gray-200">
+                        <img src="public/timothy-2.jpg" alt="Timothy Ojo" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'w-full h-full bg-gray-200 flex items-center justify-center text-gray-400\'>Image 2</div>'">
+                    </div>
+                    <div class="aspect-square rounded-lg overflow-hidden bg-gray-200">
+                        <img src="public/timothy-3.jpg" alt="Timothy Ojo" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'w-full h-full bg-gray-200 flex items-center justify-center text-gray-400\'>Image 3</div>'">
+                    </div>
+                    <div class="aspect-square rounded-lg overflow-hidden bg-gray-200">
+                        <img src="public/timothy-4.jpg" alt="Timothy Ojo" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'w-full h-full bg-gray-200 flex items-center justify-center text-gray-400\'>Image 4</div>'">
+                    </div>
+                </div>
+
                 <div class="grid md:grid-cols-2 gap-12 sm:gap-16 lg:gap-20">
                     <div class="space-y-6 sm:space-y-8">
                         <div>
@@ -102,26 +118,9 @@
                                 This unique path equipped me with both the empathy to understand people and the structured thinking to build solutions that improve their experiences.
                             </p>
                         </div>
-
-                        <div>
-                            <h3 class="text-lg typography-subheadline mb-3">Approach</h3>
-                            <p class="text-muted-foreground leading-relaxed">
-                                I believe in building products that truly resonate with users. My approach combines analytical thinking
-                                from my pharmacy background with design sensibility and technical understanding to create solutions that
-                                work.
-                            </p>
-                        </div>
                     </div>
 
                     <div class="space-y-6">
-                        <div>
-                            <h3 class="text-lg typography-subheadline mb-3">Currently</h3>
-                            <p class="text-muted-foreground leading-relaxed">
-                                MBA candidate at USC Marshall School of Business, member of Blockchain@USC, exploring the intersection of
-                                health tech, product strategy, and innovation.
-                            </p>
-                        </div>
-
                         <div>
                             <h3 class="text-lg typography-subheadline mb-3">Outside of work</h3>
                             <p class="text-muted-foreground leading-relaxed">
@@ -132,7 +131,7 @@
                     </div>
                 </div>
 
-                <!-- Additional About Content -->
+                <!-- My Journey -->
                 <div class="space-y-8 sm:space-y-12">
                     <h2 class="text-2xl sm:text-3xl typography-section-headline-bold text-foreground">My Journey</h2>
                     
@@ -158,6 +157,25 @@
                     </div>
                 </div>
 
+                <!-- My PM Philosophy -->
+                <div class="space-y-8 sm:space-y-12">
+                    <h2 class="text-2xl sm:text-3xl typography-section-headline-bold text-foreground">My PM Philosophy</h2>
+                    
+                    <div class="space-y-6">
+                        <p class="text-lg text-muted-foreground leading-relaxed">
+                            I believe in building products that truly resonate with users. My approach combines analytical thinking
+                            from my pharmacy background with design sensibility and technical understanding to create solutions that
+                            work. Great products emerge from deep user empathy, rigorous data analysis, and cross-functional collaboration.
+                        </p>
+                        
+                        <p class="text-lg text-muted-foreground leading-relaxed">
+                            I prioritize solving real problems over building features, measuring impact over output, and enabling teams
+                            over managing tasks. Product management is about being the voice of the user while balancing business objectives
+                            and technical constraints—finding elegant solutions in complex systems.
+                        </p>
+                    </div>
+                </div>
+
                 <!-- Skills & Interests -->
                 <div class="space-y-8 sm:space-y-12">
                     <h2 class="text-2xl sm:text-3xl typography-section-headline-bold text-foreground">Skills & Interests</h2>
@@ -166,24 +184,48 @@
                         <div class="space-y-4">
                             <h3 class="text-lg typography-subheadline">Core Skills</h3>
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 text-sm bg-muted text-muted-foreground rounded-full">Product Strategy</span>
-                                <span class="px-3 py-1 text-sm bg-muted text-muted-foreground rounded-full">User Research</span>
-                                <span class="px-3 py-1 text-sm bg-muted text-muted-foreground rounded-full">Data Analysis</span>
-                                <span class="px-3 py-1 text-sm bg-muted text-muted-foreground rounded-full">UX Design</span>
-                                <span class="px-3 py-1 text-sm bg-muted text-muted-foreground rounded-full">Agile Development</span>
-                                <span class="px-3 py-1 text-sm bg-muted text-muted-foreground rounded-full">Stakeholder Management</span>
+                                <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
+                                    <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Product Strategy</div>
+                                </div>
+                                <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
+                                    <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">User Research</div>
+                                </div>
+                                <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
+                                    <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Data Analysis</div>
+                                </div>
+                                <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
+                                    <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">UX Design</div>
+                                </div>
+                                <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
+                                    <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Agile Development</div>
+                                </div>
+                                <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
+                                    <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Stakeholder Management</div>
+                                </div>
                             </div>
                         </div>
                         
                         <div class="space-y-4">
                             <h3 class="text-lg typography-subheadline">Interests</h3>
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 text-sm bg-muted text-muted-foreground rounded-full">Health Tech</span>
-                                <span class="px-3 py-1 text-sm bg-muted text-muted-foreground rounded-full">Blockchain</span>
-                                <span class="px-3 py-1 text-sm bg-muted text-muted-foreground rounded-full">AI/ML</span>
-                                <span class="px-3 py-1 text-sm bg-muted text-muted-foreground rounded-full">Design Systems</span>
-                                <span class="px-3 py-1 text-sm bg-muted text-muted-foreground rounded-full">Innovation</span>
-                                <span class="px-3 py-1 text-sm bg-muted text-muted-foreground rounded-full">Chess</span>
+                                <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
+                                    <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Health Tech</div>
+                                </div>
+                                <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
+                                    <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Blockchain</div>
+                                </div>
+                                <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
+                                    <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">AI/ML</div>
+                                </div>
+                                <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
+                                    <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Design Systems</div>
+                                </div>
+                                <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
+                                    <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Innovation</div>
+                                </div>
+                                <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
+                                    <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Chess</div>
+                                </div>
                             </div>
                         </div>
                     </div>
