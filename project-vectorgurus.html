@@ -70,6 +70,17 @@
             padding: 0;
         }
         
+        .case-study-content {
+            margin-left: 240px;
+        }
+        
+        /* Mobile responsive layout */
+        @media (max-width: 768px) {
+            .case-study-content {
+                margin-left: 0;
+            }
+        }
+        
         .spacer {
             height: 6rem;
         }
@@ -259,43 +270,45 @@
     <!-- Header -->
     <div id="header-placeholder"></div>
 
-    <!-- Hero Image -->
-    <div style="padding: 0; background: white;">
-        <img src="public/Frame 634779 (1).jpg" alt="VectorGurus Platform" class="hero-image">
-    </div>
-
-    <!-- Project Title & Summary -->
-    <div style="padding: 4rem 1rem; max-width: 75rem; margin: 0 auto;">
-        <h1 class="project-title">VectorGurus: End-to-End Product Development</h1>
-        <p class="project-summary">
-            Transformed a manual email-based vector tracing service into a scalable SaaS platform with user authentication, quote management, and cloud file storage. Reduced operational overhead by 6 hours/month while enabling customer self-service through a modern dashboard interface.
-        </p>
-        
-        <!-- Key Metrics -->
-        <div class="metric-grid">
-            <div class="metric-card">
-                <div class="metric-value">4</div>
-                <div class="metric-label">Weeks to Production</div>
+    <!-- Hero Section -->
+    <div style="background: white; padding: 0;">
+        <div style="max-width: 75rem; margin: 0 auto; padding: 0 2rem;">
+            
+            <!-- Spacer (4rem) -->
+            <div class="spacer-section"></div>
+            
+            <!-- Project Title -->
+            <h1 class="project-title">VectorGurus: End-to-End Product Development</h1>
+            <p class="project-summary">
+                Transformed a manual email-based vector tracing service into a scalable SaaS platform with user authentication, quote management, and cloud file storage. Reduced operational overhead by 6 hours/month while enabling customer self-service.
+            </p>
+            
+            <!-- Spacer (4rem) -->
+            <div class="spacer-section"></div>
+            
+            <!-- Project Meta -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-container-large">
+                <div>
+                    <p class="meta-label">Client</p>
+                    <p class="meta-value">VectorGurus</p>
+                </div>
+                <div>
+                    <p class="meta-label">Date completed</p>
+                    <p class="meta-value">October 2024</p>
+                </div>
+                <div>
+                    <p class="meta-label">Role</p>
+                    <p class="meta-value">Product Manager & Technical Lead</p>
+                </div>
             </div>
-            <div class="metric-card">
-                <div class="metric-value">$0</div>
-                <div class="metric-label">Infrastructure Cost/Month</div>
+            
+            <!-- Spacer (4rem) -->
+            <div class="spacer-section"></div>
+            
+            <!-- Hero Image -->
+            <div class="max-w-container-large">
+                <img src="public/Frame 634779 (1).jpg" alt="VectorGurus Platform" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
             </div>
-            <div class="metric-card">
-                <div class="metric-value">60%</div>
-                <div class="metric-label">Quote Time Reduction</div>
-            </div>
-            <div class="metric-card">
-                <div class="metric-value">0</div>
-                <div class="metric-label">Production Incidents</div>
-            </div>
-        </div>
-        
-        <!-- Project Details -->
-        <div style="margin-top: 2rem; display: flex; gap: 2rem; flex-wrap: wrap; color: #6B7280; font-size: 1rem;">
-            <div><strong style="color: #111827;">Role:</strong> Product Manager & Technical Lead</div>
-            <div><strong style="color: #111827;">Duration:</strong> October 2024 (4 weeks)</div>
-            <div><strong style="color: #111827;">Status:</strong> Live at vectorgurus.com</div>
         </div>
     </div>
             
