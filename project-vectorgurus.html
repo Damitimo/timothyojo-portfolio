@@ -352,27 +352,39 @@
                     <p class="body-text">
                         <strong>Market Gap:</strong> Competitors offer either automated (low quality) or high-cost agency services. No one provides manual quality with modern tracking infrastructure.
                     </p>
+                    </div>
+                </div>
             </section>
 
             <div style="margin-top: 2rem;"></div>
 
-            <!-- Product Strategy -->
-            <section id="strategy" class="content-block section-anchor">
-                    <h2 class="section-title">Product Strategy</h2>
-            </section>
+                    <!-- Product Strategy -->
+                    <section id="strategy" class="content-block section-anchor">
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
+                                <h2 class="subsection-title">Product Strategy</h2>
+                            </div>
+                        </div>
+                    </section>
 
             <section class="content-block-no-padding">
-                    <h3 class="subsection-title">Positioning</h3>
+                <div class="container">
+                    <div class="max-w-container-large ml-auto">
+                        <h3 class="subsection-title">Positioning</h3>
                     <p class="body-text">
                         "Professional manual tracing with enterprise-level tracking"
                     </p>
                     <p class="body-text">
                         Premium quality through human expertise, combined with self-service transparency that customers expect from modern SaaS.
                     </p>
+                    </div>
+                </div>
             </section>
 
             <section class="content-block-no-padding">
-                    <h3 class="subsection-title">Target Users</h3>
+                <div class="container">
+                    <div class="max-w-container-large ml-auto">
+                        <h3 class="subsection-title">Target Users</h3>
                     <p class="body-text">
                         <strong>PRIMARY: Small Business Owners</strong>
                     </p>
@@ -389,17 +401,25 @@
                         <li>Pain: Re-requesting same files</li>
                         <li>Goal: Self-service file downloads</li>
                     </ul>
+                    </div>
+                </div>
             </section>
 
             <div style="margin-top: 2rem;"></div>
 
-            <!-- Requirements & Prioritization -->
-            <section id="requirements" class="content-block section-anchor">
-                    <h2 class="section-title">Requirements & Prioritization</h2>
-            </section>
+                    <!-- Requirements & Prioritization -->
+                    <section id="requirements" class="content-block section-anchor">
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
+                                <h2 class="subsection-title">Requirements & Prioritization</h2>
+                            </div>
+                        </div>
+                    </section>
 
             <section class="content-block-no-padding">
-                    <h3 class="subsection-title">MVP Feature Set (MoSCoW)</h3>
+                <div class="container">
+                    <div class="max-w-container-large ml-auto">
+                        <h3 class="subsection-title">MVP Feature Set (MoSCoW)</h3>
                     <table class="decision-table">
                         <thead>
                             <tr>
@@ -478,17 +498,25 @@
                             </tr>
                         </tbody>
                     </table>
+                    </div>
+                </div>
             </section>
 
             <div style="margin-top: 2rem;"></div>
 
-            <!-- Technical Architecture -->
-            <section id="architecture" class="content-block section-anchor">
-                                    <h2 class="section-title">Technical Architecture</h2>
-            </section>
+                    <!-- Technical Architecture -->
+                    <section id="architecture" class="content-block section-anchor">
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
+                                <h2 class="subsection-title">Technical Architecture</h2>
+                            </div>
+                        </div>
+                    </section>
 
             <section class="content-block-no-padding">
-                                    <h3 class="subsection-title">Stack Selection Decision Matrix</h3>
+                <div class="container">
+                    <div class="max-w-container-large ml-auto">
+                        <h3 class="subsection-title">Stack Selection Decision Matrix</h3>
                     <table class="decision-table">
                         <thead>
                             <tr>
@@ -546,9 +574,13 @@
                     <p class="body-text" style="margin-top: 1rem;">
                         <strong>Decision:</strong> Supabase for all-in-one backend (PostgreSQL + Auth + Storage)
                     </p>
+                    </div>
+                </div>
             </section>
 
             <section class="content-block-no-padding">
+                <div class="container">
+                    <div class="max-w-container-large ml-auto">
                                     <h3 class="subsection-title">Database Schema</h3>
                     <div style="background: #f9fafb; padding: 1.5rem; border-radius: 0.5rem; font-family: monospace; font-size: 0.875rem; color: #374151;">
                         <pre style="margin: 0;">users (Supabase Auth)
@@ -577,16 +609,24 @@ quote_files
                         <li>Cascade deletes for GDPR compliance</li>
                         <li>Normalized schema (3NF) for data integrity</li>
                     </ul>
-            </section>
+                    </div>
+                </div>
+                        </section>
 
             <div style="margin-top: 2rem;"></div>
 
             <!-- Key Product Decisions -->
             <section id="decisions" class="content-block section-anchor">
-                                    <h2 class="section-title">Key Product Decisions</h2>
-            </section>
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
+                                <h2 class="subsection-title">Key Product Decisions</h2>
+                            </div>
+                        </div>
+                    </section>
 
             <section class="content-block-no-padding">
+                <div class="container">
+                    <div class="max-w-container-large ml-auto">
                                     <h3 class="subsection-title">Decision 1: Hybrid Guest/Authenticated Model</h3>
                     <p class="body-text">
                         <strong>Context:</strong> Should users create accounts before submitting quotes?
@@ -617,9 +657,13 @@ quote_files
                         <li>Guest-to-registered conversion: Target >20%</li>
                         <li>Dashboard return rate: Target >40%</li>
                     </ul>
+                    </div>
+                </div>
             </section>
 
             <section class="content-block-no-padding">
+                <div class="container">
+                    <div class="max-w-container-large ml-auto">
                                     <h3 class="subsection-title">Decision 2: Database-First Architecture</h3>
                     <p class="body-text">
                         <strong>Context:</strong> Where should quotes be stored as source of truth?
@@ -644,16 +688,24 @@ quote_files
                         <li>Dependency on Supabase uptime</li>
                         <li>BUT: Better long-term foundation for growth</li>
                     </ul>
+                    </div>
+                </div>
             </section>
 
             <div style="margin-top: 2rem;"></div>
 
             <!-- Technical Challenges & Solutions -->
             <section id="challenges" class="content-block section-anchor">
-                                    <h2 class="section-title">Technical Challenges & Solutions</h2>
-            </section>
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
+                                <h2 class="subsection-title">Technical Challenges & Solutions</h2>
+                            </div>
+                        </div>
+                                </section>
 
             <section class="content-block-no-padding">
+                <div class="container">
+                    <div class="max-w-container-large ml-auto">
                                     <h3 class="subsection-title">Challenge 1: Fake Vectorization Feature Pivot</h3>
                     <p class="body-text">
                         <strong>Issue:</strong> Attempted to add automated preview using Potrace library
@@ -684,9 +736,13 @@ quote_files
                         <li>Faster deployment (no technical debt)</li>
                         <li>Better brand trust</li>
                     </ul>
+                    </div>
+                </div>
             </section>
 
             <section class="content-block-no-padding">
+                <div class="container">
+                    <div class="max-w-container-large ml-auto">
                                     <h3 class="subsection-title">Challenge 2: Multi-Select Component UX</h3>
                     <p class="body-text">
                         <strong>Issue:</strong> Shadcn multi-select had command palette search (overkill for 6 options)
@@ -700,9 +756,13 @@ quote_files
                     <p class="body-text">
                         <strong>Approach:</strong> User feedback > framework defaults
                     </p>
+                    </div>
+                </div>
             </section>
 
             <section class="content-block-no-padding">
+                <div class="container">
+                    <div class="max-w-container-large ml-auto">
                                     <h3 class="subsection-title">Challenge 3: useSearchParams Build Error</h3>
                     <p class="body-text">
                         <strong>Issue:</strong> Next.js pre-rendering failing on login page
@@ -721,16 +781,24 @@ quote_files
                     <p class="body-text" style="margin-top: 1rem;">
                         <strong>Learning:</strong> Framework requirements for SSR/SSG compatibility aren't optional
                     </p>
+                    </div>
+                </div>
             </section>
 
             <div style="margin-top: 2rem;"></div>
 
             <!-- Results & Impact -->
             <section id="impact" class="content-block section-anchor">
-                                    <h2 class="section-title">Results & Impact</h2>
-            </section>
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
+                                <h2 class="subsection-title">Results & Impact</h2>
+                            </div>
+                        </div>
+                                </section>
 
             <section class="content-block-no-padding">
+                <div class="container">
+                    <div class="max-w-container-large ml-auto">
                                     <h3 class="subsection-title">Operational Efficiency</h3>
                     <table class="decision-table">
                         <thead>
@@ -771,9 +839,13 @@ quote_files
                     <p class="body-text" style="margin-top: 1rem;">
                         <strong>Total Time Saved:</strong> ~18 min/quote × 20 quotes/month = <strong>6 hours/month</strong>
                     </p>
+                    </div>
+                </div>
             </section>
 
             <section class="content-block-no-padding">
+                <div class="container">
+                    <div class="max-w-container-large ml-auto">
                                     <h3 class="subsection-title">Technical Performance</h3>
                     <p class="body-text">
                         <strong>Lighthouse Scores:</strong>
@@ -793,9 +865,13 @@ quote_files
                         <li>Database Query Time: &lt;100ms</li>
                         <li>Production Incidents: 0</li>
                     </ul>
+                    </div>
+                </div>
             </section>
 
             <section class="content-block-no-padding">
+                <div class="container">
+                    <div class="max-w-container-large ml-auto">
                                     <h3 class="subsection-title">Scalability Achieved</h3>
                     <p class="body-text">
                         <strong>Current Capacity (Free Tier):</strong>
@@ -813,16 +889,24 @@ quote_files
                         <li>Domain: $12/year ($1/month)</li>
                         <li>Total: $1/month until scale requires paid tiers</li>
                     </ul>
+                    </div>
+                </div>
             </section>
 
             <div style="margin-top: 2rem;"></div>
 
             <!-- PM Competencies Demonstrated -->
             <section id="competencies" class="content-block section-anchor">
-                                    <h2 class="section-title">PM Competencies Demonstrated</h2>
-            </section>
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
+                                <h2 class="subsection-title">PM Competencies Demonstrated</h2>
+                            </div>
+                        </div>
+                                </section>
 
             <section class="content-block-no-padding">
+                <div class="container">
+                    <div class="max-w-container-large ml-auto">
                                     <h3 class="subsection-title">1. Technical Depth</h3>
                     <ul class="body-text" style="list-style: disc; padding-left: 2rem;">
                         <li>Evaluated 3 backend options with weighted decision matrix</li>
@@ -830,27 +914,39 @@ quote_files
                         <li>Debugged production issues (ESLint, middleware, SSR)</li>
                         <li>Designed normalized database schema with security policies</li>
                     </ul>
+                    </div>
+                </div>
             </section>
 
             <section class="content-block-no-padding">
+                <div class="container">
+                    <div class="max-w-container-large ml-auto">
                                     <h3 class="subsection-title">2. User-Centric Thinking</h3>
                     <ul class="body-text" style="list-style: disc; padding-left: 2rem;">
                         <li>Hybrid guest/auth model reduced friction</li>
                         <li>Iterated multi-select based on direct feedback</li>
                         <li>Prioritized transparency (status tracking) over admin features</li>
                     </ul>
+                    </div>
+                </div>
             </section>
 
             <section class="content-block-no-padding">
+                <div class="container">
+                    <div class="max-w-container-large ml-auto">
                                     <h3 class="subsection-title">3. Scope Management</h3>
                     <ul class="body-text" style="list-style: disc; padding-left: 2rem;">
                         <li>Cut vectorization feature when it didn't deliver value</li>
                         <li>Shipped MVP in 4 weeks vs. over-engineering</li>
                         <li>Database-first approach (reliability > feature complexity)</li>
                     </ul>
+                    </div>
+                </div>
             </section>
 
             <section class="content-block-no-padding">
+                <div class="container">
+                    <div class="max-w-container-large ml-auto">
                                     <h3 class="subsection-title">4. Data-Driven Decision Making</h3>
                     <p class="body-text">
                         <strong>Metrics Framework:</strong>
@@ -862,25 +958,37 @@ quote_files
                         <li>Retention: 30-day actives, repeat customers</li>
                         <li>Technical: API errors &lt;1%, page load &lt;3s</li>
                     </ul>
+                    </div>
+                </div>
             </section>
 
             <section class="content-block-no-padding">
+                <div class="container">
+                    <div class="max-w-container-large ml-auto">
                                     <h3 class="subsection-title">5. Business Acumen</h3>
                     <ul class="body-text" style="list-style: disc; padding-left: 2rem;">
                         <li>$0 infrastructure through strategic free tier usage</li>
                         <li>6 hrs/month efficiency = ~$150/month labor savings</li>
                         <li>Scalable to 1,000 quotes before requiring paid services</li>
                     </ul>
+                    </div>
+                </div>
             </section>
 
             <div style="margin-top: 2rem;"></div>
 
             <!-- Key Takeaways -->
             <section id="takeaways" class="content-block section-anchor">
-                                    <h2 class="section-title">Key Takeaways</h2>
-            </section>
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
+                                <h2 class="subsection-title">Key Takeaways</h2>
+                            </div>
+                        </div>
+                                </section>
 
             <section class="content-block-no-padding">
+                <div class="container">
+                    <div class="max-w-container-large ml-auto">
                                     <h3 class="subsection-title">What This Project Demonstrates</h3>
                     
                     <p class="body-text">
@@ -927,9 +1035,13 @@ quote_files
                         <li>Scalable to 1,000 quotes on free tier</li>
                         <li>2x CLV improvement potential through retention</li>
                     </ul>
+                    </div>
+                </div>
             </section>
 
             <section class="content-block-no-padding">
+                <div class="container">
+                    <div class="max-w-container-large ml-auto">
                                     <h3 class="subsection-title">Technical Stack</h3>
                     <table class="decision-table">
                         <thead>
@@ -987,6 +1099,8 @@ quote_files
                             </tr>
                         </tbody>
                     </table>
+                    </div>
+                </div>
             </section>
 
             <section class="content-block-no-padding">
