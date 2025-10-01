@@ -8,7 +8,7 @@ const projectData = {
     },
     'insurance-illustration': {
         title: 'Illustration Online Quoting Tool',
-        description: 'Led the modernization of RBC\'s Windows 97-era insurance illustration software serving 2,500 advisors. Developed strategic framework to evaluate vendor partnerships, balancing security, compliance, and IP protection while delivering a cloud-enabled platform.',
+        description: 'Led the modernization of RBC\'s legacy insurance illustration software serving 2,500 advisors. Developed strategic framework to evaluate vendor partnerships, balancing security, compliance, and IP protection while delivering a cloud-enabled platform.',
         url: 'project-insurance-illustration.html',
         image: 'public/Illustration home.jpg'
     },
