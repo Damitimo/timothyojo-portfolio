@@ -2,18 +2,18 @@
 const projectData = {
     'rbc-digital-platform': {
         title: 'RBC Digital Platform',
-        description: 'Led product strategy and cross-functional development of a unified Salesforce platform consolidating Critical Illness, Life, and Disability insurance products. Reduced processing time by 50% and increased advisor productivity by 40%.',
+        description: 'Led product strategy and cross-functional development of a unified Salesforce platform consolidating Critical Illness, Life, and Disability insurance products. Reduced processing time by 50% (2 hours to 1 hour).',
         url: 'project-rbc-digital-platform.html',
         image: 'public/eapp home page.jpg'
     },
     'insurance-illustration': {
-        title: 'Illustration Online Quoting Tool',
+        title: 'Strategic Vendor Partnership Framework: Balancing Security, Compliance, and Innovation',
         description: 'Led the modernization of RBC\'s legacy insurance illustration software serving 2,500 advisors. Developed strategic framework to evaluate vendor partnerships, balancing security, compliance, and IP protection while delivering a cloud-enabled platform.',
         url: 'project-insurance-illustration.html',
         image: 'public/Illustration home.jpg'
     },
     'creditor-insurance-widget': {
-        title: 'Creditor Insurance Widget Integration',
+        title: 'Optimizing Insurance Conversion: Strategic Decision-Making in Complex Org Structures',
         description: 'Designed and implemented a creditor insurance widget that resolved inter-departmental collaboration challenges between Banking and Insurance teams. Optimized for revenue through strategic inflow placement while enabling departmental autonomy.',
         url: 'project-creditor-insurance-widget.html',
         image: 'public/creditor home page.jpg'
