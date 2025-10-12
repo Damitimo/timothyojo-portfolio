@@ -30,6 +30,13 @@
             letter-spacing: -0.01em;
         }
         
+        /* Remove right padding on tablet and mobile */
+        @media (max-width: 1024px) {
+            .pr-12 {
+                padding-right: 0 !important;
+            }
+        }
+        
         .typography-subheadline {
             font-weight: 600;
             line-height: 1.3;
@@ -124,136 +131,225 @@
 
         <!-- Content Section -->
         <div class="max-w-container-large mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
-            <section class="space-y-12 sm:space-y-16 lg:space-y-20">
-                <div class="grid md:grid-cols-2 gap-12 sm:gap-16 lg:gap-20">
-                    <!-- Left Column -->
-                    <div class="space-y-12">
-                        <div>
-                            <h3 class="typography-subheadline mb-3" style="font-size: 2rem;">Background</h3>
-                            <p class="text-muted-foreground leading-relaxed">
-                                I earned my Bachelor of Pharmacy with distinction from Obafemi Awolowo University before transitioning into tech through self-teaching. As a pharmacist, I counseled patients on complex medication regimens, learning to translate technical information into clear guidance. This skill now shapes how I communicate product requirements to diverse stakeholders and design intuitive user experiences.
+            <div class="space-y-16">
+                <!-- Background -->
+                <div class="grid md:grid-cols-[300px_1fr] gap-8 md:gap-16">
+                    <div class="hidden md:block">
+                        <h2 class="text-2xl font-semibold" style="color: #1a1a1a;">Background</h2>
+                    </div>
+                    <div class="pr-12">
+                        <h2 class="text-2xl font-semibold mb-4 md:hidden" style="color: #1a1a1a;">Background</h2>
+                        <p class="text-muted-foreground leading-relaxed text-lg">
+                            I earned my Bachelor of Pharmacy with distinction from Obafemi Awolowo University before transitioning into tech through self-teaching. As a pharmacist, I counseled patients on complex medication regimens, learning to translate technical information into clear guidance. This skill now shapes how I communicate product requirements to diverse stakeholders and design intuitive user experiences.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- My Journey -->
+                <div class="grid md:grid-cols-[300px_1fr] gap-8 md:gap-16">
+                    <div class="hidden md:block">
+                        <h2 class="text-2xl font-semibold" style="color: #1a1a1a;">My Journey</h2>
+                    </div>
+                    <div class="pr-12">
+                        <h2 class="text-2xl font-semibold mb-4 md:hidden" style="color: #1a1a1a;">My Journey</h2>
+                        <div class="space-y-4">
+                            <p class="text-muted-foreground leading-relaxed text-lg">
+                                My journey from healthcare to technology has been driven by a desire to create meaningful impact at scale. Managing drug interaction protocols taught me to think in systems, understanding how one change ripples through an entire workflow. This systems thinking now informs how I design product features that integrate seamlessly across platforms.
                             </p>
-                        </div>
-
-                        <div>
-                            <h3 class="typography-section-headline-bold text-foreground mb-3" style="font-size: 2rem;">My Journey</h3>
-                            <div class="space-y-4">
-                                <p class="text-muted-foreground leading-relaxed">
-                                    My journey from healthcare to technology has been driven by a desire to create meaningful impact at scale. Managing drug interaction protocols taught me to think in systems, understanding how one change ripples through an entire workflow. This systems thinking now informs how I design product features that integrate seamlessly across platforms.
-                                </p>
-                                
-                                <p class="text-muted-foreground leading-relaxed">
-                                    At RBC, I led digital transformation initiatives serving millions of customers, reducing application processing time by 50% and increasing advisor productivity by 40%. The experience reinforced that great products aren't just about features. They're about understanding the human experience and designing solutions that feel intuitive and empowering.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3 class="typography-subheadline mb-3" style="font-size: 2rem;">Currently</h3>
-                            <p class="text-muted-foreground leading-relaxed">
+                            
+                            <p class="text-muted-foreground leading-relaxed text-lg">
+                                At RBC, I led digital transformation initiatives serving millions of customers, reducing application processing time by 50% and increasing advisor productivity by 40%. The experience reinforced that great products aren't just about features. They're about understanding the human experience and designing solutions that feel intuitive and empowering.
+                            </p>
+                            
+                            <p class="text-muted-foreground leading-relaxed text-lg">
                                 At USC Marshall, I'm combining my healthcare expertise with tech and business strategy to explore how AI and blockchain can solve healthcare's most persistent challenges, from patient data interoperability to medication adherence at scale.
                             </p>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Right Column -->
-                    <div class="space-y-12">
-                        <div>
-                            <h3 class="typography-section-headline-bold text-foreground mb-3" style="font-size: 2rem;">My PM Philosophy</h3>
-                            <div class="space-y-4">
-                                <p class="text-muted-foreground leading-relaxed">
-                                    My pharmacy training taught me that the best solutions balance efficacy with usability. A 90% effective treatment patients won't take is worthless. I apply this same lens to product: features that don't fit user workflows are just noise. Great products emerge when you deeply understand the problem, measure what matters, and iterate relentlessly.
-                                </p>
-                                
-                                <p class="text-muted-foreground leading-relaxed">
-                                    I prioritize solving real problems over building features, measuring impact over output, and enabling teams over managing tasks. Product management is about being the voice of the user while balancing business objectives and technical constraints to find elegant solutions in complex systems.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3 class="typography-subheadline mb-3" style="font-size: 2rem;">Outside of school</h3>
-                            <p class="text-muted-foreground leading-relaxed">
-                                You'll find me exploring LA's food scene, writing reflective essays, or playing chess. I believe diverse
-                                experiences inform better product decisions.
+                <!-- My PM Philosophy -->
+                <div class="grid md:grid-cols-[300px_1fr] gap-8 md:gap-16">
+                    <div class="hidden md:block">
+                        <h2 class="text-2xl font-semibold" style="color: #1a1a1a;">My PM Philosophy</h2>
+                    </div>
+                    <div class="pr-12">
+                        <h2 class="text-2xl font-semibold mb-4 md:hidden" style="color: #1a1a1a;">My PM Philosophy</h2>
+                        <div class="space-y-4">
+                            <p class="text-muted-foreground leading-relaxed text-lg">
+                                My pharmacy training taught me that the best solutions balance efficacy with usability. A 90% effective treatment patients won't take is worthless. I apply this same lens to product: features that don't fit user workflows are just noise. Great products emerge when you deeply understand the problem, measure what matters, and iterate relentlessly.
+                            </p>
+                            
+                            <p class="text-muted-foreground leading-relaxed text-lg">
+                                I prioritize solving real problems over building features, measuring impact over output, and enabling teams over managing tasks. Product management is about being the voice of the user while balancing business objectives and technical constraints to find elegant solutions in complex systems.
                             </p>
                         </div>
+                    </div>
+                </div>
 
+                <!-- Speaking -->
+                <div class="grid md:grid-cols-[300px_1fr] gap-8 md:gap-16">
+                    <div class="hidden md:block">
+                        <h2 class="text-2xl font-semibold" style="color: #1a1a1a;">Speaking</h2>
+                    </div>
+                    <div class="pr-12">
+                        <h2 class="text-2xl font-semibold mb-4 md:hidden" style="color: #1a1a1a;">Speaking</h2>
                         <div>
-                            <h3 class="typography-subheadline mb-3" style="font-size: 2rem;">Core Skills</h3>
-                            <div class="flex flex-wrap gap-2">
-                                <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
-                                    <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Product Strategy</div>
-                                </div>
-                                <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
-                                    <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">User Research</div>
-                                </div>
-                                <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
-                                    <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Data Analysis</div>
-                                </div>
-                                <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
-                                    <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">UX Design</div>
-                                </div>
-                                <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
-                                    <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Agile Development</div>
-                                </div>
-                                <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
-                                    <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Stakeholder Management</div>
-                                </div>
-                            </div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-1">Guest Lecturer</h3>
+                            <p class="text-sm text-gray-600 mb-2">York University, EECS 3461 • November 25, 2025</p>
+                            <p class="text-muted-foreground leading-relaxed">
+                                "You, I, & AI: How AI is Reshaping the UI/UX Design Landscape" — Invited guest lecture exploring the intersection of artificial intelligence and user experience design.
+                            </p>
                         </div>
+                    </div>
+                </div>
 
-                        <div>
-                            <h3 class="typography-subheadline mb-3" style="font-size: 2rem;">Interests</h3>
-                            <div class="flex flex-wrap gap-2">
-                                <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
-                                    <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Health Tech</div>
-                                </div>
-                                <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
-                                    <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Blockchain</div>
-                                </div>
-                                <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
-                                    <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">AI/ML</div>
-                                </div>
-                                <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
-                                    <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Design Systems</div>
-                                </div>
-                                <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
-                                    <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Innovation</div>
-                                </div>
-                                <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
-                                    <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Chess</div>
-                                </div>
+                <!-- Core Skills -->
+                <div class="grid md:grid-cols-[300px_1fr] gap-8 md:gap-16">
+                    <div class="hidden md:block">
+                        <h2 class="text-2xl font-semibold" style="color: #1a1a1a;">Core Skills</h2>
+                    </div>
+                    <div class="pr-12">
+                        <h2 class="text-2xl font-semibold mb-4 md:hidden" style="color: #1a1a1a;">Core Skills</h2>
+                        <div class="flex flex-wrap gap-2">
+                            <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
+                                <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Product Strategy</div>
+                            </div>
+                            <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
+                                <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">User Research</div>
+                            </div>
+                            <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
+                                <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Data Analysis</div>
+                            </div>
+                            <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
+                                <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">UX Design</div>
+                            </div>
+                            <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
+                                <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Agile Development</div>
+                            </div>
+                            <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
+                                <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Stakeholder Management</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                    <!-- Image Grid at Bottom -->
-                    <div class="mt-12">
-                        <img src="public/timothy grid vertical.png" alt="Timothy Ojo" class="md:hidden w-full h-auto rounded-lg">
-                        <img src="public/Timothy image grid.png" alt="Timothy Ojo" class="hidden md:block w-full h-auto rounded-lg">
+                <!-- Interests -->
+                <div class="grid md:grid-cols-[300px_1fr] gap-8 md:gap-16">
+                    <div class="hidden md:block">
+                        <h2 class="text-2xl font-semibold" style="color: #1a1a1a;">Interests</h2>
+                    </div>
+                    <div class="pr-12">
+                        <h2 class="text-2xl font-semibold mb-4 md:hidden" style="color: #1a1a1a;">Interests</h2>
+                        <div class="flex flex-wrap gap-2">
+                            <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
+                                <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Health Tech</div>
+                            </div>
+                            <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
+                                <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Blockchain</div>
+                            </div>
+                            <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
+                                <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">AI/ML</div>
+                            </div>
+                            <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
+                                <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Design Systems</div>
+                            </div>
+                            <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
+                                <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Innovation</div>
+                            </div>
+                            <div class="inline-flex h-[31px] items-center justify-center gap-2.5 p-2.5 relative bg-[#f3e8ff] min-w-[81px] rounded-[4px]">
+                                <div class="font-normal text-[#6d28d9] text-sm text-center tracking-[0] leading-normal whitespace-nowrap">Chess</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </section>
+
+                <!-- Mentorship & Teaching -->
+                <div class="grid md:grid-cols-[300px_1fr] gap-8 md:gap-16">
+                    <div class="hidden md:block">
+                        <h2 class="text-2xl font-semibold" style="color: #1a1a1a;">Mentorship & Teaching</h2>
+                    </div>
+                    <div class="pr-12">
+                        <h2 class="text-2xl font-semibold mb-4 md:hidden" style="color: #1a1a1a;">Mentorship & Teaching</h2>
+                        <div class="space-y-6">
+                            <!-- Design Thinking Mentor -->
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-1">Design Thinking Mentor</h3>
+                                <p class="text-sm text-gray-600 mb-2">Western University • Sep 2024 - Present</p>
+                                <p class="text-muted-foreground leading-relaxed">
+                                    Mentored 3rd and 4th year students on using design thinking to solve pressing business problems and world problems at large.
+                                </p>
+                            </div>
+                            
+                            <!-- RBC Amplify Design Mentor -->
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-1">RBC Amplify Design Mentor</h3>
+                                <p class="text-sm text-gray-600 mb-2">RBC • May 2025 - Present</p>
+                                <p class="text-muted-foreground leading-relaxed">
+                                    Supported and steered RBC amplifiers in their journey solving bold business challenges, building zero-to-one solutions at the forefront of tech and banking.
+                                </p>
+                            </div>
+                            
+                            <!-- Pharmaceutical Chemistry Tutorial Coordinator -->
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-1">Pharmaceutical Chemistry Tutorial Coordinator</h3>
+                                <p class="text-sm text-gray-600 mb-2">Obafemi Awolowo University • Sep 2009 - Aug 2014</p>
+                                <p class="text-muted-foreground leading-relaxed">
+                                    Provided instruction in pharmaceutical chemistry to 200-level Pharmacy students for four consecutive years, initiating the knowledge exchange and mentorship process with my immediate cohort and sustaining it throughout my undergrad.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leadership -->
+                <div class="grid md:grid-cols-[300px_1fr] gap-8 md:gap-16">
+                    <div class="hidden md:block">
+                        <h2 class="text-2xl font-semibold" style="color: #1a1a1a;">Leadership</h2>
+                    </div>
+                    <div class="pr-12">
+                        <h2 class="text-2xl font-semibold mb-4 md:hidden" style="color: #1a1a1a;">Leadership</h2>
+                        <div class="space-y-6">
+                            <!-- AVP of Emerging Tech -->
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-1">AVP of Emerging Tech</h3>
+                                <p class="text-sm text-gray-600 mb-2">High Tech Association, Marshall School of Business</p>
+                                <p class="text-muted-foreground leading-relaxed">
+                                    Leading emerging technology initiatives and strategic direction for the High Tech Association.
+                                </p>
+                            </div>
+                            
+                            <!-- AVP of Tech -->
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-1">AVP of Tech</h3>
+                                <p class="text-sm text-gray-600 mb-2">Graduate International Student Club, Marshall School of Business</p>
+                                <p class="text-muted-foreground leading-relaxed">
+                                    Leading technology initiatives and digital transformation efforts for the graduate international student community.
+                                </p>
+                            </div>
+                            
+                            <!-- HIV/AIDS Advocacy -->
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-1">President</h3>
+                                <p class="text-sm text-gray-600 mb-2">HIV/AIDS Community Development Service, NYSC/HIV/AIDS Advocacy Programme • 2017</p>
+                                <p class="text-muted-foreground leading-relaxed">
+                                    Led sensitization and training of 100 HIV/AIDS Peer Educator Trainees on advocacy and community health education.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Grid at Bottom -->
+                <div>
+                    <img src="public/timothy grid vertical.png" alt="Timothy Ojo" class="md:hidden w-full h-auto rounded-lg">
+                    <img src="public/Timothy image grid.png" alt="Timothy Ojo" class="hidden md:block w-full h-auto rounded-lg">
+                </div>
+            </div>
         </div>
     </main>
 
     <script>
-        // Simple smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
         // Mobile menu functionality
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
