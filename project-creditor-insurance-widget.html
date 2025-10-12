@@ -425,17 +425,17 @@
                                 <h2 class="subsection-title">Line of Business Dynamics</h2>
                                 
                                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-                                    <div class="department-box">
-                                        <div class="department-title">Banking Department</div>
+                                <div class="department-box">
+                                    <div class="department-title">Banking Department</div>
                                         <ul class="body-text" style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
                                             <li>Owned the complete customer experience for financial products</li>
                                             <li>Focused on conversion rates and technical integration complexity</li>
                                             <li>Prioritized their core product roadmap</li>
                                         </ul>
-                                    </div>
-                                    
-                                    <div class="department-box">
-                                        <div class="department-title">Insurance Department</div>
+                                </div>
+                                
+                                <div class="department-box">
+                                    <div class="department-title">Insurance Department</div>
                                         <ul class="body-text" style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
                                             <li>Needed to iterate on insurance offerings within Banking flows</li>
                                             <li>Required autonomy to optimize their products</li>
@@ -549,35 +549,65 @@ graph TB
                                         <thead>
                                             <tr style="background: #f9fafb;">
                                                 <th style="padding: 1rem; text-align: left; font-weight: 600; color: #111827; border: 1px solid #e5e7eb; width: 25%;">Evaluation Criteria</th>
-                                                <th style="padding: 1rem; text-align: left; font-weight: 600; color: #111827; border: 1px solid #e5e7eb; background: #ecfdf5;">Inflow Widget<br/><span style="font-weight: 400; font-size: 0.875rem; color: #6b7280;">(During Banking Activation)</span></th>
+                                                <th style="padding: 1rem; text-align: left; font-weight: 600; color: #111827; border: 1px solid #e5e7eb;">Inflow Widget<br/><span style="font-weight: 400; font-size: 0.875rem; color: #6b7280;">(During Banking Activation)</span></th>
                                                 <th style="padding: 1rem; text-align: left; font-weight: 600; color: #111827; border: 1px solid #e5e7eb;">Post-Activation Flow<br/><span style="font-weight: 400; font-size: 0.875rem; color: #6b7280;">(After Banking Completion)</span></th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <td style="padding: 1rem; border: 1px solid #e5e7eb; background: #fafafa; font-weight: 600; color: #111827;">Technical Complexity</td>
-                                                <td style="padding: 1rem; border: 1px solid #e5e7eb; background: #ecfdf5; color: #4b5563;">Moderate—required shared screens implementation</td>
-                                                <td style="padding: 1rem; border: 1px solid #e5e7eb; color: #4b5563;">Lower—standalone widget with single handoff</td>
+                                                <td style="padding: 1rem; border: 1px solid #e5e7eb; color: #4b5563;">
+                                                    <div style="display: inline-block; background: #fef2f2; color: #dc2626; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.5rem;">HIGHER COMPLEXITY</div>
+                                                    <div>Moderate—required shared screens implementation</div>
+                                                </td>
+                                                <td style="padding: 1rem; border: 1px solid #e5e7eb; color: #4b5563;">
+                                                    <div style="display: inline-block; background: #f0fdf4; color: #16a34a; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.5rem;">LOWER COMPLEXITY</div>
+                                                    <div>Lower—standalone widget with single handoff</div>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td style="padding: 1rem; border: 1px solid #e5e7eb; background: #fafafa; font-weight: 600; color: #111827;">Revenue Impact</td>
-                                                <td style="padding: 1rem; border: 1px solid #e5e7eb; background: #ecfdf5; color: #4b5563;">Faster uptake—users encounter insurance during active engagement</td>
-                                                <td style="padding: 1rem; border: 1px solid #e5e7eb; color: #4b5563;">Potentially lower—risk of drop-off after primary task completion</td>
+                                                <td style="padding: 1rem; border: 1px solid #e5e7eb; color: #4b5563;">
+                                                    <div style="display: inline-block; background: #f0fdf4; color: #16a34a; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.5rem;">HIGHER REVENUE</div>
+                                                    <div>Faster uptake—users encounter insurance during active engagement</div>
+                                                </td>
+                                                <td style="padding: 1rem; border: 1px solid #e5e7eb; color: #4b5563;">
+                                                    <div style="display: inline-block; background: #fef3c7; color: #d97706; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.5rem;">LOWER POTENTIAL</div>
+                                                    <div>Potentially lower—risk of drop-off after primary task completion</div>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td style="padding: 1rem; border: 1px solid #e5e7eb; background: #fafafa; font-weight: 600; color: #111827;">User Experience</td>
-                                                <td style="padding: 1rem; border: 1px solid #e5e7eb; background: #ecfdf5; color: #4b5563;">Seamless—insurance feels like natural part of the process</td>
-                                                <td style="padding: 1rem; border: 1px solid #e5e7eb; color: #4b5563;">Seamless but separate—clear division between Banking and Insurance</td>
+                                                <td style="padding: 1rem; border: 1px solid #e5e7eb; color: #4b5563;">
+                                                    <div style="display: inline-block; background: #f0fdf4; color: #16a34a; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.5rem;">MORE SEAMLESS</div>
+                                                    <div>Seamless—insurance feels like natural part of the process</div>
+                                                </td>
+                                                <td style="padding: 1rem; border: 1px solid #e5e7eb; color: #4b5563;">
+                                                    <div style="display: inline-block; background: #fef3c7; color: #d97706; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.5rem;">SEPARATE FLOW</div>
+                                                    <div>Seamless but separate—clear division between Banking and Insurance</div>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td style="padding: 1rem; border: 1px solid #e5e7eb; background: #fafafa; font-weight: 600; color: #111827;">Ownership</td>
-                                                <td style="padding: 1rem; border: 1px solid #e5e7eb; background: #ecfdf5; color: #4b5563;">Partial—some screens shared with Banking</td>
-                                                <td style="padding: 1rem; border: 1px solid #e5e7eb; color: #4b5563;">Full—Insurance owns all steps independently</td>
+                                                <td style="padding: 1rem; border: 1px solid #e5e7eb; color: #4b5563;">
+                                                    <div style="display: inline-block; background: #fef2f2; color: #dc2626; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.5rem;">PARTIAL CONTROL</div>
+                                                    <div>Partial—some screens shared with Banking</div>
+                                                </td>
+                                                <td style="padding: 1rem; border: 1px solid #e5e7eb; color: #4b5563;">
+                                                    <div style="display: inline-block; background: #f0fdf4; color: #16a34a; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.5rem;">FULL AUTONOMY</div>
+                                                    <div>Full—Insurance owns all steps independently</div>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td style="padding: 1rem; border: 1px solid #e5e7eb; background: #fafafa; font-weight: 600; color: #111827;">Integration</td>
-                                                <td style="padding: 1rem; border: 1px solid #e5e7eb; background: #ecfdf5; color: #4b5563;">Complex—shared screens and content management</td>
-                                                <td style="padding: 1rem; border: 1px solid #e5e7eb; color: #4b5563;">Straightforward—single handoff point</td>
+                                                <td style="padding: 1rem; border: 1px solid #e5e7eb; color: #4b5563;">
+                                                    <div style="display: inline-block; background: #fef2f2; color: #dc2626; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.5rem;">MORE COMPLEX</div>
+                                                    <div>Complex—shared screens and content management</div>
+                                                </td>
+                                                <td style="padding: 1rem; border: 1px solid #e5e7eb; color: #4b5563;">
+                                                    <div style="display: inline-block; background: #f0fdf4; color: #16a34a; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.5rem;">SIMPLER</div>
+                                                    <div>Straightforward—single handoff point</div>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -624,7 +654,7 @@ graph LR
     style C fill:#27ae60
     style D fill:#3498db
     style E fill:#2ecc71
-                                </div>
+                            </div>
                                 
                                 <div style="margin-top: 2rem;"></div>
                                 
