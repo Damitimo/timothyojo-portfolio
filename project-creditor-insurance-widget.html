@@ -412,7 +412,7 @@
                             <div class="max-w-container-large ml-auto">
                                 <h2 class="subsection-title">The Challenge</h2>
                                 <p class="body-text">
-                                    The creditor insurance integration faced a fundamental organizational challenge: two departments with competing priorities and conflicting ownership models. The Banking department controlled the entire customer experience for line of credit and mortgage applications, while the Insurance department needed to make changes to insurance-related steps but had to wait for Banking team prioritization—creating bottlenecks and delays.
+                                    The creditor insurance integration faced a fundamental organizational challenge: two departments with competing priorities and conflicting ownership models. In the current experience, the Banking department owned the entire customer flow for line of credit and mortgage applications—from start to finish. This meant that any time the Insurance department needed to make changes to insurance-related steps within that flow, they had to wait for Banking team prioritization—creating bottlenecks and delays.
                                 </p>
                             </div>
                         </div>
@@ -424,22 +424,24 @@
                             <div class="max-w-container-large ml-auto">
                                 <h2 class="subsection-title">Line of Business Dynamics</h2>
                                 
-                                <div class="department-box">
-                                    <div class="department-title">Banking Department</div>
-                                    <ul class="body-text" style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
-                                        <li>Owned the complete customer experience for financial products</li>
-                                        <li>Focused on conversion rates and technical integration complexity</li>
-                                        <li>Prioritized their core product roadmap</li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="department-box">
-                                    <div class="department-title">Insurance Department</div>
-                                    <ul class="body-text" style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
-                                        <li>Needed to iterate on insurance offerings within Banking flows</li>
-                                        <li>Required autonomy to optimize their products</li>
-                                        <li>Lacked control over their customer touchpoints</li>
-                                    </ul>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                                    <div class="department-box">
+                                        <div class="department-title">Banking Department</div>
+                                        <ul class="body-text" style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
+                                            <li>Owned the complete customer experience for financial products</li>
+                                            <li>Focused on conversion rates and technical integration complexity</li>
+                                            <li>Prioritized their core product roadmap</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="department-box">
+                                        <div class="department-title">Insurance Department</div>
+                                        <ul class="body-text" style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
+                                            <li>Needed to iterate on insurance offerings within Banking flows</li>
+                                            <li>Required autonomy to optimize their products</li>
+                                            <li>Lacked control over their customer touchpoints</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -542,23 +544,44 @@ graph TB
                                 
                                 <h3 class="text-lg font-semibold text-gray-900 mb-3">The Two Options</h3>
                                 
-                                <p class="body-text"><strong>Inflow Widget (During Banking Activation)</strong></p>
-                                <ul class="body-text" style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 1rem;">
-                                    <li><strong>Technical Complexity:</strong> Moderate—required shared screens implementation</li>
-                                    <li><strong>Revenue Impact:</strong> Faster uptake—users encounter insurance during active engagement</li>
-                                    <li><strong>User Experience:</strong> Seamless—insurance feels like natural part of the process</li>
-                                    <li><strong>Ownership:</strong> Partial—some screens shared with Banking</li>
-                                    <li><strong>Integration:</strong> Complex—shared screens and content management</li>
-                                </ul>
-                                
-                                <p class="body-text"><strong>Post-Activation Flow (After Banking Completion)</strong></p>
-                                <ul class="body-text" style="list-style-type: disc; padding-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 1rem;">
-                                    <li><strong>Technical Complexity:</strong> Lower—standalone widget with single handoff</li>
-                                    <li><strong>Revenue Impact:</strong> Potentially lower—risk of drop-off after primary task completion</li>
-                                    <li><strong>User Experience:</strong> Seamless but separate—clear division between Banking and Insurance</li>
-                                    <li><strong>Ownership:</strong> Full—Insurance owns all steps independently</li>
-                                    <li><strong>Integration:</strong> Straightforward—single handoff point</li>
-                                </ul>
+                                <div style="overflow-x: auto; margin-top: 1.5rem;">
+                                    <table style="width: 100%; border-collapse: collapse; border: 2px solid #e5e7eb;">
+                                        <thead>
+                                            <tr style="background: #f9fafb;">
+                                                <th style="padding: 1rem; text-align: left; font-weight: 600; color: #111827; border: 1px solid #e5e7eb; width: 25%;">Evaluation Criteria</th>
+                                                <th style="padding: 1rem; text-align: left; font-weight: 600; color: #111827; border: 1px solid #e5e7eb; background: #ecfdf5;">Inflow Widget<br/><span style="font-weight: 400; font-size: 0.875rem; color: #6b7280;">(During Banking Activation)</span></th>
+                                                <th style="padding: 1rem; text-align: left; font-weight: 600; color: #111827; border: 1px solid #e5e7eb;">Post-Activation Flow<br/><span style="font-weight: 400; font-size: 0.875rem; color: #6b7280;">(After Banking Completion)</span></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td style="padding: 1rem; border: 1px solid #e5e7eb; background: #fafafa; font-weight: 600; color: #111827;">Technical Complexity</td>
+                                                <td style="padding: 1rem; border: 1px solid #e5e7eb; background: #ecfdf5; color: #4b5563;">Moderate—required shared screens implementation</td>
+                                                <td style="padding: 1rem; border: 1px solid #e5e7eb; color: #4b5563;">Lower—standalone widget with single handoff</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 1rem; border: 1px solid #e5e7eb; background: #fafafa; font-weight: 600; color: #111827;">Revenue Impact</td>
+                                                <td style="padding: 1rem; border: 1px solid #e5e7eb; background: #ecfdf5; color: #4b5563;">Faster uptake—users encounter insurance during active engagement</td>
+                                                <td style="padding: 1rem; border: 1px solid #e5e7eb; color: #4b5563;">Potentially lower—risk of drop-off after primary task completion</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 1rem; border: 1px solid #e5e7eb; background: #fafafa; font-weight: 600; color: #111827;">User Experience</td>
+                                                <td style="padding: 1rem; border: 1px solid #e5e7eb; background: #ecfdf5; color: #4b5563;">Seamless—insurance feels like natural part of the process</td>
+                                                <td style="padding: 1rem; border: 1px solid #e5e7eb; color: #4b5563;">Seamless but separate—clear division between Banking and Insurance</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 1rem; border: 1px solid #e5e7eb; background: #fafafa; font-weight: 600; color: #111827;">Ownership</td>
+                                                <td style="padding: 1rem; border: 1px solid #e5e7eb; background: #ecfdf5; color: #4b5563;">Partial—some screens shared with Banking</td>
+                                                <td style="padding: 1rem; border: 1px solid #e5e7eb; color: #4b5563;">Full—Insurance owns all steps independently</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 1rem; border: 1px solid #e5e7eb; background: #fafafa; font-weight: 600; color: #111827;">Integration</td>
+                                                <td style="padding: 1rem; border: 1px solid #e5e7eb; background: #ecfdf5; color: #4b5563;">Complex—shared screens and content management</td>
+                                                <td style="padding: 1rem; border: 1px solid #e5e7eb; color: #4b5563;">Straightforward—single handoff point</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                                 
                                 <div style="margin-top: 2rem;"></div>
                                 
