@@ -337,14 +337,10 @@
             margin-bottom: 8px;
             letter-spacing: 0.5px;
         }
-        .high { background: #fee; color: #c33; }
-        .medium { background: #fff4e6; color: #d97706; }
-        .low { background: #e8f5e9; color: #2e7d32; }
-        .excellent { background: #1976d2; color: white; }
-        .good { background: #7cb342; color: white; }
-        .poor { background: #e57373; color: white; }
-        .seamless { background: #0288d1; color: white; }
-        .complex { background: #f4511e; color: white; }
+        /* Green = Clear Win, Yellow = Neutral/Tradeoff, Blue = Acceptable Alternative */
+        .win { background: #e8f5e9; color: #2e7d32; }
+        .neutral { background: #fff4e6; color: #d97706; }
+        .alt { background: #e3f2fd; color: #1976d2; }
         .dm-description {
             font-size: 13px;
             line-height: 1.5;
@@ -724,7 +720,21 @@
                                 <div style="margin-top: 1rem;"></div>
                                 
                                 <p class="body-text">
-                                    I developed a decision framework evaluating three strategic approaches for this vendor collaboration. The analysis examined trade-offs across security risk, compliance requirements, ongoing maintenance, design consistency, future transferability, IP protection, sustainability, implementation speed, and scalability.
+                                    I developed a decision framework evaluating three strategic approaches for sharing RBC's Interface Guidelines (RIG) with Novinsoft. The core question: should we give them our actual React components, or just the styling specifications?
+                                </p>
+                                
+                                <div style="margin-top: 1rem;"></div>
+                                
+                                <p class="body-text">
+                                    <strong>Option 1:</strong> Manually download RIG component code and hand it to Novinsoft<br>
+                                    <strong>Option 2:</strong> Create a mirrored repository that auto-updates when RIG updates<br>
+                                    <strong>Option 3:</strong> Provide only styling files and let Novinsoft restyle their existing components
+                                </p>
+                                
+                                <div style="margin-top: 1rem;"></div>
+                                
+                                <p class="body-text">
+                                    The analysis examined trade-offs across security risk, compliance requirements, ongoing maintenance, design consistency, future transferability, IP protection, sustainability, implementation speed, and scalability.
                                 </p>
                             </div>
                         </div>
@@ -734,7 +744,7 @@
             <section class="content-block-no-padding">
                         <div class="container">
                     <div class="bg-background">
-                        <h3 class="text-xl font-medium text-foreground mb-4 text-center">Novinsoft RIG Collaboration Options</h3>
+                        <h3 class="text-xl font-medium text-foreground mb-4 text-center">RIG Sharing Strategy Evaluation</h3>
                         <table class="decision-matrix-table">
                             <thead>
                                 <tr>
@@ -748,136 +758,136 @@
                                 <tr>
                                     <td class="criteria-col">Security Risk</td>
                                     <td>
-                                        <span class="badge high">HIGH</span>
-                                        <div class="dm-description">Requires legal approval, code sharing outside RBC domain</div>
+                                        <span class="badge neutral">MEDIUM-HIGH</span>
+                                        <div class="dm-description">Requires legal approval, RBC React code shared outside domain</div>
                                     </td>
                                     <td>
-                                        <span class="badge medium">MEDIUM</span>
-                                        <div class="dm-description">Automated but involves external code repository, requires mirroring setup</div>
+                                        <span class="badge neutral">MEDIUM</span>
+                                        <div class="dm-description">RBC code in external repository, requires access controls</div>
                                     </td>
                                     <td>
-                                        <span class="badge low">LOW</span>
-                                        <div class="dm-description">No RBC code shared, vendor only accesses visual design specs</div>
+                                        <span class="badge win">LOW</span>
+                                        <div class="dm-description">No RBC code shared—only CSS/styling specifications</div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="criteria-col">Compliance Requirements</td>
                                     <td>
-                                        <span class="badge high">HIGH</span>
-                                        <div class="dm-description">Legal review, procurement amendments, monthly Sharepoint attestations</div>
+                                        <span class="badge neutral">HIGH</span>
+                                        <div class="dm-description">Legal review, procurement amendments, monthly SharePoint attestations</div>
                                     </td>
                                     <td>
-                                        <span class="badge medium">MEDIUM</span>
-                                        <div class="dm-description">Initial legal setup required, automated compliance monitoring required</div>
+                                        <span class="badge neutral">MEDIUM</span>
+                                        <div class="dm-description">Initial legal setup, automated compliance monitoring</div>
                                     </td>
                                     <td>
-                                        <span class="badge low">LOW</span>
-                                        <div class="dm-description">Standard vendor agreement, no code sharing restrictions</div>
+                                        <span class="badge win">LOW</span>
+                                        <div class="dm-description">Standard vendor agreement—no code sharing restrictions</div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="criteria-col">Ongoing Maintenance</td>
                                     <td>
-                                        <span class="badge high">HIGH</span>
-                                        <div class="dm-description">Manual file extraction and distribution for every RIG update that involves utilized components</div>
+                                        <span class="badge neutral">HIGH</span>
+                                        <div class="dm-description">Manual extraction and distribution for every RIG update</div>
                                     </td>
                                     <td>
-                                        <span class="badge high">HIGH</span>
-                                        <div class="dm-description">Still requires access management, updates need to be pushed to mirrored repo, Novinsoft would have to pull libraries periodically when library gets updated</div>
+                                        <span class="badge neutral">MEDIUM-HIGH</span>
+                                        <div class="dm-description">Automated mirroring, but Novinsoft must pull updates periodically</div>
                                     </td>
                                     <td>
-                                        <span class="badge medium">LOW-MEDIUM</span>
-                                        <div class="dm-description">May require styling updates periodically</div>
+                                        <span class="badge win">LOW</span>
+                                        <div class="dm-description">Minimal—occasional styling specification updates only</div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="criteria-col">Design Consistency</td>
                                     <td>
-                                        <span class="badge excellent">EXCELLENT</span>
-                                        <div class="dm-description">Uses actual RIG component</div>
+                                        <span class="badge win">PERFECT</span>
+                                        <div class="dm-description">Uses actual RIG React components</div>
                                     </td>
                                     <td>
-                                        <span class="badge excellent">EXCELLENT</span>
-                                        <div class="dm-description">Uses actual RIG component</div>
+                                        <span class="badge win">PERFECT</span>
+                                        <div class="dm-description">Uses actual RIG React components</div>
                                     </td>
                                     <td>
-                                        <span class="badge good">GOOD</span>
-                                        <div class="dm-description">Visual match achievable, may have minor differences in component behaviour</div>
+                                        <span class="badge alt">GOOD</span>
+                                        <div class="dm-description">Visual match achievable, minor behavioral differences possible</div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="criteria-col">Future Transferability to RBC</td>
                                     <td>
-                                        <span class="badge seamless">SEAMLESS</span>
-                                        <div class="dm-description">Built with RIG, can be directly integrated into RBC systems</div>
+                                        <span class="badge win">SEAMLESS</span>
+                                        <div class="dm-description">Built with RIG—direct integration into RBC systems</div>
                                     </td>
                                     <td>
-                                        <span class="badge seamless">SEAMLESS</span>
-                                        <div class="dm-description">Built with RIG, can be directly integrated into RBC systems</div>
+                                        <span class="badge win">SEAMLESS</span>
+                                        <div class="dm-description">Built with RIG—direct integration into RBC systems</div>
                                     </td>
                                     <td>
-                                        <span class="badge complex">COMPLEX</span>
-                                        <div class="dm-description">Requires component replacement/refactoring for internal upgrades and maintenance</div>
+                                        <span class="badge neutral">COMPLEX</span>
+                                        <div class="dm-description">Requires component replacement/refactoring for future upgrades</div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="criteria-col">Intellectual Property Protection</td>
                                     <td>
-                                        <span class="badge high">HIGH RISK</span>
-                                        <div class="dm-description">RBC code distributed externally</div>
+                                        <span class="badge neutral">HIGH RISK</span>
+                                        <div class="dm-description">RBC React code distributed externally</div>
                                     </td>
                                     <td>
-                                        <span class="badge high">HIGH RISK</span>
-                                        <div class="dm-description">RBC code in external repository</div>
+                                        <span class="badge neutral">HIGH RISK</span>
+                                        <div class="dm-description">RBC React code in external repository</div>
                                     </td>
                                     <td>
-                                        <span class="badge low">LOW RISK</span>
-                                        <div class="dm-description">No proprietary code shared</div>
+                                        <span class="badge win">LOW RISK</span>
+                                        <div class="dm-description">No proprietary code shared—styling only</div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="criteria-col">Long-term Sustainability</td>
                                     <td>
-                                        <span class="badge poor">POOR</span>
-                                        <div class="dm-description">High maintenance overhead, manual processes</div>
+                                        <span class="badge neutral">POOR</span>
+                                        <div class="dm-description">High maintenance burden—manual processes</div>
                                     </td>
                                     <td>
-                                        <span class="badge good">GOOD</span>
+                                        <span class="badge alt">GOOD</span>
                                         <div class="dm-description">Automated, but requires infrastructure maintenance</div>
                                     </td>
                                     <td>
-                                        <span class="badge good">GOOD</span>
-                                        <div class="dm-description">Self-sustaining, vendor handles maintenance, already factored in the engagement</div>
+                                        <span class="badge win">EXCELLENT</span>
+                                        <div class="dm-description">Self-sustaining—vendor handles maintenance</div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="criteria-col">Setup Speed & Complexity</td>
                                     <td>
-                                        <span class="badge medium">MEDIUM</span>
-                                        <div class="dm-description">Medium speed, high complexity. Vendor must understand RIG architecture and dependencies. Should be straightforward once approved by legal</div>
+                                        <span class="badge neutral">MEDIUM</span>
+                                        <div class="dm-description">Requires legal approval, vendor must understand RIG architecture</div>
                                     </td>
                                     <td>
-                                        <span class="badge high">HIGH</span>
-                                        <div class="dm-description">Slow speed, high complexity. Does not currently exist. Requires infrastructure development, continuous integration/continuous deployment (CI/CD)</div>
+                                        <span class="badge neutral">HIGH</span>
+                                        <div class="dm-description">Infrastructure doesn't exist—requires CI/CD pipeline development</div>
                                     </td>
                                     <td>
-                                        <span class="badge low">LOW</span>
-                                        <div class="dm-description">Fast speed, low complexity. Immediate access to styling once dev mode permission is granted</div>
+                                        <span class="badge win">LOW</span>
+                                        <div class="dm-description">Fast implementation—immediate styling access</div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="criteria-col">Scalability</td>
                                     <td>
-                                        <span class="badge poor">POOR</span>
+                                        <span class="badge neutral">POOR</span>
                                         <div class="dm-description">Manual process doesn't scale to multiple vendors</div>
                                     </td>
                                     <td>
-                                        <span class="badge excellent">EXCELLENT</span>
-                                        <div class="dm-description">Can support multiple vendors</div>
+                                        <span class="badge win">EXCELLENT</span>
+                                        <div class="dm-description">Can support multiple vendors simultaneously</div>
                                     </td>
                                     <td>
-                                        <span class="badge medium">MEDIUM</span>
-                                        <div class="dm-description">Each vendor manages independently</div>
+                                        <span class="badge alt">GOOD</span>
+                                        <div class="dm-description">Each vendor manages styling independently</div>
                                     </td>
                                 </tr>
                             </tbody>
