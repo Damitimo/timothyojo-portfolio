@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Healthwise - Timothy Ojo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/components.js"></script>
+    <script src="js/project-data.js"></script>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+    </script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    maxWidth: {
+                        'container-large': '75rem'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .container {
+            max-width: 75rem;
+            margin: 0 auto;
+            padding: 0; /* No padding - case-study-container handles it */
+        }
+        
+        .content-block {
+            padding: 2rem 0;
+        }
+        
+        .spacer {
+            height: 6rem;
+        }
+        
+        .spacer-top {
+            height: 6rem;
+        }
+        
+        .spacer-section {
+            height: 4rem;
+        }
+        
+        .project-title {
+            font-size: 6rem;
+            font-weight: 700;
+            line-height: 6rem;
+            letter-spacing: -0.125rem;
+            color: #111827;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #111827;
+            margin-bottom: 1rem;
+        }
+        
+        .subsection-title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #111827;
+            margin-bottom: 0.5rem;
+        }
+        
+        .body-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #4B5563;
+        }
+        
+        .project-summary {
+            font-size: 1.5rem;
+            line-height: 120%;
+            letter-spacing: -0.01rem;
+            color: #6B7280;
+            text-align: left;
+            max-width: 800px;
+        }
+        
+        .highlight-text {
+            font-size: 1.25rem;
+            line-height: 1.5;
+            color: #111827;
+            font-weight: 500;
+        }
+        
+        .meta-label {
+            font-size: 0.875rem;
+            color: #6B7280;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.25rem;
+        }
+        
+        .meta-value {
+            font-size: 1rem;
+            color: #111827;
+        }
+        
+        .back-link {
+            color: #6B7280;
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+        
+        .back-link:hover {
+            color: #111827;
+        }
+        
+        .image-placeholder {
+            background-color: #374151;
+            width: 100%;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9CA3AF;
+            font-size: 1.125rem;
+        }
+        
+        .image-placeholder-full {
+            background-color: #374151;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9CA3AF;
+            font-size: 1.125rem;
+        }
+        
+        .header-container {
+            max-width: 75rem;
+            margin: 0 auto;
+            padding: 0 1rem; /* Same as px-4 (16px) to match homepage */
+            padding-top: 14rem;
+        }
+        
+        .case-study-container {
+            position: relative;
+            max-width: 75rem;
+            margin: 0 auto;
+            padding: 0 1rem; /* Same as px-4 (16px) to match homepage */
+        }
+        
+        .toc-container {
+            position: sticky;
+            top: 40px;
+            left: 0;
+            width: 200px;
+            z-index: 10;
+            float: left;
+            padding-top: 2rem;
+        }
+        
+        .case-study-content {
+            margin-left: 240px;
+        }
+        
+        /* Mobile responsive layout */
+        @media (max-width: 768px) {
+            .toc-container {
+                position: static;
+                width: 100%;
+                float: none;
+                padding-top: 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .case-study-content {
+                margin-left: 0;
+            }
+            
+            .container {
+                padding: 0; /* No padding - case-study-container handles it */
+            }
+            
+            .project-title {
+                font-size: 2.5rem;
+                line-height: 2.5rem;
+                letter-spacing: -0.0625rem;
+                padding-right: 2rem;
+            }
+            
+            .project-summary {
+                padding-right: 2rem;
+            }
+            
+            .header-container {
+                padding-top: 8rem;
+            }
+        }
+        
+        .toc-item {
+            display: block;
+            color: #6B7280;
+            text-decoration: none;
+            font-size: 0.875rem;
+            padding: 0.5rem 0;
+            transition: all 0.2s;
+            border-left: 2px solid #E5E7EB;
+            padding-left: 1rem;
+            position: relative;
+        }
+        
+        .toc-item:hover {
+            color: #111827;
+        }
+        
+        .toc-item.active {
+            color: #111827;
+            font-weight: 600;
+            border-left-color: #111827;
+        }
+        
+        .section-anchor {
+            scroll-margin-top: 2rem;
+        }
+        
+        .divider {
+            width: 100px;
+            height: 4px;
+            background-color: #111827;
+        }
+        
+        /* Page load fade-in animation */
+        .page-content {
+            opacity: 0;
+            animation: pageFadeIn 0.8s ease-out forwards;
+        }
+        
+        @keyframes pageFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .department-box {
+            background-color: #F9FAFB;
+            border: 2px solid #E5E7EB;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .department-title {
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 0.5rem;
+        }
+        
+        .department-description {
+            color: #6B7280;
+            font-size: 0.875rem;
+        }
+        
+        .solution-box {
+            background-color: #F0F9FF;
+            border: 2px solid #0EA5E9;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .solution-title {
+            font-weight: 600;
+            color: #0C4A6E;
+            margin-bottom: 0.5rem;
+        }
+        
+        .solution-description {
+            color: #075985;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+    <!-- Navigation -->
+    <header class="absolute top-0 left-0 right-0 z-50">
+        <div class="max-w-container-large mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between py-4">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="text-sm font-medium text-gray-900" style="font-size: 0.888889rem;">Timothy Ojo</a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#experience" class="text-sm text-gray-900 hover:text-gray-600 transition-colors">Experience</a>
+                    <a href="index.html#projects" class="text-sm text-gray-900 hover:text-gray-600 transition-colors">Projects</a>
+                    <a href="about.html" class="text-sm text-gray-900 font-medium hover:text-gray-600 transition-colors">About</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-900 hover:text-gray-600 transition-colors relative z-60">
+                    <svg id="hamburger-icon" class="w-6 h-6 transition-all duration-300 ease-in-out" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path id="line1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16" style="transform-origin: center; transition: all 0.3s ease-in-out;"></path>
+                        <path id="line2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16" style="transform-origin: center; transition: all 0.3s ease-in-out;"></path>
+                        <path id="line3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 18h16" style="transform-origin: center; transition: all 0.3s ease-in-out;"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu Overlay -->
+            <div id="mobile-overlay" class="md:hidden fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4 relative z-50">
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html#experience" class="text-sm text-gray-900 hover:text-gray-600 transition-colors py-3 px-4 min-h-[40px] flex items-center">Experience</a>
+                    <a href="index.html#projects" class="text-sm text-gray-900 hover:text-gray-600 transition-colors py-3 px-4 min-h-[40px] flex items-center">Projects</a>
+                    <a href="about.html" class="text-sm text-gray-900 font-medium hover:text-gray-600 transition-colors py-3 px-4 min-h-[40px] flex items-center">About</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-container page-content">
+        <div class="sections">
+            <!-- Project Title -->
+            <div class="max-w-container-large">
+                <h1 class="project-title">Healthwise: An Easier Way to Connect Patients with Doctors in Nigeria</h1>
+            </div>
+            
+            <!-- Spacer (4rem) -->
+            <div class="spacer-section"></div>
+            
+            <!-- Divider -->
+            <div class="max-w-container-large">
+                <div class="divider"></div>
+            </div>
+            
+            <!-- Spacer (4rem) -->
+            <div class="spacer-section"></div>
+            
+            <!-- Project Description -->
+            <div class="max-w-container-large">
+                <p class="project-summary">
+                    A digital healthcare solution designed to bridge the gap between patients and doctors in Nigeria by providing affordable healthcare consultation through a smartphone application. This project addresses the critical challenge of healthcare access in a country where 72% of health expenditure is paid out of pocket.
+                </p>
+            </div>
+            
+            <!-- Spacer (4rem) -->
+            <div class="spacer-section"></div>
+            
+            <!-- Project Meta -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-container-large">
+                <div>
+                    <p class="meta-label">Client</p>
+                    <p class="meta-value">Side Project</p>
+                </div>
+                <div>
+                    <p class="meta-label">Date completed</p>
+                    <p class="meta-value">August 2019</p>
+                </div>
+                <div>
+                    <p class="meta-label">Role</p>
+                    <p class="meta-value">Researcher, UX/Product Designer</p>
+                </div>
+            </div>
+            
+            <!-- Spacer (4rem) -->
+            <div class="spacer-section"></div>
+            
+            <!-- Hero Image -->
+            <div class="max-w-container-large">
+                <img src="public/healthwise/Healthwise-header.png" alt="Healthwise - Healthcare App" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+            </div>
+        </div>
+    </div>
+            
+            <!-- Case Study Container -->
+            <div class="case-study-container">
+                <!-- Table of Contents -->
+                <div class="toc-container">
+                    <nav>
+                        <a href="#problem" class="toc-item">The Problem</a>
+                        <a href="#context" class="toc-item">Context & Opportunity</a>
+                        <a href="#research" class="toc-item">Research & Insights</a>
+                        <a href="#problem-statement" class="toc-item">Problem Statement</a>
+                        <a href="#personas" class="toc-item">User Personas</a>
+                        <a href="#task-flow" class="toc-item">Core Task Flow</a>
+                        <a href="#iterations" class="toc-item">Iterations</a>
+                        <a href="#solution" class="toc-item">Final Solution</a>
+                        <a href="#marketing" class="toc-item">Marketing</a>
+                        <a href="#retrospective" class="toc-item">Retrospective</a>
+                    </nav>
+                </div>
+                
+                <!-- Case Study Content -->
+                <div class="case-study-content">
+        
+                    <!-- The Problem -->
+                    <section id="problem" class="content-block section-anchor">
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
+                                <h2 class="subsection-title">The Problem</h2>
+                                <p class="body-text">
+                                    The state of healthcare in Nigeria is disappointing. Nearly 72% of the health expenditure of Nigerians are paid out of pocket, forcing people to choose between their health, housing, education and even food for their children.
+                                </p>
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <p class="body-text">
+                                    Having been born and raised in Nigeria, this was a challenge I personally faced. It was difficult to get access to good healthcare. Good healthcare is very expensive and the good hospitals have limited resources.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+        
+                    <!-- Context & Opportunity -->
+                    <section id="context" class="content-block section-anchor">
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
+                                <h2 class="subsection-title">Context & Opportunity</h2>
+                                <p class="body-text">
+                                    I created a digital experience to connect patients with doctors in Nigeria. I chose to create an Android agnostic mobile application based on research data on device usage of Nigerians.
+                                </p>
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <div class="stat-box" style="background-color: #F0F9FF; border: 2px solid #0EA5E9; border-radius: 8px; padding: 1.5rem; margin: 1rem 0;">
+                                    <div style="font-size: 2rem; font-weight: 700; color: #0C4A6E; margin-bottom: 0.5rem;">92M+</div>
+                                    <div style="color: #075985; font-size: 0.875rem;">
+                                        There are over 92 million Internet-enabled devices in Nigeria. It is expected that mobile health will proliferate and this will change the way patients gather health information and resources, propagating a new age of e-patients.
+                                    </div>
+                                </div>
+                                
+                                <div style="margin-top: 1.5rem;"></div>
+                                
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">Target Audience</h3>
+                                <p class="body-text">
+                                    I narrowed down my user group to Nigerians between the ages of 18-35 (millennial age range) as this age range has the highest rate of internet adoption.
+                                </p>
+                                
+                                <div style="margin-top: 1.5rem;"></div>
+                                
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">Initial Hypothesis</h3>
+                                <p class="body-text">
+                                    I believe that Nigerians have a very bad experience with the healthcare system as a result of the lack of resources and manpower to fulfill the needs of the large country. I also believe Nigerians are seeking alternatives to ease their healthcare access situation.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+        
+                    <!-- Research & Insights -->
+                    <section id="research" class="content-block section-anchor">
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
+                                <h2 class="subsection-title">Research Really Opened My Eyes</h2>
+                                <p class="body-text">
+                                    I conducted user interviews with 5 Nigerians based in Nigeria and from these sessions I was able to draw the following insights:
+                                </p>
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                                    <div style="background-color: #F9FAFB; border-left: 4px solid #111827; padding: 1.5rem;">
+                                        <div style="font-size: 1.5rem; font-weight: 700; color: #111827; margin-bottom: 0.5rem;">1</div>
+                                        <p class="body-text">
+                                            Interviewees complained about issues such as lack of staff in the hospitals and limited resources. This results in long wait times at the good hospitals.
+                                        </p>
+                                    </div>
+                                    
+                                    <div style="background-color: #F9FAFB; border-left: 4px solid #111827; padding: 1.5rem;">
+                                        <div style="font-size: 1.5rem; font-weight: 700; color: #111827; margin-bottom: 0.5rem;">2</div>
+                                        <p class="body-text">
+                                            Interviewees responded that they would prefer to do self-medication and would rather avoid the hospitals if possible.
+                                        </p>
+                                    </div>
+                                    
+                                    <div style="background-color: #F9FAFB; border-left: 4px solid #111827; padding: 1.5rem;">
+                                        <div style="font-size: 1.5rem; font-weight: 700; color: #111827; margin-bottom: 0.5rem;">3</div>
+                                        <p class="body-text">
+                                            85 percent of the interviewees have at one point searched for health information online and googled their symptoms.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+        
+                    <!-- Problem Statement -->
+                    <section id="problem-statement" class="content-block section-anchor">
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
+                                <h2 class="subsection-title">Refined Problem Statement</h2>
+                                <p class="highlight-text" style="padding: 2rem; background-color: #F9FAFB; border-radius: 8px; border-left: 4px solid #111827;">
+                                    "How might we enable patients to easily access affordable health information and consultation?"
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+        
+                    <!-- User Personas -->
+                    <section id="personas" class="content-block section-anchor">
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
+                                <h2 class="subsection-title">Who Am I Designing For?</h2>
+                                <p class="body-text">
+                                    From the research session, I was able to come up with two proto-personas and prioritize features to support them.
+                                </p>
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem;">
+                                    <img src="public/healthwise/persona-1.jpg" alt="User Persona 1" style="width: 100%; height: auto; border-radius: 8px;">
+                                    <img src="public/healthwise/Persona-2.jpg" alt="User Persona 2" style="width: 100%; height: auto; border-radius: 8px;">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+        
+                    <!-- Core Task Flow -->
+                    <section id="task-flow" class="content-block section-anchor">
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
+                                <h2 class="subsection-title">Core Task Flow</h2>
+                                <p class="body-text">
+                                    The core flow of the application was connecting a user with a doctor. I decided to go with a simplified task flow of the process for efficiency. For this project I had a constraint of exploring only one task flow and the MVP will be connecting the users to the doctor.
+                                </p>
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <img src="public/healthwise/yask-flow.png" alt="Core Task Flow" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                            </div>
+                        </div>
+                    </section>
+        
+                    <!-- Iterations & Adjustments -->
+                    <section id="iterations" class="content-block section-anchor">
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
+                                <h2 class="subsection-title">Iterations & Adjustments</h2>
+                                <p class="body-text">
+                                    Once I got my core task flow all together I started to ideate on what the interface of my application could be from. From early sketches to low-fidelity designs.
+                                </p>
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <img src="public/healthwise/sketches-1-1.jpg" alt="Early Sketches and Wireframes" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">Layout Validation</h3>
+                                <p class="body-text">
+                                    I created a first level of wireframes to validate the design layout with my users. My test users found it really hard to find the main action of the application. In the first layout the main action button "See a Doctor" was obscure and the bottom menu Tab needed to be revamped.
+                                </p>
+                                
+                                <div style="margin-top: 1.5rem;"></div>
+                                
+                                <p class="body-text">
+                                    I also had a feature where a user would connect with a doctor, I got feedback that the users would want to see more information and qualifications of the doctor.
+                                </p>
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">Learning from Medical Professionals</h3>
+                                <p class="body-text">
+                                    I tested my applications with 2 medical doctors and this revealed a huge flaw in my user flow. I learnt that medical doctors have a clerking process when trying to diagnose an illness.
+                                </p>
+                                
+                                <div style="margin-top: 1.5rem;"></div>
+                                
+                                <div style="background-color: #F9FAFB; padding: 1.5rem; border-radius: 8px;">
+                                    <p class="body-text" style="font-weight: 600; margin-bottom: 0.75rem;">The Medical Clerking Process:</p>
+                                    <ol class="body-text" style="list-style-type: decimal; padding-left: 1.5rem;">
+                                        <li>Presenting complaint</li>
+                                        <li>History of presenting complaint</li>
+                                        <li>Past medical history</li>
+                                        <li>Drug History</li>
+                                        <li>Family history</li>
+                                        <li>Social History</li>
+                                    </ol>
+                                </div>
+                                
+                                <div style="margin-top: 1.5rem;"></div>
+                                
+                                <p class="body-text">
+                                    This revealed holes in my flow and I made changes to how I asked about symptoms from my users. I changed the whole flow and this resulted in better success.
+                                </p>
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <img src="public/healthwise/Beforer-and-after-mediacal-test-1.jpg" alt="Before and After Medical Flow Changes" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">Symptom Search Refinement</h3>
+                                <p class="body-text">
+                                    I implemented a feature where users could search for their symptoms but from testing I was able to find that users could not find the right words to describe how they felt. I made adjustments after some iterations.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+        
+                    <!-- Final Solution -->
+                    <section id="solution" class="content-block section-anchor">
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
+                                <h2 class="subsection-title">The Final Solution</h2>
+                                <p class="body-text">
+                                    After usability testing sessions, I consolidated all the feedback and came up with high-fidelity designs for the product. I created the logo and colour scheme for the mobile application.
+                                </p>
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">Medical Services at Your Fingertips</h3>
+                                <p class="body-text">
+                                    The user has the ability to see a doctor, view information from past consultations and access prescriptions. They can also choose between a range of services and who the service is for.
+                                </p>
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <img src="public/healthwise/medical-services-at-finger-tips.png" alt="Medical Services at Your Fingertips" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">Describe Your Symptoms Through the App</h3>
+                                <p class="body-text">
+                                    The user can describe how they feel and this will help the doctor to have some information on what to dig deeper for on the call.
+                                </p>
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <img src="public/healthwise/Describe-your-symptoms.png" alt="Describe Your Symptoms" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">Chat with a Doctor or Nurse Practitioner</h3>
+                                <p class="body-text">
+                                    Flexibility on how to speak with a doctor. Conversations can happen either through chat or through voice/video calls.
+                                </p>
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <img src="public/healthwise/Connect-with-doc.png" alt="Chat with Doctor" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                            </div>
+                        </div>
+                    </section>
+        
+                    <!-- Marketing Possibilities -->
+                    <section id="marketing" class="content-block section-anchor">
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
+                                <h2 class="subsection-title">The Possibilities of Taking This to Market</h2>
+                                <p class="body-text">
+                                    I explored what the marketing site for this application could look like. A marketing website with a strong value proposition will resonate with the target audience and will drive conversations. Incorporating features such as testimonials, press features and a vision of what pricing for this service will be, I believed will foster trust in our brand and conversions.
+                                </p>
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <img src="public/healthwise/Mockup-with-Screens-1.jpg" alt="Marketing Website" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                            </div>
+                        </div>
+                    </section>
+        
+                    <!-- Retrospective -->
+                    <section id="retrospective" class="content-block section-anchor">
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
+                                <h2 class="subsection-title">Aftermath & Retrospective</h2>
+                                <p class="body-text">
+                                    I found this project refreshing as it opened up my mind to different approaches to solving a design process.
+                                </p>
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                                    <div style="background-color: #F9FAFB; border-left: 4px solid #111827; padding: 1.5rem;">
+                                        <div style="font-size: 1.5rem; font-weight: 700; color: #111827; margin-bottom: 0.5rem;">01</div>
+                                        <p class="body-text">
+                                            The key learning for me was to get the input of specialists in the field of study early in the research process, especially if it's in a regulated field.
+                                        </p>
+                                    </div>
+                                    
+                                    <div style="background-color: #F9FAFB; border-left: 4px solid #111827; padding: 1.5rem;">
+                                        <div style="font-size: 1.5rem; font-weight: 700; color: #111827; margin-bottom: 0.5rem;">02</div>
+                                        <p class="body-text">
+                                            I also learnt to refine interview questions to be more open-ended.
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">Next Steps</h3>
+                                <p class="body-text">
+                                    The next steps will be to conduct more user testing on the prototype I currently have to improve the user flow. I would also love to explore some more User Epics for the application, for example, sign up, on-boarding process, medical records and prescription possibilities.
+                                </p>
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <div style="text-align: center; padding: 2rem 0;">
+                                    <a href="https://invis.io/Z4TI65GXAMB" target="_blank" class="inline-block bg-gray-900 text-white px-8 py-3 rounded-lg font-medium hover:bg-gray-700 transition-colors">
+                                        View Interactive Prototype →
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Back to Home -->
+                    <section class="content-block">
+                        <div class="container">
+                            <div class="max-w-container-large">
+                                <a href="index.html" class="back-link">← Back to Home</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Related Projects (Dynamic) -->
+    <div id="related-projects-container"></div>
+
+    <!-- Footer Component Placeholder -->
+    <div style="height: 6rem;" class="bg-white"></div>
+    <div id="footer-placeholder"></div>
+
+    <script>
+        // TOC highlighting functionality
+        function updateTOC() {
+            const sections = document.querySelectorAll('.section-anchor');
+            const tocItems = document.querySelectorAll('.toc-item');
+            
+            let currentSection = '';
+            const viewportHeight = window.innerHeight;
+            const triggerPoint = viewportHeight * 0.3;
+            
+            for (let i = 0; i < sections.length; i++) {
+                const section = sections[i];
+                const rect = section.getBoundingClientRect();
+                
+                if (rect.top <= triggerPoint && rect.bottom >= triggerPoint) {
+                    currentSection = section.id;
+                    break;
+                }
+                else if (rect.top <= triggerPoint) {
+                    currentSection = section.id;
+                }
+            }
+            
+            tocItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === '#' + currentSection) {
+                    item.classList.add('active');
+                }
+            });
+        }
+        
+        // Smooth scroll for TOC links
+        document.querySelectorAll('.toc-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Update TOC on scroll
+        window.addEventListener('scroll', updateTOC);
+        
+        // Update TOC on page load
+        document.addEventListener('DOMContentLoaded', updateTOC);
+        
+        // Load related projects dynamically
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('related-projects-container');
+            if (container) {
+                const relatedSection = renderRelatedProjects('healthwise');
+                container.appendChild(relatedSection);
+            }
+        });
+        
+        // Mobile menu functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileOverlay = document.getElementById('mobile-overlay');
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+        const line1 = document.getElementById('line1');
+        const line2 = document.getElementById('line2');
+        const line3 = document.getElementById('line3');
+        
+        function toggleMobileMenu() {
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            
+            if (isOpen) {
+                mobileMenu.classList.add('hidden');
+                mobileOverlay.classList.add('hidden');
+                line1.style.transform = 'none';
+                line2.style.transform = 'none';
+                line2.style.opacity = '1';
+                line3.style.transform = 'none';
+            } else {
+                mobileMenu.classList.remove('hidden');
+                mobileOverlay.classList.remove('hidden');
+                line1.style.transform = 'rotate(45deg) translate(5px, 5px)';
+                line2.style.transform = 'scaleX(0)';
+                line2.style.opacity = '0';
+                line3.style.transform = 'rotate(-45deg) translate(7px, -6px)';
+            }
+        }
+        
+        mobileMenuButton.addEventListener('click', toggleMobileMenu);
+        mobileOverlay.addEventListener('click', toggleMobileMenu);
+    </script>
+    <script src="js/components.js"></script>
+</body>
+</html>

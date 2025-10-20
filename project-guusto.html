@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Guusto - Timothy Ojo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/components.js"></script>
+    <script src="js/project-data.js"></script>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+    </script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    maxWidth: {
+                        'container-large': '75rem'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .container {
+            max-width: 75rem;
+            margin: 0 auto;
+            padding: 0; /* No padding - case-study-container handles it */
+        }
+        
+        .content-block {
+            padding: 2rem 0;
+        }
+        
+        .spacer {
+            height: 6rem;
+        }
+        
+        .spacer-top {
+            height: 6rem;
+        }
+        
+        .spacer-section {
+            height: 4rem;
+        }
+        
+        .project-title {
+            font-size: 6rem;
+            font-weight: 700;
+            line-height: 6rem;
+            letter-spacing: -0.125rem;
+            color: #111827;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #111827;
+            margin-bottom: 1rem;
+        }
+        
+        .subsection-title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #111827;
+            margin-bottom: 0.5rem;
+        }
+        
+        .body-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #4B5563;
+        }
+        
+        .project-summary {
+            font-size: 1.5rem;
+            line-height: 120%;
+            letter-spacing: -0.01rem;
+            color: #6B7280;
+            text-align: left;
+            max-width: 800px;
+        }
+        
+        .highlight-text {
+            font-size: 1.25rem;
+            line-height: 1.5;
+            color: #111827;
+            font-weight: 500;
+        }
+        
+        .meta-label {
+            font-size: 0.875rem;
+            color: #6B7280;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.25rem;
+        }
+        
+        .meta-value {
+            font-size: 1rem;
+            color: #111827;
+        }
+        
+        .back-link {
+            color: #6B7280;
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+        
+        .back-link:hover {
+            color: #111827;
+        }
+        
+        .image-placeholder {
+            background-color: #374151;
+            width: 100%;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9CA3AF;
+            font-size: 1.125rem;
+        }
+        
+        .image-placeholder-full {
+            background-color: #374151;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9CA3AF;
+            font-size: 1.125rem;
+        }
+        
+        .header-container {
+            max-width: 75rem;
+            margin: 0 auto;
+            padding: 0 1rem; /* Same as px-4 (16px) to match homepage */
+            padding-top: 14rem;
+        }
+        
+        .case-study-container {
+            position: relative;
+            max-width: 75rem;
+            margin: 0 auto;
+            padding: 0 1rem; /* Same as px-4 (16px) to match homepage */
+        }
+        
+        .toc-container {
+            position: sticky;
+            top: 40px;
+            left: 0;
+            width: 200px;
+            z-index: 10;
+            float: left;
+            padding-top: 2rem;
+        }
+        
+        .case-study-content {
+            margin-left: 240px;
+        }
+        
+        /* Mobile responsive layout */
+        @media (max-width: 768px) {
+            .toc-container {
+                position: static;
+                width: 100%;
+                float: none;
+                padding-top: 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .case-study-content {
+                margin-left: 0;
+            }
+            
+            .container {
+                padding: 0; /* No padding - case-study-container handles it */
+            }
+            
+            .project-title {
+                font-size: 2.5rem;
+                line-height: 2.5rem;
+                letter-spacing: -0.0625rem;
+                padding-right: 2rem;
+            }
+            
+            .project-summary {
+                padding-right: 2rem;
+            }
+            
+            .header-container {
+                padding-top: 8rem;
+            }
+        }
+        
+        .toc-item {
+            display: block;
+            color: #6B7280;
+            text-decoration: none;
+            font-size: 0.875rem;
+            padding: 0.5rem 0;
+            transition: all 0.2s;
+            border-left: 2px solid #E5E7EB;
+            padding-left: 1rem;
+            position: relative;
+        }
+        
+        .toc-item:hover {
+            color: #111827;
+        }
+        
+        .toc-item.active {
+            color: #111827;
+            font-weight: 600;
+            border-left-color: #111827;
+        }
+        
+        .section-anchor {
+            scroll-margin-top: 2rem;
+        }
+        
+        .divider {
+            width: 100px;
+            height: 4px;
+            background-color: #111827;
+        }
+        
+        /* Page load fade-in animation */
+        .page-content {
+            opacity: 0;
+            animation: pageFadeIn 0.8s ease-out forwards;
+        }
+        
+        @keyframes pageFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .department-box {
+            background-color: #F9FAFB;
+            border: 2px solid #E5E7EB;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .department-title {
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 0.5rem;
+        }
+        
+        .department-description {
+            color: #6B7280;
+            font-size: 0.875rem;
+        }
+        
+        .solution-box {
+            background-color: #F0F9FF;
+            border: 2px solid #0EA5E9;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .solution-title {
+            font-weight: 600;
+            color: #0C4A6E;
+            margin-bottom: 0.5rem;
+        }
+        
+        .solution-description {
+            color: #075985;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+    <!-- Navigation -->
+    <header class="absolute top-0 left-0 right-0 z-50">
+        <div class="max-w-container-large mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between py-4">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="text-sm font-medium text-gray-900" style="font-size: 0.888889rem;">Timothy Ojo</a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#experience" class="text-sm text-gray-900 hover:text-gray-600 transition-colors">Experience</a>
+                    <a href="index.html#projects" class="text-sm text-gray-900 hover:text-gray-600 transition-colors">Projects</a>
+                    <a href="about.html" class="text-sm text-gray-900 font-medium hover:text-gray-600 transition-colors">About</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-900 hover:text-gray-600 transition-colors relative z-60">
+                    <svg id="hamburger-icon" class="w-6 h-6 transition-all duration-300 ease-in-out" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path id="line1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16" style="transform-origin: center; transition: all 0.3s ease-in-out;"></path>
+                        <path id="line2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16" style="transform-origin: center; transition: all 0.3s ease-in-out;"></path>
+                        <path id="line3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 18h16" style="transform-origin: center; transition: all 0.3s ease-in-out;"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu Overlay -->
+            <div id="mobile-overlay" class="md:hidden fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4 relative z-50">
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html#experience" class="text-sm text-gray-900 hover:text-gray-600 transition-colors py-3 px-4 min-h-[40px] flex items-center">Experience</a>
+                    <a href="index.html#projects" class="text-sm text-gray-900 hover:text-gray-600 transition-colors py-3 px-4 min-h-[40px] flex items-center">Projects</a>
+                    <a href="about.html" class="text-sm text-gray-900 font-medium hover:text-gray-600 transition-colors py-3 px-4 min-h-[40px] flex items-center">About</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-container page-content">
+        <div class="sections">
+            <!-- Project Title -->
+            <div class="max-w-container-large">
+                <h1 class="project-title">Guusto: Redesigning Recognition & Rewards Platform</h1>
+            </div>
+            
+            <!-- Spacer (4rem) -->
+            <div class="spacer-section"></div>
+            
+            <!-- Divider -->
+            <div class="max-w-container-large">
+                <div class="divider"></div>
+            </div>
+            
+            <!-- Spacer (4rem) -->
+            <div class="spacer-section"></div>
+            
+            <!-- Project Description -->
+            <div class="max-w-container-large">
+                <p class="project-summary">
+                    Led the design overhaul of Guusto's B2B SaaS recognition platform, transforming how HR leaders and managers express appreciation through digital rewards. Redesigned core features including Dashboard, Quick Send, and Shoutouts to humanize data and drive participation.
+                </p>
+            </div>
+            
+            <!-- Spacer (4rem) -->
+            <div class="spacer-section"></div>
+            
+            <!-- Project Meta -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-container-large">
+                <div>
+                    <p class="meta-label">Client</p>
+                    <p class="meta-value">Guusto (B2B SaaS)</p>
+                </div>
+                <div>
+                    <p class="meta-label">Date completed</p>
+                    <p class="meta-value">2021 - 2023</p>
+                </div>
+                <div>
+                    <p class="meta-label">Role</p>
+                    <p class="meta-value">Senior Product Designer</p>
+                </div>
+            </div>
+            
+            <!-- Spacer (4rem) -->
+            <div class="spacer-section"></div>
+            
+            <!-- Hero Image -->
+            <div class="max-w-container-large">
+                <img src="public/guusto/guusto-card.png" alt="Guusto Gift Card" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+            </div>
+        </div>
+    </div>
+            
+            <!-- Case Study Container -->
+            <div class="case-study-container">
+                <!-- Table of Contents -->
+                <div class="toc-container">
+                    <nav>
+                        <a href="#overview" class="toc-item">Overview</a>
+                        <a href="#dashboard" class="toc-item">Dashboard Redesign</a>
+                        <a href="#quick-send" class="toc-item">Quick Send</a>
+                        <a href="#shoutouts" class="toc-item">Shoutouts</a>
+                        <a href="#reflection" class="toc-item">Reflection</a>
+                    </nav>
+                </div>
+                
+                <!-- Case Study Content -->
+                <div class="case-study-content">
+        
+                    <!-- Overview -->
+                    <section id="overview" class="content-block section-anchor">
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
+                                <h2 class="subsection-title">Overview</h2>
+                                <p class="body-text">
+                                    Guusto is a Vancouver-based B2B SaaS startup with a mission to help build a culture of recognition and boost customer loyalty through their rewards and recognition platform. With Guusto, HR leaders, managers, colleagues, and business owners can express real-time appreciation to employees and customers through giving monetary rewards via digital gift cards and non-monetary nominations.
+                                </p>
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <p class="body-text">
+                                    Guusto strives to be the modern solution to existing recognition programs by relieving administrative work involved in using physical gift cards.
+                                </p>
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">My Role</h3>
+                                <p class="body-text">
+                                    As the Senior Product Designer, I was primarily responsible for:
+                                </p>
+                                
+                                <div style="margin-top: 1.5rem;"></div>
+                                
+                                <ul class="body-text" style="list-style-type: disc; padding-left: 1.5rem;">
+                                    <li>Spearheading the design overhaul of the web platform and app through designing new features and iterating on existing ones</li>
+                                    <li>Creating a design system from the ground up</li>
+                                    <li>User research and testing</li>
+                                    <li>Coordinating with Marketing & Sales departments to create visual design assets and prototypes</li>
+                                    <li>Managing and mentoring interns</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+        
+                    <!-- Dashboard Redesign -->
+                    <section id="dashboard" class="content-block section-anchor">
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
+                                <h2 class="subsection-title">Dashboard Redesign</h2>
+                                <p class="body-text">
+                                    Guusto was in the midst of a data and technology migration when I joined the team and naturally, it was ripe for a UI refresh as well. The most notable transformation was the Dashboard.
+                                </p>
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">The Challenge</h3>
+                                <p class="body-text">
+                                    From customer and internal sentiment, the original dashboard felt too transactional with a greater proportion of the screen real estate dedicated to monetary spending on recognition.
+                                </p>
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <img src="public/guusto/dashboard-old-nodropshadow.png" alt="Old Guusto Dashboard" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">The Solution</h3>
+                                <p class="body-text">
+                                    After some competitor studies, what Guusto's dashboard needed was greater hierarchy and emphasis on people, actionable ways to drive participation, and the spirit and celebration of recognition. While the dashboard is in a state of continuous improvement, new features or iterations I design would always stem from the idea of humanizing data.
+                                </p>
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <img src="public/guusto/Dashboard-2023.png" alt="New Guusto Dashboard" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <div style="background-color: #F0F9FF; border: 2px solid #0EA5E9; border-radius: 8px; padding: 1.5rem; margin: 1rem 0;">
+                                    <div style="font-weight: 600; color: #0C4A6E; margin-bottom: 0.5rem;">Key Improvements</div>
+                                    <ul class="body-text" style="list-style-type: disc; padding-left: 1.5rem; color: #075985;">
+                                        <li>Greater hierarchy and emphasis on people over transactions</li>
+                                        <li>Actionable ways to drive participation</li>
+                                        <li>Celebration of recognition moments</li>
+                                        <li>Humanized data presentation</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+        
+                    <!-- Quick Send -->
+                    <section id="quick-send" class="content-block section-anchor">
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
+                                <h2 class="subsection-title">Quick Send</h2>
+                                <p class="body-text">
+                                    Guusto's primary feature is sending a digital gift card as a means for employees to express timely recognition for their peers or direct reports. Over time, multiple functionality has been added to support multiple user types sending a gift.
+                                </p>
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">The Problem</h3>
+                                <p class="body-text">
+                                    Based on feedback received from multiple teams from Customer Success to Product, the experience of sending a gift had become cumbersome. I was tasked to lead the design overhaul for the send gift experience.
+                                </p>
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <video controls style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                                    <source src="public/guusto/quick-send.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">The Solution</h3>
+                                <p class="body-text">
+                                    The send gift project had taken a departure from the initial intent in that the final solution had become an abridged version, known as the quick send, rather than an overhaul to the main send gifts feature.
+                                </p>
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <div style="background-color: #F0F9FF; border: 2px solid #0EA5E9; border-radius: 8px; padding: 1.5rem; margin: 1rem 0;">
+                                    <div style="font-weight: 600; color: #0C4A6E; margin-bottom: 0.5rem;">Impact</div>
+                                    <div style="color: #075985; font-size: 0.875rem;">
+                                        A month following the quick send launch, gift orders were up 11% and traffic to the full send gift flow was down 18.4%.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+        
+                    <!-- Shoutouts -->
+                    <section id="shoutouts" class="content-block section-anchor">
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
+                                <h2 class="subsection-title">Shoutouts</h2>
+                                <p class="body-text">
+                                    Shoutouts is a redesign and improvement to Guusto's past offering, the Nomination Box. The Nomination Box is positioned as a peer-to-peer program where employees can "nominate" or recognize their colleagues for a job well done, usually for reasons that align to company core values. It operates within a closed ecosystem.
+                                </p>
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">Evolution from Nomination Box</h3>
+                                <p class="body-text">
+                                    In other words, employees can only nominate others who are loaded into Guusto as paid Team Members. Shoutouts still supports a peer-to-peer program, but has more flexibility by offering top-down manager-to-employee recognition that goes beyond reinforcing core values.
+                                </p>
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <video controls style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                                    <source src="public/guusto/shoutouts-final-trimmed2.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">Key Improvements</h3>
+                                <ul class="body-text" style="list-style-type: disc; padding-left: 1.5rem;">
+                                    <li>Managers may now send a "shoutout" for special occasions, such as a birthday wish</li>
+                                    <li>More scalable - managers may send non-monetary recognition to just about anyone inside and outside the Guusto system</li>
+                                    <li>Accommodates individuals regardless of their level of access to the internet</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+        
+                    <!-- Reflection -->
+                    <section id="reflection" class="content-block section-anchor">
+                        <div class="container">
+                            <div class="max-w-container-large ml-auto">
+                                <h2 class="subsection-title">Reflection</h2>
+                                <p class="body-text">
+                                    Redesigning the platform is a daunting yet exhilarating endeavour, especially when I began as a team of 1. While I enjoy having accountability and ownership over product direction, what came with it was learning how to balance multiple stakeholder's needs and interests.
+                                </p>
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <div style="background-color: #F9FAFB; border-left: 4px solid #111827; padding: 1.5rem; margin: 1rem 0;">
+                                    <p class="body-text">
+                                        There were prospective customers looking for features, new customers signing large contracts and making their requests, existing customers to retain, a product roadmap to address, Engineering time to respect, departmental feedback, my own convictions in good design principles, and more recently, emphasizing with my intern and helping them navigate ambiguity and tradeoffs.
+                                    </p>
+                                </div>
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <p class="body-text">
+                                    Simultaneously, it is invigorating to distill the problem and abstractions, entertain and abandon possibilities, and put it together and present a concrete vision. Working at a start-up has been truly eye-opening as it has amplified ambiguity and the need to embrace the bigger picture.
+                                </p>
+                                
+                                <div style="margin-top: 2rem;"></div>
+                                
+                                <div style="background-color: #F0F9FF; border: 2px solid #0EA5E9; border-radius: 8px; padding: 1.5rem; text-align: center;">
+                                    <p class="body-text" style="color: #0C4A6E; font-weight: 600; font-size: 1.25rem;">
+                                        "You could say I appreciate Guusto."
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Back to Home -->
+                    <section class="content-block">
+                        <div class="container">
+                            <div class="max-w-container-large">
+                                <a href="index.html" class="back-link">← Back to Home</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+                                <a href="index.html" class="back-link">← Back to Home</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Related Projects (Dynamic) -->
+    <div id="related-projects-container"></div>
+
+    <!-- Footer Component Placeholder -->
+    <div style="height: 6rem;" class="bg-white"></div>
+    <div id="footer-placeholder"></div>
+
+    <script>
+        // TOC highlighting functionality
+        function updateTOC() {
+            const sections = document.querySelectorAll('.section-anchor');
+            const tocItems = document.querySelectorAll('.toc-item');
+            
+            let currentSection = '';
+            const viewportHeight = window.innerHeight;
+            const triggerPoint = viewportHeight * 0.3;
+            
+            for (let i = 0; i < sections.length; i++) {
+                const section = sections[i];
+                const rect = section.getBoundingClientRect();
+                
+                if (rect.top <= triggerPoint && rect.bottom >= triggerPoint) {
+                    currentSection = section.id;
+                    break;
+                }
+                else if (rect.top <= triggerPoint) {
+                    currentSection = section.id;
+                }
+            }
+            
+            tocItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === '#' + currentSection) {
+                    item.classList.add('active');
+                }
+            });
+        }
+        
+        // Smooth scroll for TOC links
+        document.querySelectorAll('.toc-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Update TOC on scroll
+        window.addEventListener('scroll', updateTOC);
+        
+        // Update TOC on page load
+        document.addEventListener('DOMContentLoaded', updateTOC);
+        
+        // Load related projects dynamically
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('related-projects-container');
+            if (container) {
+                const relatedSection = renderRelatedProjects('guusto');
+                container.appendChild(relatedSection);
+            }
+        });
+        
+        // Mobile menu functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileOverlay = document.getElementById('mobile-overlay');
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+        const line1 = document.getElementById('line1');
+        const line2 = document.getElementById('line2');
+        const line3 = document.getElementById('line3');
+        
+        function toggleMobileMenu() {
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            
+            if (isOpen) {
+                mobileMenu.classList.add('hidden');
+                mobileOverlay.classList.add('hidden');
+                line1.style.transform = 'none';
+                line2.style.transform = 'none';
+                line2.style.opacity = '1';
+                line3.style.transform = 'none';
+            } else {
+                mobileMenu.classList.remove('hidden');
+                mobileOverlay.classList.remove('hidden');
+                line1.style.transform = 'rotate(45deg) translate(5px, 5px)';
+                line2.style.transform = 'scaleX(0)';
+                line2.style.opacity = '0';
+                line3.style.transform = 'rotate(-45deg) translate(7px, -6px)';
+            }
+        }
+        
+        mobileMenuButton.addEventListener('click', toggleMobileMenu);
+        mobileOverlay.addEventListener('click', toggleMobileMenu);
+    </script>
+    <script src="js/components.js"></script>
+</body>
+</html>
